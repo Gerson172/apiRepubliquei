@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\appRepubliquei.CrossCutting\appRepubliquei.Infra.CrossCutting.csproj" />
+    <ProjectReference Include="..\appRepubliquei.Domain\appRepubliquei.Domain.csproj" />
+    <ProjectReference Include="..\appRepubliquei.Infra.Data\appRepubliquei.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>

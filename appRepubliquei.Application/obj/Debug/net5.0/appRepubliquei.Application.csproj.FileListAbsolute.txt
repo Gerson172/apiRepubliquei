@@ -1,0 +1,15 @@
+C:\Republiquei-back\apiRepubliquei\appRepubliquei.Application\bin\Debug\net5.0\appRepubliquei.Application.deps.json
+C:\Republiquei-back\apiRepubliquei\appRepubliquei.Application\bin\Debug\net5.0\appRepubliquei.Application.dll
+C:\Republiquei-back\apiRepubliquei\appRepubliquei.Application\bin\Debug\net5.0\appRepubliquei.Application.pdb
+C:\Republiquei-back\apiRepubliquei\appRepubliquei.Application\bin\Debug\net5.0\appRepubliquei.Domain.dll
+C:\Republiquei-back\apiRepubliquei\appRepubliquei.Application\bin\Debug\net5.0\appRepubliquei.Domain.pdb
+C:\Republiquei-back\apiRepubliquei\appRepubliquei.Application\obj\Debug\net5.0\appRepubliquei.Application.csproj.AssemblyReference.cache
+C:\Republiquei-back\apiRepubliquei\appRepubliquei.Application\obj\Debug\net5.0\appRepubliquei.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Republiquei-back\apiRepubliquei\appRepubliquei.Application\obj\Debug\net5.0\appRepubliquei.Application.AssemblyInfoInputs.cache
+C:\Republiquei-back\apiRepubliquei\appRepubliquei.Application\obj\Debug\net5.0\appRepubliquei.Application.AssemblyInfo.cs
+C:\Republiquei-back\apiRepubliquei\appRepubliquei.Application\obj\Debug\net5.0\appRepubliquei.Application.csproj.CoreCompileInputs.cache
+C:\Republiquei-back\apiRepubliquei\appRepubliquei.Application\obj\Debug\net5.0\appRepubliquei.Application.csproj.CopyComplete
+C:\Republiquei-back\apiRepubliquei\appRepubliquei.Application\obj\Debug\net5.0\appRepubliquei.Application.dll
+C:\Republiquei-back\apiRepubliquei\appRepubliquei.Application\obj\Debug\net5.0\refint\appRepubliquei.Application.dll
+C:\Republiquei-back\apiRepubliquei\appRepubliquei.Application\obj\Debug\net5.0\appRepubliquei.Application.pdb
+C:\Republiquei-back\apiRepubliquei\appRepubliquei.Application\obj\Debug\net5.0\ref\appRepubliquei.Application.dll
