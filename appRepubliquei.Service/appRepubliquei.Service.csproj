@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\appRepubliquei.CrossCutting\appRepubliquei.Infra.CrossCutting.csproj" />
     <ProjectReference Include="..\appRepubliquei.Domain\appRepubliquei.Domain.csproj" />
     <ProjectReference Include="..\appRepubliquei.Infra.Data\appRepubliquei.Infra.Data.csproj" />

@@ -30,6 +30,22 @@ namespace apiRepubliquei.Controllers
             catch (Exception e)
             {
                 return BadRequest(new Retorno<Usuario>(e.Message, null));
+        
+            }
+        }
+
+        [HttpPost("CadastrarUsuario")]
+        public async Task<IActionResult> CadastrarUsuario([FromBody] CadastrarUsuarioCommand command)
+        {
+            try
+            {
+                var result = await _mediator.Send(command);
+                return Ok(new Retorno<RetornoSimples>(string.Empty, result));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new Retorno<RetornoSimples>(e.Message, null));
+
             }
         }
     }

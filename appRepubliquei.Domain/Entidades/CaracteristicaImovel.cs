@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace appRepubliquei.Domain.Entidades
 {
-    public class Caracteristica_imovel
+    public class CaracteristicaImovel
     {
         public int ID { get; set; }
 

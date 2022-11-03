@@ -1,4 +1,5 @@
-﻿using appRepubliquei.Domain.Commands;
+﻿using appRepubliquei.Domain;
+using appRepubliquei.Domain.Commands;
 using appRepubliquei.Domain.Contracts.Services;
 using appRepubliquei.Domain.Entidades;
 using MediatR;
@@ -11,7 +12,8 @@ using System.Threading.Tasks;
 
 namespace appRepubliquei.Application.CommandHandlers
 {
-    public class UsuarioCommandHandler : IRequestHandler<ObterUsuarioPorIdCommand, Usuario> 
+    public class UsuarioCommandHandler : IRequestHandler<ObterUsuarioPorIdCommand, Usuario>, 
+                                         IRequestHandler<CadastrarUsuarioCommand, RetornoSimples>
     {
         private readonly IUsuarioService _usuarioService;
         public UsuarioCommandHandler(IUsuarioService usuarioService)
@@ -21,6 +23,10 @@ namespace appRepubliquei.Application.CommandHandlers
         public async Task<Usuario> Handle(ObterUsuarioPorIdCommand request, CancellationToken cancellationToken)
         {
             return await _usuarioService.ObterUsuarioPorId(request.IdUsuario);
+        }
+        public async Task<RetornoSimples> Handle(CadastrarUsuarioCommand request, CancellationToken cancellationToken)
+        {
+            return await _usuarioService.CadastrarUsuario(request);
         }
     }
 }

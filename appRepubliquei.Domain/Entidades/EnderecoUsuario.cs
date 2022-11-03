@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace appRepubliquei.Domain.Entidades
 {
-    public class Endereco_usuario
+    public class EnderecoUsuario
     {
         public int ID { get; set; }
         public int CEP { get; set; }

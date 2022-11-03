@@ -20,6 +20,5 @@ namespace appRepubliquei.Domain.Entidades
         public int? IdCaracteristicaImovel { get; set; }
         public int? IdEnderecoImovel { get; set; }
         public int? IdUsuario { get; set; }
-
     }
 }

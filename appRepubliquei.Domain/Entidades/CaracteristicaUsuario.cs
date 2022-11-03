@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace appRepubliquei.Domain.Entidades
 {
-    public class Caracteristica_usuario
+    public class CaracteristicaUsuario
     {
         public int ID { get; set; }
         public string Religiao { get; set; }
