@@ -19,7 +19,7 @@ namespace appRepubliquei.Domain.Contracts.Repository
         Task InserirUsuario(string nome, string sobrenome, string senha, string cpf, string estadoCivil, DateTime dataNascimento);
 
         Task<EnderecoUsuario> ObterUltimoRegistroInserido();
-    
+        
         Task Exemplo();
     }
 }
