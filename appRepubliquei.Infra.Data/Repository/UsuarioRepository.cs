@@ -63,7 +63,7 @@ namespace appRepubliquei.Infra.Data.Repository
                 });
         }
 
-        public async Task InserirUsuario(string nome, string sobrenome, string senha, string cpf, string estadoCivil, DateTime dataNascimento)
+        public async Task InserirUsuario(string nome, string sobrenome, string senha, string cpf, string estadoCivil, DateTime dataNascimento, int fkEnderecoUsuario, int fkContato, int fkCaracteristicaUsuario)
         {
             await _connection.ExecuteAsync(Queries.Queries.InserirUsuario,
                 new
@@ -73,13 +73,26 @@ namespace appRepubliquei.Infra.Data.Repository
                     Senha = senha,
                     Cpf = cpf,
                     EstadoCivil = estadoCivil,
-                    DataNascimento = dataNascimento
+                    DataNascimento = dataNascimento,
+                    IdEnderecoUsuario = fkEnderecoUsuario,
+                    IdContato = fkContato,
+                    IdCaracteristicaUsuario = fkCaracteristicaUsuario,
                 });
         }
 
-        public async Task<EnderecoUsuario> ObterUltimoRegistro()
+        public async Task<EnderecoUsuario> ObterUltimoRegistroInseridoUsuario()
         {
-            return await _connection.QueryFirstOrDefaultAsync<EnderecoUsuario>(Queries.Queries.ObterUltimoRegistro);
+            return await _connection.QueryFirstOrDefaultAsync<EnderecoUsuario>(Queries.Queries.ObterUltimoRegistroInseridoUsuario);
+        }
+
+        public async Task<Contato> ObterUltimoRegistroInseridoContatoUsuario()
+        {
+            return await _connection.QueryFirstOrDefaultAsync<Contato>(Queries.Queries.ObterUltimoRegistroInseridoContatoUsuario);
+        }
+
+        public async Task<CaracteristicaUsuario> ObterUltimoRegistroInseridoCaracteristicaUsuario()
+        {
+            return await _connection.QueryFirstOrDefaultAsync<CaracteristicaUsuario>(Queries.Queries.ObterUltimoRegistroInseridoCaracteristicaUsuario);
         }
     }
 }

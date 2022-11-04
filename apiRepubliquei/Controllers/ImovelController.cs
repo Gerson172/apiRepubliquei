@@ -19,7 +19,7 @@ namespace apiRepubliquei.Controllers
         {
             _mediator = mediator;
         }
-        [HttpGet("InserirImovel")]
+        [HttpPost("InserirImovel")]
         public async Task<IActionResult> InserirImovel([FromBody] InserirImovelCommand command)
         {
             try

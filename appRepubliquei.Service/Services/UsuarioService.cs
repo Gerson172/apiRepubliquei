@@ -53,15 +53,17 @@ namespace appRepubliquei.Domain.Services
                 await _usuarioRepository.InserirCaracteristicaUsuario(request.CaracteristicaUsuario.Religiao, request.CaracteristicaUsuario.Genero, 
                     request.CaracteristicaUsuario.Sexo, request.CaracteristicaUsuario.OrientacaoSexual,request.CaracteristicaUsuario.AreaInteresse);
 
-                //var ultimoEnderecoUsuario = await _usuarioRepository.ObterUltimoRegistroInserido('');
+                var ContatoUsuario = await _usuarioRepository.ObterUltimoRegistroInseridoContatoUsuario();
+                var EnderecoUsuario = await _usuarioRepository.ObterUltimoRegistroInseridoUsuario();
+                var CaracteristicaUsuario = await _usuarioRepository.ObterUltimoRegistroInseridoCaracteristicaUsuario();
 
-                await _usuarioRepository.InserirUsuario(request.Nome, request.Sobrenome, request.Senha, request.CPF, request.EstadoCivil, request.DataNascimento);
+                await _usuarioRepository.InserirUsuario(request.Nome, request.Sobrenome, request.Senha, request.CPF, request.EstadoCivil,
+                    request.DataNascimento, EnderecoUsuario.ID, ContatoUsuario.ID, CaracteristicaUsuario.ID);
 
                 return new RetornoSimples(true, "Usuario cadastrado com sucesso!");
             }
             catch (Exception ex)
             {
-
                 throw new Exception("Falha ao cadastrar usuario: " + ex);
             }
             

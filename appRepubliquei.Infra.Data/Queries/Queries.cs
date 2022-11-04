@@ -13,7 +13,8 @@ namespace appRepubliquei.Infra.Data.Queries
         #endregion
 
         public const string InserirUsuario = @"INSERT INTO usuario(Nome,Sobrenome,Senha,CPF,EstadoCivil, DataNascimento, IdEnderecoUsuario,IdContato,IdCaracteristicaUsuario)
-                                                                 VALUES(@Nome, @Sobrenome, @Senha, @Cpf, @EstadoCivil, @DataNascimento,@@IDENTITY,@@IDENTITY,@@IDENTITY)";
+                                                                 VALUES(@Nome, @Sobrenome, @Senha, @Cpf, @EstadoCivil, @DataNascimento,@IdEnderecoUsuario,@IdContato,@IdCaracteristicaUsuario)";
+
         public const string InserirEnderecoUsuario = @"INSERT INTO endereco_usuario(CEP,Cidade,Bairro,Logradouro,Numero,Complemento)
                                                         VALUES(@Cep, @Cidade, @Bairro, @Logradouro, @Numero, @Complemento)";
 
@@ -23,6 +24,8 @@ namespace appRepubliquei.Infra.Data.Queries
         public const string InserirCaracteristicaUsuario = @"INSERT INTO caracteristica_usuario(Religiao,Genero,Sexo,OrientacaoSexual,AreaInteresse)
                                                                  VALUES(@Religiao, @Genero, @Sexo,@OrientacaoSexual,@AreaInteresse)";
         
-        public const string ObterUltimoRegistro = @"SELECT TOP 1 FROM ";
+        public const string ObterUltimoRegistroInseridoUsuario = @"SELECT TOP 1 * FROM endereco_usuario ORDER BY ID DESC;";
+        public const string ObterUltimoRegistroInseridoContatoUsuario = @"SELECT TOP 1 * FROM contato ORDER BY ID DESC;";
+        public const string ObterUltimoRegistroInseridoCaracteristicaUsuario = @"SELECT TOP 1 * FROM caracteristica_usuario ORDER BY ID DESC;";
     }
 }
