@@ -25,7 +25,9 @@ namespace appRepubliquei.Infra.Data.Queries
                                                                  VALUES(@Religiao, @Genero, @Sexo,@OrientacaoSexual,@AreaInteresse)";
         
         public const string ObterUltimoRegistroInseridoUsuario = @"SELECT TOP 1 * FROM endereco_usuario ORDER BY ID DESC;";
+
         public const string ObterUltimoRegistroInseridoContatoUsuario = @"SELECT TOP 1 * FROM contato ORDER BY ID DESC;";
+
         public const string ObterUltimoRegistroInseridoCaracteristicaUsuario = @"SELECT TOP 1 * FROM caracteristica_usuario ORDER BY ID DESC;";
     }
 }

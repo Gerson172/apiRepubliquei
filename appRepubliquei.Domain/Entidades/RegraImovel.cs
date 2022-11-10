@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace appRepubliquei.Domain.Entidades
 {
-    public class Regra_imovel
+    public class RegraImovel
     {
         public int ID { get; set; }
         public bool Fumante { get; set; }
