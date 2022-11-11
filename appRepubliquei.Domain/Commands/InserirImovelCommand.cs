@@ -27,7 +27,7 @@ namespace appRepubliquei.Domain.Commands
         public RegraImovel RegraImovel { get; set; }
         public CaracteristicaImovel CaracteristicaImovel { get; set; }
         public EnderecoImovel EnderecoImovel { get; set; }
-        public Usuario Usuario { get; set; }
+        public int IdUsuario { get; set; }
 
     }
 }

@@ -12,6 +12,9 @@ namespace appRepubliquei.Infra.Data.Queries
         public const string ObterUsuarioPorId = @"SELECT * FROM Usuario WHERE ID = @IdUsuario";
         #endregion
 
+        public const string ObterUsuario = @"SELECT * FROM Usuario";
+
+
         public const string InserirUsuario = @"INSERT INTO usuario(Nome,Sobrenome,Senha,CPF,EstadoCivil, DataNascimento, IdEnderecoUsuario,IdContato,IdCaracteristicaUsuario)
                                                                  VALUES(@Nome, @Sobrenome, @Senha, @Cpf, @EstadoCivil, @DataNascimento,@IdEnderecoUsuario,@IdContato,@IdCaracteristicaUsuario)";
 
@@ -29,5 +32,22 @@ namespace appRepubliquei.Infra.Data.Queries
         public const string ObterUltimoRegistroInseridoContatoUsuario = @"SELECT TOP 1 * FROM contato ORDER BY ID DESC;";
 
         public const string ObterUltimoRegistroInseridoCaracteristicaUsuario = @"SELECT TOP 1 * FROM caracteristica_usuario ORDER BY ID DESC;";
+
+
+        public const string InserirCaracteristicaImovel = @"INSERT INTO caracteristica_imovel(TipoImovel,TipoQuarto,TipoSexo)
+                                                                VALUES(@TipoImovel, @TipoQuarto, @TipoSexo)";
+
+        public const string InserirEnderecoImovel = @"INSERT INTO endereco_imovel(CEP,Cidade,Bairro, Logradouro, Numero,Complemento)
+                                                                VALUES(@Cep, @Cidade, @Bairro, @Logradouro, @Numero, @Complemento)";
+
+        public const string InserirRegraImovel = @"INSERT INTO regra_imovel(Fumante,Animal,Alcool, Visitas, Crianca,Drogas)
+                                                        VALUES(@Fumante, @Animal, @Alcool, @Visitas, @Crianca, @Drogas)";
+
+        public const string InserirImovel = @"INSERT INTO imovel(Midia,CapacidadePessoas,Valor, Descricao, PossuiGaragem,PossuiAcessibilidade, PossuiAcademia, PossuiMobilia, PossuiAreaLazer, PossuiPiscina,QtdQuartos,QtdBanheiros, IdRegraImovel,IdCaracteristicaImovel, IdEnderecoImovel,IdUsuario )
+                                                    VALUES(@Midia, @CapacidadePessoas, @Valor, @Descricao, @PossuiGaragem, @PossuiAcessibilidade, @PossuiAcademia, @PossuiMobilia, @PossuiAreaLazer, @PossuiPiscina, @QuantidadeQuartos, @QuantidadeBanheiros, @RegraImovel, @CaracteristicaImovel, @EnderecoImovel, @IdUsuario";
+
+        public const string ObterUltimoRegistroInseridoCaracteristicaImovel = @"SELECT TOP 1 * FROM caracteristica_imovel ORDER BY ID DESC;";
+        public const string ObterUltimoRegistroInseridoEnderecoImovel = @"SELECT TOP 1 * FROM endereco_imovel ORDER BY ID DESC;";
+        public const string ObterUltimoRegistroInseridoRegraImovel = @"SELECT TOP 1 * FROM regra_imovel ORDER BY ID DESC;";
     }
 }
