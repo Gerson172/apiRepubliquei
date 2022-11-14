@@ -29,7 +29,35 @@ namespace apiRepubliquei.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(new Retorno<Usuario>(e.Message, null));
+                return BadRequest(new Retorno<Imovel>(e.Message, null));
+            }
+        }
+
+        [HttpGet("ObterImovel")]
+        public async Task<IActionResult> ObterImovel([FromQuery] ObterImovelCommand command)
+        {
+            try
+            {
+                var result = await _mediator.Send(command);
+                return Ok(new Retorno<Imovel>(string.Empty, result));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new Retorno<Imovel>(e.Message, null));
+            }
+        }
+
+        [HttpGet("ObterImovelPorId")]
+        public async Task<IActionResult> ObterImovelPorId([FromQuery] ObterImovelPorIdCommand command)
+        {
+            try
+            {
+                var result = await _mediator.Send(command);
+                return Ok(new Retorno<Imovel>(string.Empty, result));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new Retorno<Imovel>(e.Message, null));
             }
         }
     }

@@ -15,12 +15,10 @@ namespace appRepubliquei.Domain.Services
     public class ImovelService : IImovelService
     {
         private readonly IImovelRepository _imovelRepository;
-        private readonly IUsuarioRepository _usuarioRepository;
 
-        public ImovelService(IImovelRepository imovelRepository, IUsuarioRepository usuarioRepository)
+        public ImovelService(IImovelRepository imovelRepository)
         {
             _imovelRepository = imovelRepository;
-            _usuarioRepository = usuarioRepository;
         }
 
         public async Task<RetornoSimples> CadastrarImovel(InserirImovelCommand request)
@@ -46,13 +44,47 @@ namespace appRepubliquei.Domain.Services
                 await _imovelRepository.InserirImovel(request.Midia, request.CapacidadePessoas, request.Valor, request.Descricao,
                     request.PossuiAcessibilidade, request.PossuiGaragem, request.PossuiAcademia, request.PossuiMobilia, 
                     request.PossuiAreaLazer, request.PossuiPiscina, request.QuantidadeBanheiros, request.QuantidadeComodo, 
-                    request.QuantidadeQuartos, request.IdUsuario, caracteristicaImovel.ID, enderecoImovel.ID, regraImovel.ID);
+                    request.QuantidadeQuartos, caracteristicaImovel.ID, enderecoImovel.ID, regraImovel.ID, request.IdUsuario);
 
                 return new RetornoSimples(true, "Imovel Cadastrado com sucesso!");
             }
             catch (Exception ex)
             {
                 throw new Exception("Falha ao cadastrar Imóvel: " + ex);
+            }
+        }
+
+        public async Task<Imovel> ObterImovel()
+        {
+            try
+            {
+                var dadosImovel = await _imovelRepository.ObterImovel();
+                if (dadosImovel == null)
+                {
+                    throw new Exception("Imovel não encontrado");
+                }
+                return dadosImovel;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception("Falha ao Obter Imóvel: " + ex);
+            }
+        }
+
+        public async Task<Imovel> ObterImovelPorId(string idImovel)
+        {
+            try
+            {
+                var dadosImovel = await _imovelRepository.ObterImovelPorId(idImovel);
+                if (dadosImovel == null)
+                {
+                    throw new Exception("Imovel não encontrado");
+                }
+                return dadosImovel;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Falha ao Obter Imóvel: " + ex);
             }
         }
     }

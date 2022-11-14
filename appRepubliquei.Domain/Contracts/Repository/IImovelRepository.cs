@@ -17,7 +17,9 @@ namespace appRepubliquei.Domain.Contracts.Repository
         Task<RegraImovel> ObterUltimoRegistroRegraImovel();
         Task InserirImovel(string midia, int capacidadePessoas, decimal valor, string descricao, bool possuiAcessibilidade, 
             bool possuiGaragem, bool possuiAcademia, bool possuiMobilia, bool possuiAreaLazer, bool possuiPiscina, 
-            int quantidadeBanheiros, int quantidadeComodo, int quantidadeQuartos, int idUsuario, 
-            int caracteristicaImovel, int enderecoImovel, int regraImovel);
+            int quantidadeBanheiros, int quantidadeComodo, int quantidadeQuartos, 
+            int caracteristicaImovel, int enderecoImovel, int regraImovel, int idUsuario);
+        Task<Imovel> ObterImovel();
+        Task<Imovel> ObterImovelPorId(string idImovel);
     }
 }

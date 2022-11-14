@@ -35,9 +35,11 @@ namespace apiRepubliquei
 
             // Repository
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<IImovelRepository, ImovelRepository>();
 
             //Services
             services.AddScoped<IUsuarioService, UsuarioService>();
+            services.AddScoped<IImovelService, ImovelService>();
 
             services.AddMediatR(AppDomain.CurrentDomain.Load("appRepubliquei.Application"));
             services.AddControllers();

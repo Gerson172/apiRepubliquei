@@ -43,11 +43,15 @@ namespace appRepubliquei.Infra.Data.Queries
         public const string InserirRegraImovel = @"INSERT INTO regra_imovel(Fumante,Animal,Alcool, Visitas, Crianca,Drogas)
                                                         VALUES(@Fumante, @Animal, @Alcool, @Visitas, @Crianca, @Drogas)";
 
-        public const string InserirImovel = @"INSERT INTO imovel(Midia,CapacidadePessoas,Valor, Descricao, PossuiGaragem,PossuiAcessibilidade, PossuiAcademia, PossuiMobilia, PossuiAreaLazer, PossuiPiscina,QtdQuartos,QtdBanheiros, IdRegraImovel,IdCaracteristicaImovel, IdEnderecoImovel,IdUsuario )
-                                                    VALUES(@Midia, @CapacidadePessoas, @Valor, @Descricao, @PossuiGaragem, @PossuiAcessibilidade, @PossuiAcademia, @PossuiMobilia, @PossuiAreaLazer, @PossuiPiscina, @QuantidadeQuartos, @QuantidadeBanheiros, @RegraImovel, @CaracteristicaImovel, @EnderecoImovel, @IdUsuario";
+        public const string InserirImovel = @"INSERT INTO imovel(Midia,CapacidadePessoas,Valor, Descricao, PossuiGaragem,PossuiAcessibilidade,IdRegraImovel,IdCaracteristicaImovel, IdEnderecoImovel,IdUsuario, PossuiAcademia, PossuiPiscina, PossuiMobilia, PossuiAreaLazer,QtdBanheiros,QtdQuartos)
+                                                         VALUES(@Midia, @CapacidadePessoas, @Valor, @Descricao, @PossuiGaragem, @PossuiAcessibilidade,@RegraImovel, @CaracteristicaImovel, @EnderecoImovel, @IdUsuarioProprietario, @PossuiAcademia,@PossuiPiscina, @PossuiMobilia, @PossuiAreaLazer,@QuantidadeBanheiros, @QuantidadeQuartos)";
 
         public const string ObterUltimoRegistroInseridoCaracteristicaImovel = @"SELECT TOP 1 * FROM caracteristica_imovel ORDER BY ID DESC;";
         public const string ObterUltimoRegistroInseridoEnderecoImovel = @"SELECT TOP 1 * FROM endereco_imovel ORDER BY ID DESC;";
         public const string ObterUltimoRegistroInseridoRegraImovel = @"SELECT TOP 1 * FROM regra_imovel ORDER BY ID DESC;";
+
+        public const string ObterImovel = @"SELECT * FROM imovel";
+
+        public const string ObterImovelPorId = @"SELECT * FROM imovel WHERE ID = @IdImovel";
     }
 }

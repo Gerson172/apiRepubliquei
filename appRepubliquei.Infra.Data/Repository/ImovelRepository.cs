@@ -57,7 +57,7 @@ namespace appRepubliquei.Infra.Data.Repository
         }
         public async Task InserirImovel(string midia, int capacidadePessoas, decimal valor, string descricao,
             bool possuiAcessibilidade, bool possuiGaragem, bool possuiAcademia, bool possuiMobilia, bool possuiAreaLazer,
-            bool possuiPiscina, int quantidadeBanheiros, int quantidadeComodo, int quantidadeQuartos, int idUsuario, int caracteristicaImovel, int enderecoImovel, int regraImovel)
+            bool possuiPiscina, int quantidadeBanheiros, int quantidadeComodo, int quantidadeQuartos, int caracteristicaImovel, int enderecoImovel, int regraImovel, int idUsuario)
         {
             await _connection.ExecuteAsync(Queries.Queries.InserirImovel,
                 new
@@ -78,7 +78,7 @@ namespace appRepubliquei.Infra.Data.Repository
                      CaracteristicaImovel = caracteristicaImovel,
                      EnderecoImovel = enderecoImovel,
                      RegraImovel = regraImovel,
-                     IdUsuario = idUsuario
+                     IdUsuarioProprietario = idUsuario
                 });
         }
 
@@ -95,6 +95,21 @@ namespace appRepubliquei.Infra.Data.Repository
         public async  Task<RegraImovel> ObterUltimoRegistroRegraImovel()
         {
             return await _connection.QueryFirstOrDefaultAsync<RegraImovel>(Queries.Queries.ObterUltimoRegistroInseridoRegraImovel);
+        }
+
+        public async Task<Imovel> ObterImovel()
+        {
+            return await _connection.QueryFirstOrDefaultAsync<Imovel>(Queries.Queries.ObterImovel);
+
+        }
+
+        public async Task<Imovel> ObterImovelPorId(string idImovel)
+        {
+            return await _connection.QueryFirstOrDefaultAsync<Imovel>(Queries.Queries.ObterImovelPorId, new
+            {
+                IdImovel = idImovel
+            });
+
         }
     }
 }
