@@ -71,3 +71,6 @@ C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\appRepublique
 C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\appRepubliquei.Service.dll
 C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\appRepubliquei.Service.pdb
 C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\appRepubliquei.Infra.CrossCutting.pdb
+C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

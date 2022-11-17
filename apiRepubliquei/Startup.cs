@@ -42,7 +42,7 @@ namespace apiRepubliquei
             services.AddScoped<IImovelService, ImovelService>();
 
             services.AddMediatR(AppDomain.CurrentDomain.Load("appRepubliquei.Application"));
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "apiRepubliquei", Version = "v1" });

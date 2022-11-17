@@ -10,8 +10,8 @@ namespace appRepubliquei.Domain.Entidades
     {
         public int ID { get; set; }
         public string Email { get; set; }
-        public int? Telefone { get; set; }
-        public int Celular { get; set; }
+        public string Telefone { get; set; }
+        public string Celular { get; set; }
 
     }
 }

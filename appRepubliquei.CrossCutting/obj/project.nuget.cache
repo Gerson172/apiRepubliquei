@@ -1,8 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "zcMFsXONNQIbHlKN22xaWO4kFXokjP8gg95fj+W+4d9rh4VwiZ6Q4D2XN7sa3kK3Bi6H8PwT117vZ2AfIFV+PQ==",
+  "dgSpecHash": "pHz7ZPjAWBTZWtfmuU2dA2irbDFxo7C6u4oL+jpmilgJrN5c+umwO9gkamQ5ivU3mCA7OZcXiGMLGOGFTJbamA==",
   "success": true,
   "projectFilePath": "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.CrossCutting\\appRepubliquei.Infra.CrossCutting.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\ggarcia\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.0\\microsoft.aspnetcore.jsonpatch.5.0.0.nupkg.sha512",
+    "C:\\Users\\ggarcia\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\5.0.0\\microsoft.aspnetcore.mvc.newtonsoftjson.5.0.0.nupkg.sha512",
+    "C:\\Users\\ggarcia\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\ggarcia\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\ggarcia\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

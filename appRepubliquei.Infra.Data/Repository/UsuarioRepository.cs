@@ -39,7 +39,7 @@ namespace appRepubliquei.Infra.Data.Repository
                 });
         }
 
-        public async Task InserirContatoUsuario(string email, int celular, int? telefone = 0)
+        public async Task InserirContatoUsuario(string email, string celular, string telefone)
         {
             await _connection.ExecuteAsync(Queries.Queries.InserirContatoUsuario,
                 new
