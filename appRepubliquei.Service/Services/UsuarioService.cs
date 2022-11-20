@@ -68,5 +68,17 @@ namespace appRepubliquei.Domain.Services
             }
             
         }
+
+        //public async Task<RetornoSimples> AtualizarUsuario(AtualizarUsuarioCommand request)
+        //{
+        //    try
+        //    {
+        //        await _usuarioRepository.AtualizarUsuario(request.IdUsuario, request.Nome, request.Sobrenome, request.CPF, request.DataNascimento
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("Falha ao Atualizar o usuário: " + ex);
+        //    }
+        //}
     }
 }

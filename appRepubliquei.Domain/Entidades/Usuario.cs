@@ -17,6 +17,7 @@ namespace appRepubliquei.Domain.Entidades
         public string EstadoCivil { get; set; }
         public string Genero { get; set; }
         public DateTime DataNascimento { get; set; }
+        public bool CheckProprietario { get; set; }
         public int? IdEnderecoUsuario { get; set; }
         public int? IdContato { get; set; }
         public int? IdCaracteristicaUsuario { get; set; }

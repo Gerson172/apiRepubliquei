@@ -12,5 +12,6 @@ namespace appRepubliquei.Domain.Contracts.Services
     {
         Task<Usuario> ObterUsuarioPorId(int idUsuario);
         Task<RetornoSimples> CadastrarUsuario(CadastrarUsuarioCommand request);
+        //Task<RetornoSimples> AtualizarUsuario(AtualizarUsuarioCommand request);
     }
 }

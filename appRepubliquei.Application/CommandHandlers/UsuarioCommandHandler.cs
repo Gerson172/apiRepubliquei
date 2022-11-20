@@ -13,7 +13,8 @@ using System.Threading.Tasks;
 namespace appRepubliquei.Application.CommandHandlers
 {
     public class UsuarioCommandHandler : IRequestHandler<ObterUsuarioPorIdCommand, Usuario>, 
-                                         IRequestHandler<CadastrarUsuarioCommand, RetornoSimples>
+                                         IRequestHandler<CadastrarUsuarioCommand, RetornoSimples>//,
+                                         //IRequestHandler<AtualizarUsuarioCommand, RetornoSimples>
     {
         private readonly IUsuarioService _usuarioService;
         public UsuarioCommandHandler(IUsuarioService usuarioService)
@@ -28,5 +29,9 @@ namespace appRepubliquei.Application.CommandHandlers
         {
             return await _usuarioService.CadastrarUsuario(request);
         }
+        //public async Task<RetornoSimples> Handle(AtualizarUsuarioCommand request, CancellationToken cancellationToken)
+        //{
+        //    return await _usuarioService.AtualizarUsuario(request);
+        //}
     }
 }

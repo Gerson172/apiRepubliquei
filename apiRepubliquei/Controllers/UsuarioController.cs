@@ -49,20 +49,20 @@ namespace apiRepubliquei.Controllers
             }
         }
 
-        //[HttpPut("AtualizarUsuario")]
-        //public async Task<IActionResult> AtualizarUsuario([FromBody] AtualizarUsuarioCommand command)
-        //{
-        //    try
-        //    {
-        //        var result = await _mediator.Send(command);
-        //        return Ok(new Retorno<RetornoSimples>(string.Empty, result));
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return BadRequest(new Retorno<RetornoSimples>(e.Message, null));
+        [HttpPut("AtualizarUsuario")]
+        public async Task<IActionResult> AtualizarUsuario([FromBody] AtualizarUsuarioCommand command)
+        {
+            try
+            {
+                var result = await _mediator.Send(command);
+                return Ok(new Retorno<RetornoSimples>(string.Empty, result));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new Retorno<RetornoSimples>(e.Message, null));
 
-        //}
-        //    }
+            }
+        }
 
         //[HttpDelete("ExcluirUsuario")]
         //public async Task<IActionResult> ExcluirUsuario([FromBody] ExcluirUsuarioCommand command)

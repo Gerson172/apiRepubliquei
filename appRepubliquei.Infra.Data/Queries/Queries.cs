@@ -15,7 +15,7 @@ namespace appRepubliquei.Infra.Data.Queries
         public const string ObterUsuario = @"SELECT * FROM Usuario";
 
 
-        public const string InserirUsuario = @"INSERT INTO usuario(Nome,Sobrenome,Senha,CPF,EstadoCivil, DataNascimento, IdEnderecoUsuario,IdContato,IdCaracteristicaUsuario)
+        public const string InserirUsuario = @"INSERT INTO usuario(Nome,Sobrenome,Senha,CPF,EstadoCivil, DataNascimento,CheckProprietario, IdEnderecoUsuario,IdContato,IdCaracteristicaUsuario)
                                                                  VALUES(@Nome, @Sobrenome, @Senha, @Cpf, @EstadoCivil, @DataNascimento,@CheckProprietario,@IdEnderecoUsuario,@IdContato,@IdCaracteristicaUsuario)";
 
         public const string InserirEnderecoUsuario = @"INSERT INTO endereco_usuario(CEP,Estado,Cidade,Bairro,Logradouro,Numero,Complemento)
