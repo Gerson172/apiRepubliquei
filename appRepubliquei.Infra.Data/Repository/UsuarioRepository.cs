@@ -25,12 +25,13 @@ namespace appRepubliquei.Infra.Data.Repository
                 });
         }
 
-        public async Task InserirEnderecoUsuario(int cep, string cidade, string bairro, string logradouro, string numero, string complemento)
+        public async Task InserirEnderecoUsuario(int cep, string estado, string cidade, string bairro, string logradouro, string numero, string complemento)
         {
             await _connection.ExecuteAsync(Queries.Queries.InserirEnderecoUsuario,
                 new
                 {
                     Cep = cep,
+                    Estado = estado,
                     Cidade = cidade,
                     Bairro = bairro,
                     Logradouro = logradouro,
@@ -63,7 +64,7 @@ namespace appRepubliquei.Infra.Data.Repository
                 });
         }
 
-        public async Task InserirUsuario(string nome, string sobrenome, string senha, string cpf, string estadoCivil, DateTime dataNascimento, int fkEnderecoUsuario, int fkContato, int fkCaracteristicaUsuario)
+        public async Task InserirUsuario(string nome, string sobrenome, string senha, string cpf, string estadoCivil, DateTime dataNascimento, bool checkProprietario, int fkEnderecoUsuario, int fkContato, int fkCaracteristicaUsuario)
         {
             await _connection.ExecuteAsync(Queries.Queries.InserirUsuario,
                 new
@@ -74,6 +75,7 @@ namespace appRepubliquei.Infra.Data.Repository
                     Cpf = cpf,
                     EstadoCivil = estadoCivil,
                     DataNascimento = dataNascimento,
+                    CheckProprietario = checkProprietario,
                     IdEnderecoUsuario = fkEnderecoUsuario,
                     IdContato = fkContato,
                     IdCaracteristicaUsuario = fkCaracteristicaUsuario,

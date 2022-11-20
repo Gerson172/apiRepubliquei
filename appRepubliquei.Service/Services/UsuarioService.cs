@@ -45,7 +45,7 @@ namespace appRepubliquei.Domain.Services
                 request.Senha = hashed;
                 #endregion
 
-                await _usuarioRepository.InserirEnderecoUsuario(request.EnderecoUsuario.CEP, request.EnderecoUsuario.Cidade, request.EnderecoUsuario.Bairro,
+                await _usuarioRepository.InserirEnderecoUsuario(request.EnderecoUsuario.CEP, request.EnderecoUsuario.Estado, request.EnderecoUsuario.Cidade, request.EnderecoUsuario.Bairro,
                     request.EnderecoUsuario.Logradouro, request.EnderecoUsuario.Numero, request.EnderecoUsuario.Complemento);
 
                 await _usuarioRepository.InserirContatoUsuario(request.Contato.Email, request.Contato.Celular, request.Contato.Telefone);
@@ -58,7 +58,7 @@ namespace appRepubliquei.Domain.Services
                 var CaracteristicaUsuario = await _usuarioRepository.ObterUltimoRegistroInseridoCaracteristicaUsuario();
 
                 await _usuarioRepository.InserirUsuario(request.Nome, request.Sobrenome, request.Senha, request.CPF, request.EstadoCivil,
-                    request.DataNascimento, EnderecoUsuario.ID, ContatoUsuario.ID, CaracteristicaUsuario.ID);
+                    request.DataNascimento, request.CheckProprietario, EnderecoUsuario.ID, ContatoUsuario.ID, CaracteristicaUsuario.ID);
 
                 return new RetornoSimples(true, "Usuario cadastrado com sucesso!");
             }
