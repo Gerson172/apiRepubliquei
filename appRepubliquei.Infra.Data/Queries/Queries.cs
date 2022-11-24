@@ -12,8 +12,16 @@ namespace appRepubliquei.Infra.Data.Queries
         public const string ObterUsuarioPorId = @"SELECT * FROM Usuario WHERE ID = @IdUsuario";
         #endregion
 
-        public const string ObterUsuario = @"SELECT * FROM Usuario";
+        public const string ObterUsuario = @"SELECT * FROM usuario";
 
+        public const string ObterUsuarioContato = @"SELECT Nome, Sobrenome, Senha, Email
+                                                    FROM Usuario u
+                                                    INNER JOIN contato c ON (u.IdContato = c.ID)";
+
+        public const string ObterUsuarioContatoPorId = @"SELECT Nome, Sobrenome, Senha, Email
+                                                            FROM Usuario u
+                                                            INNER JOIN contato c ON (u.IdContato = c.ID)
+                                                            WHERE u.ID = @IdUsuario";
 
         public const string InserirUsuario = @"INSERT INTO usuario(Nome,Sobrenome,Senha,CPF,EstadoCivil, DataNascimento,CheckProprietario, IdEnderecoUsuario,IdContato,IdCaracteristicaUsuario)
                                                                  VALUES(@Nome, @Sobrenome, @Senha, @Cpf, @EstadoCivil, @DataNascimento,@CheckProprietario,@IdEnderecoUsuario,@IdContato,@IdCaracteristicaUsuario)";
@@ -38,13 +46,13 @@ namespace appRepubliquei.Infra.Data.Queries
                                                                 VALUES(@TipoImovel, @TipoQuarto, @TipoSexo)";
 
         public const string InserirEnderecoImovel = @"INSERT INTO endereco_imovel(CEP,Cidade,Bairro, Logradouro, Numero,Complemento)
-                                                                VALUES(@Cep, @Cidade, @Bairro, @Logradouro, @Numero, @Complemento)";
+                                                                VALUES(@Cep, @Cidade, @Bairro, @Logradouro, @Numero, @Complemento, @Estado)";
 
         public const string InserirRegraImovel = @"INSERT INTO regra_imovel(Fumante,Animal,Alcool, Visitas, Crianca,Drogas)
                                                         VALUES(@Fumante, @Animal, @Alcool, @Visitas, @Crianca, @Drogas)";
 
-        public const string InserirImovel = @"INSERT INTO imovel(Midia,CapacidadePessoas,Valor, Descricao, PossuiGaragem,PossuiAcessibilidade,IdRegraImovel,IdCaracteristicaImovel, IdEnderecoImovel,IdUsuario, PossuiAcademia, PossuiPiscina, PossuiMobilia, PossuiAreaLazer,QtdBanheiros,QtdQuartos)
-                                                         VALUES(@Midia, @CapacidadePessoas, @Valor, @Descricao, @PossuiGaragem, @PossuiAcessibilidade,@RegraImovel, @CaracteristicaImovel, @EnderecoImovel, @IdUsuarioProprietario, @PossuiAcademia,@PossuiPiscina, @PossuiMobilia, @PossuiAreaLazer,@QuantidadeBanheiros, @QuantidadeQuartos)";
+        public const string InserirImovel = @"INSERT INTO imovel(Midia,CapacidadePessoas,Valor, Descricao, PossuiGaragem,PossuiAcessibilidade,IdRegraImovel,IdCaracteristicaImovel, IdEnderecoImovel,IdUsuario, PossuiAcademia, PossuiPiscina, PossuiMobilia, PossuiAreaLazer,QtdBanheiros,QtdQuartos, NomeImovel)
+                                                         VALUES(@Midia, @CapacidadePessoas, @Valor, @Descricao, @PossuiGaragem, @PossuiAcessibilidade,@RegraImovel, @CaracteristicaImovel, @EnderecoImovel, @IdUsuarioProprietario, @PossuiAcademia,@PossuiPiscina, @PossuiMobilia, @PossuiAreaLazer,@QuantidadeBanheiros, @QuantidadeQuartos, @NomeImovel)";
 
         public const string ObterUltimoRegistroInseridoCaracteristicaImovel = @"SELECT TOP 1 * FROM caracteristica_imovel ORDER BY ID DESC;";
         public const string ObterUltimoRegistroInseridoEnderecoImovel = @"SELECT TOP 1 * FROM endereco_imovel ORDER BY ID DESC;";

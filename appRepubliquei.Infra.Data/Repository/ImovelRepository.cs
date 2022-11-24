@@ -28,7 +28,7 @@ namespace appRepubliquei.Infra.Data.Repository
                 });
         }
 
-        public async Task InserirEnderecoImovel(int cep, string cidade, string bairro, string logradouro, string numero, string complemento)
+        public async Task InserirEnderecoImovel(int cep, string cidade, string bairro, string logradouro, string numero, string complemento, string estado)
         {
             await _connection.ExecuteAsync(Queries.Queries.InserirEnderecoImovel,
                 new
@@ -39,6 +39,7 @@ namespace appRepubliquei.Infra.Data.Repository
                     Logradouro = logradouro,
                     Numero = numero,
                     Complemento = complemento,
+                    Estado = estado,
                 });
         }
 
@@ -57,7 +58,7 @@ namespace appRepubliquei.Infra.Data.Repository
         }
         public async Task InserirImovel(string midia, int capacidadePessoas, decimal valor, string descricao,
             bool possuiAcessibilidade, bool possuiGaragem, bool possuiAcademia, bool possuiMobilia, bool possuiAreaLazer,
-            bool possuiPiscina, int quantidadeBanheiros, int quantidadeComodo, int quantidadeQuartos, int caracteristicaImovel, int enderecoImovel, int regraImovel, int idUsuario)
+            bool possuiPiscina, int quantidadeBanheiros, int quantidadeComodo, int quantidadeQuartos, int caracteristicaImovel, int enderecoImovel, int regraImovel, int idUsuario, string nomeImovel)
         {
             await _connection.ExecuteAsync(Queries.Queries.InserirImovel,
                 new
@@ -78,7 +79,8 @@ namespace appRepubliquei.Infra.Data.Repository
                      CaracteristicaImovel = caracteristicaImovel,
                      EnderecoImovel = enderecoImovel,
                      RegraImovel = regraImovel,
-                     IdUsuarioProprietario = idUsuario
+                     IdUsuarioProprietario = idUsuario,
+                     NomeImovel = nomeImovel
                 });
         }
 

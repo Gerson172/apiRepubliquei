@@ -4,6 +4,7 @@ using appRepubliquei.Infra.Data.Contexts;
 using Dapper;
 using Microsoft.Data.SqlClient;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace appRepubliquei.Infra.Data.Repository
@@ -19,6 +20,25 @@ namespace appRepubliquei.Infra.Data.Repository
         public async Task<Usuario> ObterUsuarioPorId(int idUsuario)
         {
             return await _connection.QueryFirstOrDefaultAsync<Usuario>(Queries.Queries.ObterUsuarioPorId,
+                new
+                {
+                    IdUsuario = idUsuario
+                });
+        }
+
+        public async Task<IEnumerable<Usuario>> ObterUsuario()
+        {
+            return await _connection.QueryAsync<Usuario>(Queries.Queries.ObterUsuario);
+        }
+
+        public async Task<IEnumerable<vwUsuarioContato>> ObterUsuarioContato()
+        {
+            return await _connection.QueryAsync<vwUsuarioContato>(Queries.Queries.ObterUsuarioContato);
+        }
+
+        public async Task<vwUsuarioContato> ObterUsuarioContatoPorId(int idUsuario)
+        {
+            return await _connection.QueryFirstOrDefaultAsync<vwUsuarioContato>(Queries.Queries.ObterUsuarioContatoPorId,
                 new
                 {
                     IdUsuario = idUsuario

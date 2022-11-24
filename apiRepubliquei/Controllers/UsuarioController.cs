@@ -5,6 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace apiRepubliquei.Controllers
@@ -19,6 +20,21 @@ namespace apiRepubliquei.Controllers
         {
             _mediator = mediator;
         }
+        [HttpGet("ObterUsuario")]
+        public async Task<IActionResult> ObterUsuario([FromQuery] ObterUsuarioCommand command)
+        {
+            try
+            {
+                var result = await _mediator.Send(command);
+                return Ok(new Retorno<IEnumerable<Usuario>>(string.Empty, result));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new Retorno<Usuario>(e.Message, null));
+
+            }
+        }
+
         [HttpGet("ObterUsuarioPorId")]
         public async Task<IActionResult> ObterUsuarioPorId([FromQuery] ObterUsuarioPorIdCommand command)
         {
@@ -30,9 +46,40 @@ namespace apiRepubliquei.Controllers
             catch (Exception e)
             {
                 return BadRequest(new Retorno<Usuario>(e.Message, null));
-        
+
             }
         }
+
+        [HttpGet("ObterUsuarioContato")]
+        public async Task<IActionResult> ObterUsuarioContato([FromQuery] ObterUsuarioContatoCommand command)
+        {
+            try
+            {
+                var result = await _mediator.Send(command);
+                return Ok(new Retorno<IEnumerable<vwUsuarioContato>>(string.Empty, result));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new Retorno<Usuario>(e.Message, null));
+
+            }
+        }
+
+        [HttpGet("ObterUsuarioContatoPorId")]
+        public async Task<IActionResult> ObterUsuarioContatoPorId([FromQuery] ObterUsuarioContatoPorIdCommand command)
+        {
+            try
+            {
+                var result = await _mediator.Send(command);
+                return Ok(new Retorno<vwUsuarioContato>(string.Empty, result));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new Retorno<Usuario>(e.Message, null));
+
+            }
+        }
+
 
         [HttpPost("CadastrarUsuario")]
         public async Task<IActionResult> CadastrarUsuario([FromBody] CadastrarUsuarioCommand command)

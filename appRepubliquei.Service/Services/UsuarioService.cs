@@ -23,8 +23,54 @@ namespace appRepubliquei.Domain.Services
 
         public async Task<Usuario> ObterUsuarioPorId(int idUsuario)
         {
-            return await _usuarioRepository.ObterUsuarioPorId(idUsuario);
+            try
+            {           
+                return await _usuarioRepository.ObterUsuarioPorId(idUsuario);
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Falha ao cadastrar usuario: " + ex);
+            }
+
         }
+
+        public async Task<IEnumerable<Usuario>> ObterUsuario(ObterUsuarioCommand request)
+        {
+            try
+            {
+                return await _usuarioRepository.ObterUsuario();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Falha ao cadastrar usuario: " + ex);
+            }
+        }
+
+        public async Task<IEnumerable<vwUsuarioContato>> ObterUsuarioContato(ObterUsuarioContatoCommand request)
+        {
+            try
+            {
+                return await _usuarioRepository.ObterUsuarioContato();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Falha ao cadastrar usuario: " + ex);
+            }
+        }
+
+        public async Task<vwUsuarioContato> ObterUsuarioContatoPorId(ObterUsuarioContatoPorIdCommand request)
+        {
+            try
+            {
+                return await _usuarioRepository.ObterUsuarioContatoPorId(request.IdUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Falha ao cadastrar usuario: " + ex);
+            }
+        }
+
         public async Task<RetornoSimples> CadastrarUsuario(CadastrarUsuarioCommand request)
         {
             try
@@ -68,6 +114,8 @@ namespace appRepubliquei.Domain.Services
             }
             
         }
+
+        
 
         //public async Task<RetornoSimples> AtualizarUsuario(AtualizarUsuarioCommand request)
         //{

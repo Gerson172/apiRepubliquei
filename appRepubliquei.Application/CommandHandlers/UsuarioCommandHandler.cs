@@ -13,7 +13,10 @@ using System.Threading.Tasks;
 namespace appRepubliquei.Application.CommandHandlers
 {
     public class UsuarioCommandHandler : IRequestHandler<ObterUsuarioPorIdCommand, Usuario>, 
-                                         IRequestHandler<CadastrarUsuarioCommand, RetornoSimples>//,
+                                         IRequestHandler<CadastrarUsuarioCommand, RetornoSimples>,
+                                         IRequestHandler<ObterUsuarioCommand, IEnumerable<Usuario>>,
+                                         IRequestHandler<ObterUsuarioContatoCommand, IEnumerable<vwUsuarioContato>>,
+                                         IRequestHandler<ObterUsuarioContatoPorIdCommand, vwUsuarioContato>//,
                                          //IRequestHandler<AtualizarUsuarioCommand, RetornoSimples>
     {
         private readonly IUsuarioService _usuarioService;
@@ -28,6 +31,18 @@ namespace appRepubliquei.Application.CommandHandlers
         public async Task<RetornoSimples> Handle(CadastrarUsuarioCommand request, CancellationToken cancellationToken)
         {
             return await _usuarioService.CadastrarUsuario(request);
+        }
+        public async Task<IEnumerable<Usuario>> Handle(ObterUsuarioCommand request, CancellationToken cancellationToken)
+        {
+            return await _usuarioService.ObterUsuario(request);
+        }
+        public async Task<IEnumerable<vwUsuarioContato>> Handle(ObterUsuarioContatoCommand request, CancellationToken cancellationToken)
+        {
+            return await _usuarioService.ObterUsuarioContato(request);
+        }
+        public async Task<vwUsuarioContato> Handle(ObterUsuarioContatoPorIdCommand request, CancellationToken cancellationToken)
+        {
+            return await _usuarioService.ObterUsuarioContatoPorId(request);
         }
         //public async Task<RetornoSimples> Handle(AtualizarUsuarioCommand request, CancellationToken cancellationToken)
         //{

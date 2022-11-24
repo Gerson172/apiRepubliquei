@@ -31,7 +31,7 @@ namespace appRepubliquei.Domain.Services
 
                 await _imovelRepository.InserirEnderecoImovel(request.EnderecoImovel.CEP, request.EnderecoImovel.Cidade, 
                                                                 request.EnderecoImovel.Bairro,request.EnderecoImovel.Logradouro,
-                                                                request.EnderecoImovel.Numero, request.EnderecoImovel.Complemento);
+                                                                request.EnderecoImovel.Numero, request.EnderecoImovel.Complemento, request.EnderecoImovel.Estado);
 
                 await _imovelRepository.InserirRegraImovel(request.RegraImovel.Fumante, request.RegraImovel.Animal,
                     request.RegraImovel.Alcool, request.RegraImovel.Visitas, request.RegraImovel.Crianca,
@@ -44,7 +44,7 @@ namespace appRepubliquei.Domain.Services
                 await _imovelRepository.InserirImovel(request.Midia, request.CapacidadePessoas, request.Valor, request.Descricao,
                     request.PossuiAcessibilidade, request.PossuiGaragem, request.PossuiAcademia, request.PossuiMobilia, 
                     request.PossuiAreaLazer, request.PossuiPiscina, request.QuantidadeBanheiros, request.QuantidadeComodo, 
-                    request.QuantidadeQuartos, caracteristicaImovel.ID, enderecoImovel.ID, regraImovel.ID, request.IdUsuario);
+                    request.QuantidadeQuartos, caracteristicaImovel.ID, enderecoImovel.ID, regraImovel.ID, request.IdUsuario, request.NomeImovel);
 
                 return new RetornoSimples(true, "Imovel Cadastrado com sucesso!");
             }

@@ -23,7 +23,7 @@ namespace appRepubliquei.Domain.Commands
         public bool PossuiPiscina { get; set; }
         public int QuantidadeBanheiros { get; set; }
         public int QuantidadeQuartos { get; set; }
-        public int MyProperty { get; set; }
+        public string NomeImovel { get; set; }
         public RegraImovel RegraImovel { get; set; }
         public CaracteristicaImovel CaracteristicaImovel { get; set; }
         public EnderecoImovel EnderecoImovel { get; set; }
