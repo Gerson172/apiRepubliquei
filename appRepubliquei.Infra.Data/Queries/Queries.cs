@@ -14,11 +14,11 @@ namespace appRepubliquei.Infra.Data.Queries
 
         public const string ObterUsuario = @"SELECT * FROM usuario";
 
-        public const string ObterUsuarioContato = @"SELECT Nome, Sobrenome, Senha, Email
+        public const string ObterUsuarioContato = @"SELECT u.ID,Nome, Sobrenome, Senha, Email
                                                     FROM Usuario u
                                                     INNER JOIN contato c ON (u.IdContato = c.ID)";
 
-        public const string ObterUsuarioContatoPorId = @"SELECT Nome, Sobrenome, Senha, Email
+        public const string ObterUsuarioContatoPorId = @"SELECT u.ID,Nome, Sobrenome, Senha, Email
                                                             FROM Usuario u
                                                             INNER JOIN contato c ON (u.IdContato = c.ID)
                                                             WHERE u.ID = @IdUsuario";
