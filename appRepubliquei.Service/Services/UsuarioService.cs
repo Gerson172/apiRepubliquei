@@ -75,21 +75,21 @@ namespace appRepubliquei.Domain.Services
         {
             try
             {
-                #region Criptografia em Hash da senha
-                byte[] salt = new byte[128 / 8];
-                using (var rngCsp = new RNGCryptoServiceProvider())
-                {
-                    rngCsp.GetNonZeroBytes(salt);
-                }
-                var senha = request.Senha;
-                string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-                password: senha,
-                salt: salt,
-                prf: KeyDerivationPrf.HMACSHA256,
-                iterationCount: 100000,
-                numBytesRequested: 256 / 8));
-                request.Senha = hashed;
-                #endregion
+                //#region Criptografia em Hash da senha
+                //byte[] salt = new byte[128 / 8];
+                //using (var rngCsp = new RNGCryptoServiceProvider())
+                //{
+                //    rngCsp.GetNonZeroBytes(salt);
+                //}
+                //var senha = request.Senha;
+                //string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+                //password: senha,
+                //salt: salt,
+                //prf: KeyDerivationPrf.HMACSHA256,
+                //iterationCount: 100000,
+                //numBytesRequested: 256 / 8));
+                //request.Senha = hashed;
+                //#endregion
 
                 await _usuarioRepository.InserirEnderecoUsuario(request.EnderecoUsuario.CEP, request.EnderecoUsuario.Estado, request.EnderecoUsuario.Cidade, request.EnderecoUsuario.Bairro,
                     request.EnderecoUsuario.Logradouro, request.EnderecoUsuario.Numero, request.EnderecoUsuario.Complemento);
