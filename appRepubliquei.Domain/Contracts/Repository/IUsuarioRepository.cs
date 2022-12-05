@@ -20,5 +20,6 @@ namespace appRepubliquei.Domain.Contracts.Repository
         Task<CaracteristicaUsuario> ObterUltimoRegistroInseridoCaracteristicaUsuario();
         Task<IEnumerable<vwUsuarioContato>> ObterUsuarioContato();
         Task<vwUsuarioContato> ObterUsuarioContatoPorId(int idUsuario);
+        bool CheckEmailESenha(string email, string cpf);
     }
 }

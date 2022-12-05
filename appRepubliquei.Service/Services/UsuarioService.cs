@@ -91,6 +91,12 @@ namespace appRepubliquei.Domain.Services
                 //request.Senha = hashed;
                 //#endregion
 
+                var result = _usuarioRepository.CheckEmailESenha(request.Contato.Email, request.CPF);
+                if (result)
+                {
+                    return new RetornoSimples(false, "Já possui Email ou CPF cadastrado com esse usuário.");
+                }
+
                 await _usuarioRepository.InserirEnderecoUsuario(request.EnderecoUsuario.CEP, request.EnderecoUsuario.Estado, request.EnderecoUsuario.Cidade, request.EnderecoUsuario.Bairro,
                     request.EnderecoUsuario.Logradouro, request.EnderecoUsuario.Numero, request.EnderecoUsuario.Complemento);
 

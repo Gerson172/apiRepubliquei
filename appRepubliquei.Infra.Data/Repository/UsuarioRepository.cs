@@ -116,5 +116,15 @@ namespace appRepubliquei.Infra.Data.Repository
         {
             return await _connection.QueryFirstOrDefaultAsync<CaracteristicaUsuario>(Queries.Queries.ObterUltimoRegistroInseridoCaracteristicaUsuario);
         }
+
+        public bool CheckEmailESenha(string email, string cpf)
+        {
+            return _connection.QuerySingleOrDefault<bool>(Queries.Queries.VerificarExisteEmailSenha,
+                new
+                {
+                    Email = email,
+                    Cpf = cpf
+                });
+        }
     }
 }

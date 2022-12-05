@@ -61,5 +61,11 @@ namespace appRepubliquei.Infra.Data.Queries
         public const string ObterImovel = @"SELECT * FROM imovel";
 
         public const string ObterImovelPorId = @"SELECT * FROM imovel WHERE ID = @IdImovel";
+
+        public const string VerificarExisteEmailSenha = @"SELECT TOP 1 u.ID,Nome, Sobrenome, Senha, Email
+                                                            FROM Usuario u
+                                                            INNER JOIN contato c ON (u.IdContato = c.ID)
+                                                        WHERE c.Email = @Email
+                                                           OR u.CPF = @Cpf";
     }
 }
