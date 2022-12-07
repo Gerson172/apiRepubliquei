@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace appRepubliquei.Domain.Commands
 {
-    public class ObterImovelPorIdCommand : IRequest<Imovel>
+    public class ObterImovelPorIdCommand : IRequest<vwImovel>
     {
         public string IdImovel { get; set; }
     }

@@ -54,7 +54,7 @@ namespace appRepubliquei.Domain.Services
             }
         }
 
-        public async Task<IEnumerable<Imovel>> ObterImovel()
+        public async Task<IEnumerable<vwImovel>> ObterImovel()
         {
             try
             {
@@ -71,7 +71,7 @@ namespace appRepubliquei.Domain.Services
             }
         }
 
-        public async Task<Imovel> ObterImovelPorId(string idImovel)
+        public async Task<vwImovel> ObterImovelPorId(string idImovel)
         {
             try
             {

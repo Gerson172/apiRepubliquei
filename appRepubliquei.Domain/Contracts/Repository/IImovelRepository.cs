@@ -19,7 +19,7 @@ namespace appRepubliquei.Domain.Contracts.Repository
             bool possuiGaragem, bool possuiAcademia, bool possuiMobilia, bool possuiAreaLazer, bool possuiPiscina, 
             int quantidadeBanheiros, int quantidadeComodo, int quantidadeQuartos, 
             int caracteristicaImovel, int enderecoImovel, int regraImovel, int idUsuario, string nomeImovel);
-        Task<IEnumerable<Imovel>> ObterImovel();
-        Task<Imovel> ObterImovelPorId(string idImovel);
+        Task<IEnumerable<vwImovel>> ObterImovel();
+        Task<vwImovel> ObterImovelPorId(string idImovel);
     }
 }

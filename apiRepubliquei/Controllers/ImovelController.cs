@@ -40,7 +40,7 @@ namespace apiRepubliquei.Controllers
             try
             {
                 var result = await _mediator.Send(command);
-                return Ok(new Retorno<IEnumerable<Imovel>>(string.Empty, result));
+                return Ok(new Retorno<IEnumerable<vwImovel>>(string.Empty, result));
             }
             catch (Exception e)
             {
@@ -54,7 +54,7 @@ namespace apiRepubliquei.Controllers
             try
             {
                 var result = await _mediator.Send(command);
-                return Ok(new Retorno<Imovel>(string.Empty, result));
+                return Ok(new Retorno<vwImovel>(string.Empty, result));
             }
             catch (Exception e)
             {

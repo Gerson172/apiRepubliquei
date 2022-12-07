@@ -100,15 +100,15 @@ namespace appRepubliquei.Infra.Data.Repository
             return await _connection.QueryFirstOrDefaultAsync<RegraImovel>(Queries.Queries.ObterUltimoRegistroInseridoRegraImovel);
         }
 
-        public async Task<IEnumerable<Imovel>> ObterImovel()
+        public async Task<IEnumerable<vwImovel>> ObterImovel()
         {
-            return await _connection.QueryAsync<Imovel>(Queries.Queries.ObterImovel);
+            return await _connection.QueryAsync<vwImovel>(Queries.Queries.ObterImovel);
 
         }
 
-        public async Task<Imovel> ObterImovelPorId(string idImovel)
+        public async Task<vwImovel> ObterImovelPorId(string idImovel)
         {
-            return await _connection.QueryFirstOrDefaultAsync<Imovel>(Queries.Queries.ObterImovelPorId, new
+            return await _connection.QueryFirstOrDefaultAsync<vwImovel>(Queries.Queries.ObterImovelPorId, new
             {
                 IdImovel = idImovel
             });

@@ -13,8 +13,8 @@ using System.Threading.Tasks;
 namespace appRepubliquei.Application.CommandHandlers
 {
     public class ImovelCommandHandler : IRequestHandler<InserirImovelCommand, RetornoSimples>,
-                                        IRequestHandler<ObterImovelCommand, IEnumerable<Imovel>>,
-                                        IRequestHandler<ObterImovelPorIdCommand, Imovel>
+                                        IRequestHandler<ObterImovelCommand, IEnumerable<vwImovel>>,
+                                        IRequestHandler<ObterImovelPorIdCommand, vwImovel>
     {
         private readonly IImovelService _imovelService;
         public ImovelCommandHandler(IImovelService imovelService)
@@ -26,12 +26,12 @@ namespace appRepubliquei.Application.CommandHandlers
             return await _imovelService.CadastrarImovel(request);
         }
 
-        public async Task<IEnumerable<Imovel>> Handle(ObterImovelCommand request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<vwImovel>> Handle(ObterImovelCommand request, CancellationToken cancellationToken)
         {
             return await _imovelService.ObterImovel();
         }
 
-        public async Task<Imovel> Handle(ObterImovelPorIdCommand request, CancellationToken cancellationToken)
+        public async Task<vwImovel> Handle(ObterImovelPorIdCommand request, CancellationToken cancellationToken)
         {
             return await _imovelService.ObterImovelPorId(request.IdImovel);
         }
