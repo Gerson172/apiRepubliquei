@@ -4,6 +4,7 @@ using appRepubliquei.Infra.Data.Contexts;
 using Dapper;
 using Microsoft.Data.SqlClient;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace appRepubliquei.Infra.Data.Repository
@@ -99,9 +100,9 @@ namespace appRepubliquei.Infra.Data.Repository
             return await _connection.QueryFirstOrDefaultAsync<RegraImovel>(Queries.Queries.ObterUltimoRegistroInseridoRegraImovel);
         }
 
-        public async Task<Imovel> ObterImovel()
+        public async Task<IEnumerable<Imovel>> ObterImovel()
         {
-            return await _connection.QueryFirstOrDefaultAsync<Imovel>(Queries.Queries.ObterImovel);
+            return await _connection.QueryAsync<Imovel>(Queries.Queries.ObterImovel);
 
         }
 

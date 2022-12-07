@@ -8,5 +8,5 @@ using System.Threading.Tasks;
 
 namespace appRepubliquei.Domain.Commands
 {
-    public class ObterImovelCommand : IRequest<Imovel>{}
+    public class ObterImovelCommand : IRequest<IEnumerable<Imovel>> {}
 }

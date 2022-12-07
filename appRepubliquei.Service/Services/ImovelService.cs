@@ -54,7 +54,7 @@ namespace appRepubliquei.Domain.Services
             }
         }
 
-        public async Task<Imovel> ObterImovel()
+        public async Task<IEnumerable<Imovel>> ObterImovel()
         {
             try
             {

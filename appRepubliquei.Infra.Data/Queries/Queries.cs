@@ -45,7 +45,7 @@ namespace appRepubliquei.Infra.Data.Queries
         public const string InserirCaracteristicaImovel = @"INSERT INTO caracteristica_imovel(TipoImovel,TipoQuarto,TipoSexo)
                                                                 VALUES(@TipoImovel, @TipoQuarto, @TipoSexo)";
 
-        public const string InserirEnderecoImovel = @"INSERT INTO endereco_imovel(CEP,Cidade,Bairro, Logradouro, Numero,Complemento)
+        public const string InserirEnderecoImovel = @"INSERT INTO endereco_imovel(CEP,Cidade,Bairro, Logradouro, Numero,Complemento, Estado)
                                                                 VALUES(@Cep, @Cidade, @Bairro, @Logradouro, @Numero, @Complemento, @Estado)";
 
         public const string InserirRegraImovel = @"INSERT INTO regra_imovel(Fumante,Animal,Alcool, Visitas, Crianca,Drogas)
@@ -58,9 +58,9 @@ namespace appRepubliquei.Infra.Data.Queries
         public const string ObterUltimoRegistroInseridoEnderecoImovel = @"SELECT TOP 1 * FROM endereco_imovel ORDER BY ID DESC;";
         public const string ObterUltimoRegistroInseridoRegraImovel = @"SELECT TOP 1 * FROM regra_imovel ORDER BY ID DESC;";
 
-        public const string ObterImovel = @"SELECT * FROM imovel";
+        public const string ObterImovel = @"SELECT * FROM IMOVEL";
 
-        public const string ObterImovelPorId = @"SELECT * FROM imovel WHERE ID = @IdImovel";
+        public const string ObterImovelPorId = @"SELECT * FROM IMOVEL WHERE ID = @IdImovel";
 
         public const string VerificarExisteEmailSenha = @"SELECT TOP 1 u.ID,Nome, Sobrenome, Senha, Email
                                                             FROM Usuario u

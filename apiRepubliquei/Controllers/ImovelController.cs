@@ -5,6 +5,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace apiRepubliquei.Controllers
@@ -39,7 +40,7 @@ namespace apiRepubliquei.Controllers
             try
             {
                 var result = await _mediator.Send(command);
-                return Ok(new Retorno<Imovel>(string.Empty, result));
+                return Ok(new Retorno<IEnumerable<Imovel>>(string.Empty, result));
             }
             catch (Exception e)
             {
