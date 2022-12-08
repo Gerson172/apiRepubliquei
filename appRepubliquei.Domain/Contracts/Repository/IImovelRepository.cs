@@ -21,5 +21,6 @@ namespace appRepubliquei.Domain.Contracts.Repository
             int caracteristicaImovel, int enderecoImovel, int regraImovel, int idUsuario, string nomeImovel);
         Task<IEnumerable<vwImovel>> ObterImovel();
         Task<vwImovel> ObterImovelPorId(string idImovel);
+        Task DeletarImovelPorId(int idImovel);
     }
 }

@@ -144,5 +144,8 @@ namespace appRepubliquei.Infra.Data.Queries
                                                             INNER JOIN contato c ON (u.IdContato = c.ID)
                                                         WHERE c.Email = @Email
                                                            OR u.CPF = @Cpf";
-    }
+
+		public const string DeletarImovelPorId = @"DELETE FROM IMOVEL WHERE ID = @IdImovel";
+
+	}
 }

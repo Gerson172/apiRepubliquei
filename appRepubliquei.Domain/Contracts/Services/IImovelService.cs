@@ -13,5 +13,6 @@ namespace appRepubliquei.Domain.Contracts.Services
         Task<RetornoSimples> CadastrarImovel(InserirImovelCommand request);
         Task<IEnumerable<vwImovel>> ObterImovel();
         Task<vwImovel> ObterImovelPorId(string idImovel);
+        Task<RetornoSimples> DeletarImovelPorId(int idImovel);
     }
 }

@@ -61,6 +61,20 @@ namespace apiRepubliquei.Controllers
                 return BadRequest(new Retorno<Imovel>(e.Message, null));
             }
         }
+
+        [HttpDelete("DeletarImovelPorId")]
+        public async Task<IActionResult> DeletarImovelPorId([FromQuery] DeletarImovelPorIdCommand command)
+        {
+            try
+            {
+                var result = await _mediator.Send(command);
+                return Ok(new Retorno<RetornoSimples>(string.Empty, result));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new Retorno<Imovel>(e.Message, null));
+            }
+        }
     }
 }
 

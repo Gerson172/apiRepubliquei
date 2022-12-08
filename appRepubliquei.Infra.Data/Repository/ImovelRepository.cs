@@ -114,5 +114,12 @@ namespace appRepubliquei.Infra.Data.Repository
             });
 
         }
+        public async Task DeletarImovelPorId(int idImovel)
+        {
+            await _connection.ExecuteAsync(Queries.Queries.DeletarImovelPorId, new
+            {
+                IdImovel = idImovel
+            });
+        }
     }
 }

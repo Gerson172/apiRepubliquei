@@ -54,6 +54,21 @@ namespace appRepubliquei.Domain.Services
             }
         }
 
+        public async Task<RetornoSimples> DeletarImovelPorId(int idImovel)
+        {
+            try
+            {
+                await _imovelRepository.DeletarImovelPorId(idImovel);
+
+                return new RetornoSimples(true, "Imovel deletado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Falha ao deletar Imóvel: " + ex);
+            }
+           
+        }
+
         public async Task<IEnumerable<vwImovel>> ObterImovel()
         {
             try
