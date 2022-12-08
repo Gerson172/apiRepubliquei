@@ -43,8 +43,8 @@ namespace appRepubliquei.Domain.Services
 
                 await _imovelRepository.InserirImovel(request.Midia, request.CapacidadePessoas, request.Valor, request.Descricao,
                     request.PossuiAcessibilidade, request.PossuiGaragem, request.PossuiAcademia, request.PossuiMobilia, 
-                    request.PossuiAreaLazer, request.PossuiPiscina, request.QuantidadeBanheiros, request.QuantidadeComodo, 
-                    request.QuantidadeQuartos, caracteristicaImovel.ID, enderecoImovel.ID, regraImovel.ID, request.IdUsuario, request.NomeImovel);
+                    request.PossuiAreaLazer, request.PossuiPiscina, request.QtdBanheiros, request.QuantidadeComodo, 
+                    request.QtdQuartos, caracteristicaImovel.ID, enderecoImovel.ID, regraImovel.ID, request.IdUsuario, request.NomeImovel);
 
                 return new RetornoSimples(true, "Imovel Cadastrado com sucesso!");
             }
