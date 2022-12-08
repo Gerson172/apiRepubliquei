@@ -27,12 +27,12 @@ namespace appRepubliquei.Domain.Entidades
         //public int Telefone { get; set; }
         //public string Email { get; set; }
         public int CEP { get; set; }
-        public string Cidade { get; set; }
+        public string Localidade { get; set; }
         public string Bairro { get; set; }
         public string Logradouro { get; set; }
         public int Numero { get; set; }
         public string Complemento { get; set; }
-        public string Estado { get; set; }
+        public string Uf { get; set; }
         public bool Fumante { get; set; }
         public bool Animal { get; set; }
         public bool Alcool { get; set; }
