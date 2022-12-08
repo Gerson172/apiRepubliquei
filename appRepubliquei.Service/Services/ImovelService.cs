@@ -29,9 +29,9 @@ namespace appRepubliquei.Domain.Services
                                                                 request.CaracteristicaImovel.TipoQuarto,
                                                                 request.CaracteristicaImovel.TipoSexo);
 
-                await _imovelRepository.InserirEnderecoImovel(request.EnderecoImovel.CEP, request.EnderecoImovel.Cidade, 
+                await _imovelRepository.InserirEnderecoImovel(request.EnderecoImovel.CEP, request.EnderecoImovel.Localidade, 
                                                                 request.EnderecoImovel.Bairro,request.EnderecoImovel.Logradouro,
-                                                                request.EnderecoImovel.Numero, request.EnderecoImovel.Complemento, request.EnderecoImovel.Estado);
+                                                                request.EnderecoImovel.Numero, request.EnderecoImovel.Complemento, request.EnderecoImovel.Uf);
 
                 await _imovelRepository.InserirRegraImovel(request.RegraImovel.Fumante, request.RegraImovel.Animal,
                     request.RegraImovel.Alcool, request.RegraImovel.Visitas, request.RegraImovel.Crianca,

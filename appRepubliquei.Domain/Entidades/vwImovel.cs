@@ -18,8 +18,8 @@ namespace appRepubliquei.Domain.Entidades
         public bool PossuiAcessibilidade { get; set; }
         public bool PossuiPiscina { get; set; }
         public bool PossuiMobilia { get; set; }
-        public int QtdBanheiros { get; set; }
-        public int QtdQuartos { get; set; }
+        public int QuantidadeBanheiros { get; set; }
+        public int QuantidadeQuartos { get; set; }
         public int IdUsuario { get; set; }
         public string Nome { get; set; }
         public string SobreNome { get; set; }
