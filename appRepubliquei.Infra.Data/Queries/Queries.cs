@@ -51,7 +51,7 @@ namespace appRepubliquei.Infra.Data.Queries
         public const string InserirRegraImovel = @"INSERT INTO regra_imovel(Fumante,Animal,Alcool, Visitas, Crianca,Drogas)
                                                         VALUES(@Fumante, @Animal, @Alcool, @Visitas, @Crianca, @Drogas)";
 
-        public const string InserirImovel = @"INSERT INTO imovel(Midia,CapacidadePessoas,Valor, Descricao, PossuiGaragem,PossuiAcessibilidade,IdRegraImovel,IdCaracteristicaImovel, IdEnderecoImovel,IdUsuario, PossuiAcademia, PossuiPiscina, PossuiMobilia, PossuiAreaLazer,QtdBanheiros,QtdQuartos, NomeImovel)
+        public const string InserirImovel = @"INSERT INTO imovel(Midia,CapacidadePessoas,Valor, Descricao, PossuiGaragem,PossuiAcessibilidade,IdRegraImovel,IdCaracteristicaImovel, IdEnderecoImovel,IdUsuario, PossuiAcademia, PossuiPiscina, PossuiMobilia, PossuiAreaLazer,QuantidadeBanheiros,QuantidadeQuartos, NomeImovel)
                                                          VALUES(@Midia, @CapacidadePessoas, @Valor, @Descricao, @PossuiGaragem, @PossuiAcessibilidade,@RegraImovel, @CaracteristicaImovel, @EnderecoImovel, @IdUsuarioProprietario, @PossuiAcademia,@PossuiPiscina, @PossuiMobilia, @PossuiAreaLazer,@QuantidadeBanheiros, @QuantidadeQuartos, @NomeImovel)";
 
         public const string ObterUltimoRegistroInseridoCaracteristicaImovel = @"SELECT TOP 1 * FROM caracteristica_imovel ORDER BY ID DESC;";
@@ -59,44 +59,44 @@ namespace appRepubliquei.Infra.Data.Queries
         public const string ObterUltimoRegistroInseridoRegraImovel = @"SELECT TOP 1 * FROM regra_imovel WITH (NOLOCK) ORDER BY ID DESC;";
 
         public const string ObterImovel = @"SELECT 
-											i.ID IdImovel,
-											i.Midia, 
-											i.NomeImovel,
-											i.CapacidadePessoas,
-											i.Valor,
-											i.Descricao,
-											i.PossuiGaragem,
-											i.PossuiAcessibilidade,
-											i.PossuiAcademia,
-											i.PossuiPiscina,
-											i.PossuiMobilia,
-											i.PossuiAreaLazer,
-											i.QtdBanheiros,
-											i.QtdQuartos,
-											u.ID IdUsuario,
-											u.Nome,
-											u.Sobrenome,
-											ei.CEP,
-											ei.Cidade,
-											ei.Bairro,
-											ei.Logradouro,
-											ei.Numero,
-											ei.Complemento,
-											ei.Estado,
-											ri.Fumante,
-											ri.Animal,
-											ri.Alcool,
-											ri.Visitas,
-											ri.Crianca,
-											ri.Drogas,
-											ci.TipoImovel,
-											ci.TipoSexo,
-											ci.TipoQuarto
-										FROM IMOVEL i WITH (NOLOCK)
-										INNER JOIN USUARIO u ON (i.IdUsuario = u.ID)
-										INNER JOIN ENDERECO_IMOVEL ei ON(i.IdEnderecoImovel = ei.ID)
-										INNER JOIN REGRA_IMOVEL ri ON(i.IdRegraImovel = ri.ID)
-										INNER JOIN CARACTERISTICA_IMOVEL ci ON (i.IdCaracteristicaImovel = ci.ID)";
+												i.ID IdImovel,
+												i.Midia, 
+												i.NomeImovel,
+												i.CapacidadePessoas,
+												i.Valor,
+												i.Descricao,
+												i.PossuiGaragem,
+												i.PossuiAcessibilidade,
+												i.PossuiAcademia,
+												i.PossuiPiscina,
+												i.PossuiMobilia,
+												i.PossuiAreaLazer,
+												i.QtdBanheiros,
+												i.QtdQuartos,
+												u.ID IdUsuario,
+												u.Nome,
+												u.Sobrenome,
+												ei.CEP,
+												ei.Cidade,
+												ei.Bairro,
+												ei.Logradouro,
+												ei.Numero,
+												ei.Complemento,
+												ei.Estado,
+												ri.Fumante,
+												ri.Animal,
+												ri.Alcool,
+												ri.Visitas,
+												ri.Crianca,
+												ri.Drogas,
+												ci.TipoImovel,
+												ci.TipoSexo,
+												ci.TipoQuarto
+												FROM IMOVEL i WITH (NOLOCK)
+												INNER JOIN USUARIO u ON (i.IdUsuario = u.ID)
+												INNER JOIN ENDERECO_IMOVEL ei ON(i.IdEnderecoImovel = ei.ID)
+												INNER JOIN REGRA_IMOVEL ri ON(i.IdRegraImovel = ri.ID)
+												INNER JOIN CARACTERISTICA_IMOVEL ci ON (i.IdCaracteristicaImovel = ci.ID)";
 
         public const string ObterImovelPorId = @"SELECT 
 													i.ID IdImovel,
@@ -111,8 +111,8 @@ namespace appRepubliquei.Infra.Data.Queries
 													i.PossuiPiscina,
 													i.PossuiMobilia,
 													i.PossuiAreaLazer,
-													i.QtdBanheiros,
-													i.QtdQuartos,
+													i.QuantidadeBanheiros,
+													i.QuantidadeQuartos,
 													u.ID IdUsuario,
 													u.Nome,
 													u.Sobrenome,
