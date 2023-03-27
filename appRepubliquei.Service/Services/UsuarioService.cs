@@ -1,13 +1,9 @@
-﻿using appRepubliquei.Domain.Commands;
+﻿using appRepubliquei.Domain.Commands.UsuarioCommand;
 using appRepubliquei.Domain.Contracts.Repository;
 using appRepubliquei.Domain.Contracts.Services;
 using appRepubliquei.Domain.Entidades;
-using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace appRepubliquei.Domain.Services

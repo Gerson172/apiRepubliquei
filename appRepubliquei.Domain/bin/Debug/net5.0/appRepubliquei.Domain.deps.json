@@ -12,7 +12,8 @@
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "5.0.0",
           "Microsoft.EntityFrameworkCore.Design": "5.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.0",
-          "Microsoft.EntityFrameworkCore.Tools": "5.0.0"
+          "Microsoft.EntityFrameworkCore.Tools": "5.0.0",
+          "System.IdentityModel.Tokens.Jwt": "5.6.0"
         },
         "runtime": {
           "appRepubliquei.Domain.dll": {}

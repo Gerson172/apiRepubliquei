@@ -126,5 +126,46 @@ namespace appRepubliquei.Infra.Data.Repository
                     Cpf = cpf
                 });
         }
+
+        public async Task<vwExisteUsuario> VerificarExistenciaLogin(string email, string senha)
+        {
+            try
+            {
+                var value = await _connection.QueryFirstOrDefaultAsync<ExisteUsuarioInternal>(Queries.Queries.VerificarExisteEmailSenha,
+                                new
+                                {
+                                    Email = email,
+                                    Senha = senha
+                                });
+
+                if(value != null)
+                {
+                    return new vwExisteUsuario
+                    {
+                        Mensagem = "Usuario encontrado!",
+                        Sucesso = true,
+                        ExisteUsuario = value
+                    };
+                }
+                return new vwExisteUsuario
+                {
+                    Mensagem = "Usuario ou senha incorreta.",
+                    Sucesso = false,
+                    Autheiticated = false,
+                    ExisteUsuario = null
+                };
+            }
+            catch (Exception ex)
+            {
+                return new vwExisteUsuario
+                {
+                    Mensagem = "Erro ao consultar Usuario: " + ex,
+                    Sucesso = false,
+                    Autheiticated = false,
+                    ExisteUsuario = null
+                };
+            }
+            
+        }
     }
 }

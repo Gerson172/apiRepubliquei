@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace appRepubliquei.Domain.Commands
+namespace appRepubliquei.Domain.Commands.ImovelCommand
 {
-    public class ObterUsuarioPorIdCommand : IRequest<Usuario>
+    public class DeletarImovelPorIdCommand : IRequest<RetornoSimples>
     {
-        public int IdUsuario { get; set; }
+        public int IdImovel { get; set; }
     }
 }

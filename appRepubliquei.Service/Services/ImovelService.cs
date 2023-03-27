@@ -1,13 +1,9 @@
-﻿using appRepubliquei.Domain.Commands;
+﻿using appRepubliquei.Domain.Commands.ImovelCommand;
 using appRepubliquei.Domain.Contracts.Repository;
 using appRepubliquei.Domain.Contracts.Services;
 using appRepubliquei.Domain.Entidades;
-using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace appRepubliquei.Domain.Services
@@ -20,7 +16,6 @@ namespace appRepubliquei.Domain.Services
         {
             _imovelRepository = imovelRepository;
         }
-
         public async Task<RetornoSimples> CadastrarImovel(InserirImovelCommand request)
         {
             try
@@ -102,5 +97,10 @@ namespace appRepubliquei.Domain.Services
                 throw new Exception("Falha ao Obter Imóvel: " + ex);
             }
         }
+        public Task<RetornoSimples> AtualizarImovel(int idImovel)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

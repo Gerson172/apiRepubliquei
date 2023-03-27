@@ -21,5 +21,6 @@ namespace appRepubliquei.Domain.Contracts.Repository
         Task<IEnumerable<vwUsuarioContato>> ObterUsuarioContato();
         Task<vwUsuarioContato> ObterUsuarioContatoPorId(int idUsuario);
         bool CheckEmailESenha(string email, string cpf);
+        Task<vwExisteUsuario> VerificarExistenciaLogin(string email, string senha);
     }
 }

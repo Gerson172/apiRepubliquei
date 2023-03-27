@@ -143,7 +143,9 @@ namespace appRepubliquei.Infra.Data.Queries
                                                             FROM Usuario u WITH (NOLOCK)
                                                             INNER JOIN contato c ON (u.IdContato = c.ID)
                                                         WHERE c.Email = @Email
-                                                           OR u.CPF = @Cpf";
+													      AND Senha = @Senha";
+
+
 
 		public const string DeletarImovelPorId = @"DELETE FROM IMOVEL WHERE ID = @IdImovel";
 

@@ -6,7 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace appRepubliquei.Domain.Commands
+namespace appRepubliquei.Domain.Commands.ImovelCommand
 {
-    public class ObterUsuarioCommand : IRequest<IEnumerable<Usuario>>{}
+    public class AtualizarImovelCommand : IRequest<RetornoSimples>
+    {
+        public int ID { get; set; }
+    }
 }

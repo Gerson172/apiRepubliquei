@@ -1,12 +1,9 @@
 ﻿using appRepubliquei.Domain;
-using appRepubliquei.Domain.Commands;
+using appRepubliquei.Domain.Commands.UsuarioCommand;
 using appRepubliquei.Domain.Contracts.Services;
 using appRepubliquei.Domain.Entidades;
 using MediatR;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

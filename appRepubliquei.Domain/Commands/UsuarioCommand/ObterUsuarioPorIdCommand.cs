@@ -6,7 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace appRepubliquei.Domain.Commands
+namespace appRepubliquei.Domain.Commands.UsuarioCommand
 {
-    public class ObterUsuarioContatoCommand : IRequest<IEnumerable<vwUsuarioContato>> { }
+    public class ObterUsuarioPorIdCommand : IRequest<Usuario>
+    {
+        public int IdUsuario { get; set; }
+    }
 }

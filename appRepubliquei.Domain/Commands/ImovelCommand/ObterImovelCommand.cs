@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace appRepubliquei.Domain.Commands
+namespace appRepubliquei.Domain.Commands.ImovelCommand
 {
-    public class ObterImovelCommand : IRequest<IEnumerable<vwImovel>> {}
+    public class ObterImovelCommand : IRequest<IEnumerable<vwImovel>> { }
 }

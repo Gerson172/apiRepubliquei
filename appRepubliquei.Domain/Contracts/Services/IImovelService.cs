@@ -1,9 +1,6 @@
-﻿using appRepubliquei.Domain.Commands;
+﻿using appRepubliquei.Domain.Commands.ImovelCommand;
 using appRepubliquei.Domain.Entidades;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace appRepubliquei.Domain.Contracts.Services
@@ -14,5 +11,6 @@ namespace appRepubliquei.Domain.Contracts.Services
         Task<IEnumerable<vwImovel>> ObterImovel();
         Task<vwImovel> ObterImovelPorId(string idImovel);
         Task<RetornoSimples> DeletarImovelPorId(int idImovel);
+        Task<RetornoSimples> AtualizarImovel(int idImovel);
     }
 }

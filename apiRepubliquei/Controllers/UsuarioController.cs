@@ -1,8 +1,8 @@
 ﻿using appRepubliquei.Domain;
-using appRepubliquei.Domain.Commands;
+using appRepubliquei.Domain.Commands.UsuarioCommand;
 using appRepubliquei.Domain.Entidades;
 using MediatR;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -34,6 +34,7 @@ namespace apiRepubliquei.Controllers
 
             }
         }
+
 
         [HttpGet("ObterUsuarioPorId")]
         public async Task<IActionResult> ObterUsuarioPorId([FromQuery] ObterUsuarioPorIdCommand command)
@@ -96,6 +97,7 @@ namespace apiRepubliquei.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpPut("AtualizarUsuario")]
         public async Task<IActionResult> AtualizarUsuario([FromBody] AtualizarUsuarioCommand command)
         {

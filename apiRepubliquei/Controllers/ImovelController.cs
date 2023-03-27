@@ -1,8 +1,8 @@
 ﻿using appRepubliquei.Domain;
-using appRepubliquei.Domain.Commands;
+using appRepubliquei.Domain.Commands.ImovelCommand;
 using appRepubliquei.Domain.Entidades;
 using MediatR;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,6 +20,8 @@ namespace apiRepubliquei.Controllers
         {
             _mediator = mediator;
         }
+
+        [Authorize("Bearer")]
         [HttpPost("InserirImovel")]
         public async Task<IActionResult> InserirImovel([FromBody] InserirImovelCommand command)
         {
@@ -62,8 +64,24 @@ namespace apiRepubliquei.Controllers
             }
         }
 
+        [Authorize("Bearer")]
         [HttpDelete("DeletarImovelPorId")]
         public async Task<IActionResult> DeletarImovelPorId([FromQuery] DeletarImovelPorIdCommand command)
+        {
+            try
+            {
+                var result = await _mediator.Send(command);
+                return Ok(new Retorno<RetornoSimples>(string.Empty, result));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new Retorno<Imovel>(e.Message, null));
+            }
+        }
+
+        [Authorize("Bearer")]
+        [HttpDelete("AtualizarImovel")]
+        public async Task<IActionResult> AtualizarImovel([FromQuery] AtualizarImovelCommand command)
         {
             try
             {
