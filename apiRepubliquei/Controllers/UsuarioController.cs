@@ -97,7 +97,6 @@ namespace apiRepubliquei.Controllers
             }
         }
 
-        [Authorize("Bearer")]
         [HttpPut("AtualizarUsuario")]
         public async Task<IActionResult> AtualizarUsuario([FromBody] AtualizarUsuarioCommand command)
         {

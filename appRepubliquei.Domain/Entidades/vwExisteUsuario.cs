@@ -14,6 +14,8 @@ namespace appRepubliquei.Domain.Entidades
         public string Created { get; set; }
         public string Expiration { get; set; }
         public string AcessToken { get; set; }
+        public string UserName { get; set; }
+        public string Name { get; set; }
         public ExisteUsuarioInternal ExisteUsuario { get; set; }
     }
     public class ExisteUsuarioInternal

@@ -60,9 +60,9 @@ namespace appRepubliquei.Service.Services
                         DateTime expirationDate = createDate + TimeSpan.FromSeconds(_tokenConfigurations.Seconds);
 
                         var handler = new JwtSecurityTokenHandler();
-                        string tokem = CreateToken(identity, createDate, expirationDate, handler);
+                        string token = CreateToken(identity, createDate, expirationDate, handler);
 
-                        return SuccessObject(createDate, expirationDate, tokem, retorno.ExisteUsuario);
+                        return SuccessObject(createDate, expirationDate, token, retorno.ExisteUsuario);
                     }
                 }
                 return new vwExisteUsuario
@@ -109,7 +109,8 @@ namespace appRepubliquei.Service.Services
                 Created = createDate.ToString("yyyy-MM-dd HH:mm:ss"),
                 Expiration = expirationDate.ToString("yyyy-MM-dd HH:mm:ss"),
                 AcessToken = token,
-                ExisteUsuario = user,
+                UserName = user.Email,
+                Name = user.Nome,
                 Mensagem = "Usuario Logado com sucesso",
                 Sucesso = true
             };

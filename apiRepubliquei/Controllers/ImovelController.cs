@@ -21,7 +21,6 @@ namespace apiRepubliquei.Controllers
             _mediator = mediator;
         }
 
-        [Authorize("Bearer")]
         [HttpPost("InserirImovel")]
         public async Task<IActionResult> InserirImovel([FromBody] InserirImovelCommand command)
         {
@@ -64,7 +63,6 @@ namespace apiRepubliquei.Controllers
             }
         }
 
-        [Authorize("Bearer")]
         [HttpDelete("DeletarImovelPorId")]
         public async Task<IActionResult> DeletarImovelPorId([FromQuery] DeletarImovelPorIdCommand command)
         {
@@ -79,7 +77,6 @@ namespace apiRepubliquei.Controllers
             }
         }
 
-        [Authorize("Bearer")]
         [HttpDelete("AtualizarImovel")]
         public async Task<IActionResult> AtualizarImovel([FromQuery] AtualizarImovelCommand command)
         {
