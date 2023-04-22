@@ -112,7 +112,8 @@ namespace appRepubliquei.Service.Services
                 UserName = user.Email,
                 Name = user.Nome,
                 Mensagem = "Usuario Logado com sucesso",
-                Sucesso = true
+                Sucesso = true,
+                ExisteUsuario = user
             };
         }
     }
