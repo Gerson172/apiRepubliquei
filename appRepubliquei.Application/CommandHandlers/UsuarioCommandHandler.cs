@@ -13,8 +13,9 @@ namespace appRepubliquei.Application.CommandHandlers
                                          IRequestHandler<CadastrarUsuarioCommand, RetornoSimples>,
                                          IRequestHandler<ObterUsuarioCommand, IEnumerable<Usuario>>,
                                          IRequestHandler<ObterUsuarioContatoCommand, IEnumerable<vwUsuarioContato>>,
-                                         IRequestHandler<ObterUsuarioContatoPorIdCommand, vwUsuarioContato>//,
+                                         IRequestHandler<ObterUsuarioContatoPorIdCommand, vwUsuarioContato>,
                                          //IRequestHandler<AtualizarUsuarioCommand, RetornoSimples>
+                                         IRequestHandler<ExcluirUsuarioPorIdCommand, RetornoSimples>
     {
         private readonly IUsuarioService _usuarioService;
         public UsuarioCommandHandler(IUsuarioService usuarioService)
@@ -41,6 +42,12 @@ namespace appRepubliquei.Application.CommandHandlers
         {
             return await _usuarioService.ObterUsuarioContatoPorId(request);
         }
+
+        public async Task<RetornoSimples> Handle(ExcluirUsuarioPorIdCommand request, CancellationToken cancellationToken)
+        {
+            return await _usuarioService.ExcluirUsuarioPorId(request);
+        }
+
         //public async Task<RetornoSimples> Handle(AtualizarUsuarioCommand request, CancellationToken cancellationToken)
         //{
         //    return await _usuarioService.AtualizarUsuario(request);

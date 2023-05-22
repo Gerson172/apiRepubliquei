@@ -12,6 +12,7 @@ namespace appRepubliquei.Domain.Contracts.Services
         Task<IEnumerable<Usuario>> ObterUsuario(ObterUsuarioCommand request);
         Task<IEnumerable<vwUsuarioContato>> ObterUsuarioContato(ObterUsuarioContatoCommand request);
         Task<vwUsuarioContato> ObterUsuarioContatoPorId(ObterUsuarioContatoPorIdCommand request);
+        Task<RetornoSimples> ExcluirUsuarioPorId(ExcluirUsuarioPorIdCommand request);
 
         //Task<RetornoSimples> AtualizarUsuario(AtualizarUsuarioCommand request);
     }

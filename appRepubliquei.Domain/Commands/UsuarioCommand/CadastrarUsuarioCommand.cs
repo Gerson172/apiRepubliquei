@@ -17,6 +17,7 @@ namespace appRepubliquei.Domain.Commands.UsuarioCommand
         public string EstadoCivil { get; set; }
         public DateTime DataNascimento { get; set; }
         public bool CheckProprietario { get; set; }
+        public bool CheckTermos { get; set; }
         public Contato Contato { get; set; }
         public EnderecoUsuario EnderecoUsuario { get; set; }
         public CaracteristicaUsuario CaracteristicaUsuario { get; set; }

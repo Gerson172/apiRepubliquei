@@ -63,6 +63,20 @@ namespace apiRepubliquei.Controllers
             }
         }
 
+        [HttpGet("ObterImovelPorUsuarioId")]
+        public async Task<IActionResult> ObterImovelPorUsuarioId([FromQuery] ObterImovelPorUsuarioIdCommand command)
+        {
+            try
+            {
+                var result = await _mediator.Send(command);
+                return Ok(new Retorno<IEnumerable<vwImovel>>(string.Empty, result));
+            }
+            catch (Exception e)
+            { 
+                return BadRequest(new Retorno<Imovel>(e.Message, null));
+            }
+        }
+
         [HttpDelete("DeletarImovelPorId")]
         public async Task<IActionResult> DeletarImovelPorId([FromQuery] DeletarImovelPorIdCommand command)
         {

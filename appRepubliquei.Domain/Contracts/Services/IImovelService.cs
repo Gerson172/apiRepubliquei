@@ -12,5 +12,6 @@ namespace appRepubliquei.Domain.Contracts.Services
         Task<vwImovel> ObterImovelPorId(string idImovel);
         Task<RetornoSimples> DeletarImovelPorId(int idImovel);
         Task<RetornoSimples> AtualizarImovel(int idImovel);
+        Task<IEnumerable<vwImovel>> ObterImovelPorUsuarioId (int idUsuario);
     }
 }

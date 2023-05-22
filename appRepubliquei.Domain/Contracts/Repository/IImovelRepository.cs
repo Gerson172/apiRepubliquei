@@ -18,9 +18,11 @@ namespace appRepubliquei.Domain.Contracts.Repository
         Task InserirImovel(string midia, int capacidadePessoas, decimal valor, string descricao, bool possuiAcessibilidade, 
             bool possuiGaragem, bool possuiAcademia, bool possuiMobilia, bool possuiAreaLazer, bool possuiPiscina, 
             int quantidadeBanheiros, int quantidadeComodo, int quantidadeQuartos, 
-            int caracteristicaImovel, int enderecoImovel, int regraImovel, int idUsuario, string nomeImovel);
+            int caracteristicaImovel, int enderecoImovel, int regraImovel, int idUsuario, string nomeImovel, 
+            bool verificado, string universidadeProxima);
         Task<IEnumerable<vwImovel>> ObterImovel();
         Task<vwImovel> ObterImovelPorId(string idImovel);
         Task DeletarImovelPorId(int idImovel);
+        Task<IEnumerable<vwImovel>> ObterImovelPorUsuarioId(int idUsuario);
     }
 }

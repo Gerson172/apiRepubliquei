@@ -58,8 +58,11 @@ namespace appRepubliquei.Infra.Data.Repository
                 });
         }
         public async Task InserirImovel(string midia, int capacidadePessoas, decimal valor, string descricao,
-            bool possuiAcessibilidade, bool possuiGaragem, bool possuiAcademia, bool possuiMobilia, bool possuiAreaLazer,
-            bool possuiPiscina, int quantidadeBanheiros, int quantidadeComodo, int quantidadeQuartos, int caracteristicaImovel, int enderecoImovel, int regraImovel, int idUsuario, string nomeImovel)
+                                        bool possuiAcessibilidade, bool possuiGaragem, bool possuiAcademia, 
+                                        bool possuiMobilia, bool possuiAreaLazer,bool possuiPiscina,
+                                        int quantidadeBanheiros, int quantidadeComodo, int quantidadeQuartos,
+                                        int caracteristicaImovel, int enderecoImovel, int regraImovel,
+                                        int idUsuario, string nomeImovel,bool verificado, string universidadeProxima)
         {
             await _connection.ExecuteAsync(Queries.Queries.InserirImovel,
                 new
@@ -81,7 +84,9 @@ namespace appRepubliquei.Infra.Data.Repository
                      EnderecoImovel = enderecoImovel,
                      RegraImovel = regraImovel,
                      IdUsuarioProprietario = idUsuario,
-                     NomeImovel = nomeImovel
+                     NomeImovel = nomeImovel,
+                     Verificado = verificado,
+                     UniversidadeProxima = universidadeProxima
                 });
         }
 
@@ -119,6 +124,14 @@ namespace appRepubliquei.Infra.Data.Repository
             await _connection.ExecuteAsync(Queries.Queries.DeletarImovelPorId, new
             {
                 IdImovel = idImovel
+            });
+        }
+
+        public async Task<IEnumerable<vwImovel>> ObterImovelPorUsuarioId(int idUsuario)
+        {
+            return await _connection.QueryAsync<vwImovel>(Queries.Queries.ObterImovelPorUsuarioId, new
+            {
+                IdUsuario = idUsuario
             });
         }
     }

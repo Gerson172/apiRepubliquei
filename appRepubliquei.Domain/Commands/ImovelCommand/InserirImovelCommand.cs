@@ -28,6 +28,8 @@ namespace appRepubliquei.Domain.Commands.ImovelCommand
         public CaracteristicaImovel CaracteristicaImovel { get; set; }
         public EnderecoImovel EnderecoImovel { get; set; }
         public int IdUsuario { get; set; }
+        public bool Verificado { get; set; }
+        public string UniversidadeProxima { get; set; }
 
     }
 }

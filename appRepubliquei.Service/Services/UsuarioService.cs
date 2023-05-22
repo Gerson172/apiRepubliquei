@@ -87,7 +87,7 @@ namespace appRepubliquei.Domain.Services
                 //request.Senha = hashed;
                 //#endregion
 
-                var result = _usuarioRepository.CheckEmailESenha(request.Contato.Email, request.CPF);
+                var result = _usuarioRepository.VerificarEmailCpf(request.Contato.Email, request.CPF);
                 if (result)
                 {
                     return new RetornoSimples(false, "Já possui Email ou CPF cadastrado com esse usuário.");
@@ -106,7 +106,7 @@ namespace appRepubliquei.Domain.Services
                 var CaracteristicaUsuario = await _usuarioRepository.ObterUltimoRegistroInseridoCaracteristicaUsuario();
 
                 await _usuarioRepository.InserirUsuario(request.Nome, request.Sobrenome, request.Senha, request.CPF, request.EstadoCivil,
-                    request.DataNascimento, request.CheckProprietario, EnderecoUsuario.ID, ContatoUsuario.ID, CaracteristicaUsuario.ID);
+                    request.DataNascimento, request.CheckProprietario,request.CheckTermos, EnderecoUsuario.ID, ContatoUsuario.ID, CaracteristicaUsuario.ID);
 
                 return new RetornoSimples(true, "Usuario cadastrado com sucesso!");
             }
@@ -117,7 +117,21 @@ namespace appRepubliquei.Domain.Services
             
         }
 
-        
+        public async Task<RetornoSimples> ExcluirUsuarioPorId(ExcluirUsuarioPorIdCommand request)
+        {
+            try
+            {
+                await _usuarioRepository.ExcluirUsuarioPorId(request.IdUsuario);
+
+                return new RetornoSimples(true, "Usuario excluido com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Falha ao excluir usuario: " + ex);
+            }
+        }
+
+
 
         //public async Task<RetornoSimples> AtualizarUsuario(AtualizarUsuarioCommand request)
         //{

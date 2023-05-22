@@ -13,7 +13,8 @@ namespace appRepubliquei.Application.CommandHandlers
                                         IRequestHandler<ObterImovelCommand, IEnumerable<vwImovel>>,
                                         IRequestHandler<ObterImovelPorIdCommand, vwImovel>,
                                         IRequestHandler<DeletarImovelPorIdCommand, RetornoSimples>,
-                                        IRequestHandler<AtualizarImovelCommand, RetornoSimples>
+                                        IRequestHandler<AtualizarImovelCommand, RetornoSimples>,
+                                        IRequestHandler<ObterImovelPorUsuarioIdCommand, IEnumerable<vwImovel>>
     {
         private readonly IImovelService _imovelService;
         public ImovelCommandHandler(IImovelService imovelService)
@@ -42,6 +43,11 @@ namespace appRepubliquei.Application.CommandHandlers
         public async Task<RetornoSimples> Handle(AtualizarImovelCommand request, CancellationToken cancellationToken)
         {
             return await _imovelService.AtualizarImovel(request.ID);
+        }
+
+        public async Task<IEnumerable<vwImovel>> Handle(ObterImovelPorUsuarioIdCommand request, CancellationToken cancellationToken)
+        {
+            return await _imovelService.ObterImovelPorUsuarioId(request.IdUsuario);
         }
     }
 }

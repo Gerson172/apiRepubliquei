@@ -39,7 +39,8 @@ namespace appRepubliquei.Domain.Services
                 await _imovelRepository.InserirImovel(request.Midia, request.CapacidadePessoas, request.Valor, request.Descricao,
                     request.PossuiAcessibilidade, request.PossuiGaragem, request.PossuiAcademia, request.PossuiMobilia, 
                     request.PossuiAreaLazer, request.PossuiPiscina, request.QuantidadeBanheiros, request.QuantidadeComodo, 
-                    request.QuantidadeQuartos, caracteristicaImovel.ID, enderecoImovel.ID, regraImovel.ID, request.IdUsuario, request.NomeImovel);
+                    request.QuantidadeQuartos, caracteristicaImovel.ID, enderecoImovel.ID, regraImovel.ID, request.IdUsuario, request.NomeImovel,
+                    request.Verificado, request.UniversidadeProxima);
 
                 return new RetornoSimples(true, "Imovel Cadastrado com sucesso!");
             }
@@ -102,5 +103,21 @@ namespace appRepubliquei.Domain.Services
             throw new NotImplementedException();
         }
 
+        public async Task<IEnumerable<vwImovel>> ObterImovelPorUsuarioId(int idUsuario)
+        {
+            try
+            {
+                var dadosImovel = await _imovelRepository.ObterImovelPorUsuarioId(idUsuario);
+                if (dadosImovel == null)
+                {
+                    throw new Exception("Imovel não encontrado");
+                }
+                return dadosImovel;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Falha ao Obter Imóvel: " + ex);
+            }
+        }
     }
 }

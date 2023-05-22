@@ -42,5 +42,7 @@ namespace appRepubliquei.Domain.Entidades
         public string TipoImovel { get; set; }
         public string TipoSexo { get; set; }
         public string TipoQuarto { get; set; }
+        public bool Verificado { get; set; }
+        public string UniversidadeProxima { get; set; }
     }
 }

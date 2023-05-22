@@ -112,19 +112,19 @@ namespace apiRepubliquei.Controllers
             }
         }
 
-        //[HttpDelete("ExcluirUsuario")]
-        //public async Task<IActionResult> ExcluirUsuario([FromBody] ExcluirUsuarioCommand command)
-        //{
-        //    try
-        //    {
-        //        var result = await _mediator.Send(command);
-        //        return Ok(new Retorno<RetornoSimples>(string.Empty, result));
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return BadRequest(new Retorno<RetornoSimples>(e.Message, null));
+        [HttpDelete("ExcluirUsuarioPorId")]
+        public async Task<IActionResult> ExcluirUsuarioPorId([FromQuery] ExcluirUsuarioPorIdCommand command)
+        {
+            try
+            {
+                var result = await _mediator.Send(command);
+                return Ok(new Retorno<RetornoSimples>(string.Empty, result));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new Retorno<RetornoSimples>(e.Message, null));
 
-        //    }
-        //}
+            }
+        }
     }
 }

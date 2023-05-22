@@ -1,4 +1,5 @@
-﻿using appRepubliquei.Domain.Contracts.Repository;
+﻿using appRepubliquei.Domain;
+using appRepubliquei.Domain.Contracts.Repository;
 using appRepubliquei.Domain.Entidades;
 using appRepubliquei.Infra.Data.Contexts;
 using Dapper;
@@ -84,7 +85,7 @@ namespace appRepubliquei.Infra.Data.Repository
                 });
         }
 
-        public async Task InserirUsuario(string nome, string sobrenome, string senha, string cpf, string estadoCivil, DateTime dataNascimento, bool checkProprietario, int fkEnderecoUsuario, int fkContato, int fkCaracteristicaUsuario)
+        public async Task InserirUsuario(string nome, string sobrenome, string senha, string cpf, string estadoCivil, DateTime dataNascimento, bool checkProprietario, bool checkTermos, int fkEnderecoUsuario, int fkContato, int fkCaracteristicaUsuario)
         {
             await _connection.ExecuteAsync(Queries.Queries.InserirUsuario,
                 new
@@ -96,6 +97,7 @@ namespace appRepubliquei.Infra.Data.Repository
                     EstadoCivil = estadoCivil,
                     DataNascimento = dataNascimento,
                     CheckProprietario = checkProprietario,
+                    CheckTermos = checkTermos,
                     IdEnderecoUsuario = fkEnderecoUsuario,
                     IdContato = fkContato,
                     IdCaracteristicaUsuario = fkCaracteristicaUsuario,
@@ -117,9 +119,9 @@ namespace appRepubliquei.Infra.Data.Repository
             return await _connection.QueryFirstOrDefaultAsync<CaracteristicaUsuario>(Queries.Queries.ObterUltimoRegistroInseridoCaracteristicaUsuario);
         }
 
-        public bool CheckEmailESenha(string email, string cpf)
+        public bool VerificarEmailCpf(string email, string cpf)
         {
-            return _connection.QuerySingleOrDefault<bool>(Queries.Queries.VerificarExisteEmailSenha,
+            return _connection.QuerySingleOrDefault<bool>(Queries.Queries.VerificarEmailCpf,
                 new
                 {
                     Email = email,
@@ -166,6 +168,15 @@ namespace appRepubliquei.Infra.Data.Repository
                 };
             }
             
+        }
+
+        public async Task ExcluirUsuarioPorId(int idUsuario)
+        {
+            await _connection.ExecuteAsync(Queries.Queries.ExcluirUsuarioPorId,
+                new
+                {
+                    IdUsuario = idUsuario
+                });
         }
     }
 }

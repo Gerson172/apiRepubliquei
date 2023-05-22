@@ -23,8 +23,8 @@ namespace appRepubliquei.Infra.Data.Queries
                                                             INNER JOIN contato c ON (u.IdContato = c.ID)
                                                             WHERE u.ID = @IdUsuario";
 
-        public const string InserirUsuario = @"INSERT INTO usuario(Nome,Sobrenome,Senha,CPF,EstadoCivil, DataNascimento,CheckProprietario, IdEnderecoUsuario,IdContato,IdCaracteristicaUsuario)
-                                                                 VALUES(@Nome, @Sobrenome, @Senha, @Cpf, @EstadoCivil, @DataNascimento,@CheckProprietario,@IdEnderecoUsuario,@IdContato,@IdCaracteristicaUsuario)";
+        public const string InserirUsuario = @"INSERT INTO usuario(Nome,Sobrenome,Senha,CPF,EstadoCivil, DataNascimento,CheckProprietario, CheckTermos, IdEnderecoUsuario,IdContato,IdCaracteristicaUsuario)
+															VALUES(@Nome, @Sobrenome, @Senha, @Cpf, @EstadoCivil, @DataNascimento,@CheckProprietario,@CheckTermos, @IdEnderecoUsuario,@IdContato,@IdCaracteristicaUsuario)";
 
         public const string InserirEnderecoUsuario = @"INSERT INTO endereco_usuario(CEP,Estado,Cidade,Bairro,Logradouro,Numero,Complemento)
                                                         VALUES(@Cep,@Estado, @Cidade, @Bairro, @Logradouro, @Numero, @Complemento)";
@@ -41,8 +41,9 @@ namespace appRepubliquei.Infra.Data.Queries
 
         public const string ObterUltimoRegistroInseridoCaracteristicaUsuario = @"SELECT TOP 1 * FROM caracteristica_usuario WITH (NOLOCK) ORDER BY ID DESC;";
 
+		public const string ExcluirUsuarioPorId = @"DELETE FROM Usuario WHERE ID = @IdUsuario";
 
-        public const string InserirCaracteristicaImovel = @"INSERT INTO caracteristica_imovel(TipoImovel,TipoQuarto,TipoSexo)
+		public const string InserirCaracteristicaImovel = @"INSERT INTO caracteristica_imovel(TipoImovel,TipoQuarto,TipoSexo)
                                                                 VALUES(@TipoImovel, @TipoQuarto, @TipoSexo)";
 
         public const string InserirEnderecoImovel = @"INSERT INTO endereco_imovel(CEP,Cidade,Bairro, Logradouro, Numero,Complemento, Estado)
@@ -51,8 +52,8 @@ namespace appRepubliquei.Infra.Data.Queries
         public const string InserirRegraImovel = @"INSERT INTO regra_imovel(Fumante,Animal,Alcool, Visitas, Crianca,Drogas)
                                                         VALUES(@Fumante, @Animal, @Alcool, @Visitas, @Crianca, @Drogas)";
 
-        public const string InserirImovel = @"INSERT INTO imovel(Midia,CapacidadePessoas,Valor, Descricao, PossuiGaragem,PossuiAcessibilidade,IdRegraImovel,IdCaracteristicaImovel, IdEnderecoImovel,IdUsuario, PossuiAcademia, PossuiPiscina, PossuiMobilia, PossuiAreaLazer,QtdBanheiros,QtdQuartos, NomeImovel)
-                                                         VALUES(@Midia, @CapacidadePessoas, @Valor, @Descricao, @PossuiGaragem, @PossuiAcessibilidade,@RegraImovel, @CaracteristicaImovel, @EnderecoImovel, @IdUsuarioProprietario, @PossuiAcademia,@PossuiPiscina, @PossuiMobilia, @PossuiAreaLazer,@QuantidadeBanheiros, @QuantidadeQuartos, @NomeImovel)";
+        public const string InserirImovel = @"INSERT INTO imovel(Midia,CapacidadePessoas,Valor, Descricao, PossuiGaragem,PossuiAcessibilidade,IdRegraImovel,IdCaracteristicaImovel, IdEnderecoImovel,IdUsuario, PossuiAcademia, PossuiPiscina, PossuiMobilia, PossuiAreaLazer,QtdBanheiros,QtdQuartos, NomeImovel, Verificado, UniversidadeProxima)
+                                                         VALUES(@Midia, @CapacidadePessoas, @Valor, @Descricao, @PossuiGaragem, @PossuiAcessibilidade,@RegraImovel, @CaracteristicaImovel, @EnderecoImovel, @IdUsuarioProprietario, @PossuiAcademia,@PossuiPiscina, @PossuiMobilia, @PossuiAreaLazer,@QuantidadeBanheiros, @QuantidadeQuartos, @NomeImovel, @Verificado, @UniversidadeProxima)";
 
         public const string ObterUltimoRegistroInseridoCaracteristicaImovel = @"SELECT TOP 1 * FROM caracteristica_imovel ORDER BY ID DESC;";
         public const string ObterUltimoRegistroInseridoEnderecoImovel = @"SELECT TOP 1 * FROM endereco_imovel  WITH (NOLOCK) ORDER BY ID DESC;";
@@ -73,6 +74,8 @@ namespace appRepubliquei.Infra.Data.Queries
 												i.PossuiAreaLazer,
 												i.QtdBanheiros,
 												i.QtdQuartos,
+												i.Verificado,
+												I.UniversidadeProxima
 												u.ID IdUsuario,
 												u.Nome,
 												u.Sobrenome,
@@ -113,6 +116,8 @@ namespace appRepubliquei.Infra.Data.Queries
 													i.PossuiAreaLazer,
 													i.QtdBanheiros,
 													i.QtdQuartos,
+													i.Verificado,
+													i.UniversidadeProxima
 													u.ID IdUsuario,
 													u.Nome,
 													u.Sobrenome,
@@ -139,11 +144,60 @@ namespace appRepubliquei.Infra.Data.Queries
 												INNER JOIN CARACTERISTICA_IMOVEL ci ON (i.IdCaracteristicaImovel = ci.ID)
 												WHERE i.ID = @IdImovel";
 
-        public const string VerificarExisteEmailSenha = @"SELECT TOP 1 u.ID,Nome, Sobrenome, Senha, Email
+		public const string ObterImovelPorUsuarioId = @"SELECT 
+															i.ID IdImovel,
+															i.Midia, 
+															i.NomeImovel,
+															i.CapacidadePessoas,
+															i.Valor,
+															i.Descricao,
+															i.PossuiGaragem,
+															i.PossuiAcessibilidade,
+															i.PossuiAcademia,
+															i.PossuiPiscina,
+															i.PossuiMobilia,
+															i.PossuiAreaLazer,
+															i.QtdBanheiros,
+															i.QtdQuartos,
+															i.Verificado,
+															i.UniversidadeProxima,
+															u.ID IdUsuario,
+															u.Nome,
+															u.Sobrenome,
+															ei.CEP,
+															ei.Cidade,
+															ei.Bairro,
+															ei.Logradouro,
+															ei.Numero,
+															ei.Complemento,
+															ei.Estado,
+															ri.Fumante,
+															ri.Animal,
+															ri.Alcool,
+															ri.Visitas,
+															ri.Crianca,
+															ri.Drogas,
+															ci.TipoImovel,
+															ci.TipoSexo,
+															ci.TipoQuarto			
+														FROM IMOVEL i WITH (NOLOCK)
+														INNER JOIN USUARIO u ON (i.IdUsuario = u.ID)
+														INNER JOIN ENDERECO_IMOVEL ei ON(i.IdEnderecoImovel = ei.ID)
+														INNER JOIN REGRA_IMOVEL ri ON(i.IdRegraImovel = ri.ID)
+														INNER JOIN CARACTERISTICA_IMOVEL ci ON (i.IdCaracteristicaImovel = ci.ID)
+														WHERE u.ID = @IdUsuario";
+
+		public const string VerificarExisteEmailSenha = @"SELECT TOP 1 u.ID,Nome, Sobrenome, Senha, Email
                                                             FROM Usuario u WITH (NOLOCK)
                                                             INNER JOIN contato c ON (u.IdContato = c.ID)
                                                         WHERE c.Email = @Email
 													      AND Senha = @Senha";
+
+		public const string VerificarEmailCpf = @"SELECT TOP 1 u.ID,Nome, Sobrenome, Senha, Email
+                                                            FROM Usuario u WITH (NOLOCK)
+                                                            INNER JOIN contato c ON (u.IdContato = c.ID)
+                                                        WHERE c.Email = @Email
+													      AND Cpf = @Cpf";
 
 
 
