@@ -9,10 +9,12 @@ namespace appRepubliquei.Infra.Data.Queries
     internal static class Queries
     {
         #region ObterUsuarioPorId
-        public const string ObterUsuarioPorId = @"SELECT * FROM Usuario WITH (NOLOCK) WHERE ID = @IdUsuario";
+        public const string ObterUsuarioPorId = @"SELECT * FROM USUARIO U
+													INNER JOIN CARACTERISTICA_USUARIO cau ON (cau.id = u.IdCaracteristicaUsuario) WHERE U.ID = @IdUsuario";
         #endregion
 
-        public const string ObterUsuario = @"SELECT * FROM usuario WITH (NOLOCK)";
+        public const string ObterUsuario = @"SELECT * FROM USUARIO U
+												INNER JOIN CARACTERISTICA_USUARIO cau ON (cau.ID = U.IdCaracteristicaUsuario)";
 
         public const string ObterUsuarioContato = @"SELECT u.ID,Nome, Sobrenome, Senha, Email
                                                     FROM Usuario u WITH (NOLOCK)
