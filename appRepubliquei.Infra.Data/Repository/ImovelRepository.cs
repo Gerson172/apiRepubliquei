@@ -127,7 +127,7 @@ namespace appRepubliquei.Infra.Data.Repository
             });
         }
 
-        public async Task<IEnumerable<vwImovel>> ObterImovelPorUsuarioId(int idUsuario)
+        public async Task<IEnumerable<vwImovel>> ObterImovelPorUsuarioId(int? idUsuario)
         {
             return await _connection.QueryAsync<vwImovel>(Queries.Queries.ObterImovelPorUsuarioId, new
             {

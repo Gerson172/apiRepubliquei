@@ -23,6 +23,6 @@ namespace appRepubliquei.Domain.Contracts.Repository
         Task<IEnumerable<vwImovel>> ObterImovel();
         Task<vwImovel> ObterImovelPorId(string idImovel);
         Task DeletarImovelPorId(int idImovel);
-        Task<IEnumerable<vwImovel>> ObterImovelPorUsuarioId(int idUsuario);
+        Task<IEnumerable<vwImovel>> ObterImovelPorUsuarioId(int? idUsuario);
     }
 }

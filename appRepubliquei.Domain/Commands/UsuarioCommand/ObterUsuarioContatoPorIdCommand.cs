@@ -10,6 +10,6 @@ namespace appRepubliquei.Domain.Commands.UsuarioCommand
 {
     public class ObterUsuarioContatoPorIdCommand : IRequest<vwUsuarioContato>
     {
-        public int IdUsuario { get; set; }
+        public int? IdUsuario { get; set; }
     }
 }

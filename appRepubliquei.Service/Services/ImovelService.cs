@@ -103,7 +103,7 @@ namespace appRepubliquei.Domain.Services
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<vwImovel>> ObterImovelPorUsuarioId(int idUsuario)
+        public async Task<IEnumerable<vwImovel>> ObterImovelPorUsuarioId(int? idUsuario)
         {
             try
             {

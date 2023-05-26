@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace apiRepubliquei.Controllers
@@ -35,12 +37,17 @@ namespace apiRepubliquei.Controllers
             }
         }
 
-
+        [Authorize]
         [HttpGet("ObterUsuarioPorId")]
         public async Task<IActionResult> ObterUsuarioPorId([FromQuery] ObterUsuarioPorIdCommand command)
         {
             try
             {
+                if(command.IdUsuario == null)
+                {
+                    command.IdUsuario = int.Parse(User.Claims.FirstOrDefault(c => c.Type == "userId").Value);
+                }
+
                 var result = await _mediator.Send(command);
                 return Ok(new Retorno<Usuario>(string.Empty, result));
             }
@@ -66,11 +73,17 @@ namespace apiRepubliquei.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet("ObterUsuarioContatoPorId")]
         public async Task<IActionResult> ObterUsuarioContatoPorId([FromQuery] ObterUsuarioContatoPorIdCommand command)
         {
             try
             {
+                if (command.IdUsuario == null)
+                {
+                    command.IdUsuario = int.Parse(User.Claims.FirstOrDefault(c => c.Type == "userId").Value);
+                }
+
                 var result = await _mediator.Send(command);
                 return Ok(new Retorno<vwUsuarioContato>(string.Empty, result));
             }
@@ -97,11 +110,17 @@ namespace apiRepubliquei.Controllers
             }
         }
 
+        [Authorize]
         [HttpPut("AtualizarUsuario")]
         public async Task<IActionResult> AtualizarUsuario([FromBody] AtualizarUsuarioCommand command)
         {
             try
             {
+                if (command.IdUsuario == null)
+                {
+                    command.IdUsuario = int.Parse(User.Claims.FirstOrDefault(c => c.Type == "userId").Value);
+                }
+
                 var result = await _mediator.Send(command);
                 return Ok(new Retorno<RetornoSimples>(string.Empty, result));
             }
@@ -112,11 +131,17 @@ namespace apiRepubliquei.Controllers
             }
         }
 
+        [Authorize]
         [HttpDelete("ExcluirUsuarioPorId")]
         public async Task<IActionResult> ExcluirUsuarioPorId([FromQuery] ExcluirUsuarioPorIdCommand command)
         {
             try
             {
+                if (command.IdUsuario == null)
+                {
+                    command.IdUsuario = int.Parse(User.Claims.FirstOrDefault(c => c.Type == "userId").Value);
+                }
+
                 var result = await _mediator.Send(command);
                 return Ok(new Retorno<RetornoSimples>(string.Empty, result));
             }

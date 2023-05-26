@@ -7,7 +7,7 @@ namespace appRepubliquei.Domain.Contracts.Services
 {
     public interface IUsuarioService
     {
-        Task<Usuario> ObterUsuarioPorId(int idUsuario);
+        Task<Usuario> ObterUsuarioPorId(int? idUsuario);
         Task<RetornoSimples> CadastrarUsuario(CadastrarUsuarioCommand request);
         Task<IEnumerable<Usuario>> ObterUsuario(ObterUsuarioCommand request);
         Task<IEnumerable<vwUsuarioContato>> ObterUsuarioContato(ObterUsuarioContatoCommand request);

@@ -17,7 +17,7 @@ namespace appRepubliquei.Domain.Services
             _usuarioRepository = usuarioRepository;
         }
 
-        public async Task<Usuario> ObterUsuarioPorId(int idUsuario)
+        public async Task<Usuario> ObterUsuarioPorId(int? idUsuario)
         {
             try
             {           
@@ -26,7 +26,7 @@ namespace appRepubliquei.Domain.Services
             catch (Exception ex)
             {
 
-                throw new Exception("Falha ao cadastrar usuario: " + ex);
+                throw new Exception("Falha ao obter um usuario: " + ex);
             }
 
         }
@@ -39,7 +39,7 @@ namespace appRepubliquei.Domain.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Falha ao cadastrar usuario: " + ex);
+                throw new Exception("Falha ao obter usuario: " + ex);
             }
         }
 
@@ -51,7 +51,7 @@ namespace appRepubliquei.Domain.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Falha ao cadastrar usuario: " + ex);
+                throw new Exception("Falha ao obter contato do usuario: " + ex);
             }
         }
 
@@ -63,7 +63,7 @@ namespace appRepubliquei.Domain.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Falha ao cadastrar usuario: " + ex);
+                throw new Exception("Falha ao obter contato do usuario: " + ex);
             }
         }
 

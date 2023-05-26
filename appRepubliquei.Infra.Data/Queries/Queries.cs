@@ -9,8 +9,23 @@ namespace appRepubliquei.Infra.Data.Queries
     internal static class Queries
     {
         #region ObterUsuarioPorId
-        public const string ObterUsuarioPorId = @"SELECT * FROM USUARIO U
-													INNER JOIN CARACTERISTICA_USUARIO cau ON (cau.id = u.IdCaracteristicaUsuario) WHERE U.ID = @IdUsuario";
+        public const string ObterUsuarioPorId = @"SELECT 
+													u.ID,
+													u.nome,
+													u.sobrenome,
+													u.senha,
+													u.cpf,
+													u.EstadoCivil,
+													u.DataNascimento,
+													u.checkProprietario,
+													u.idEnderecoUsuario,
+													u.idContato,
+													u.idCaracteristicaUsuario,
+													cau.genero,
+													cau.sexo
+												FROM USUARIO u
+												INNER JOIN CARACTERISTICA_USUARIO cau 
+												ON (cau.id = u.IdCaracteristicaUsuario) WHERE U.ID = @IdUsuario";
         #endregion
 
         public const string ObterUsuario = @"SELECT * FROM USUARIO U

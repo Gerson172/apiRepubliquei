@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace apiRepubliquei.Controllers
@@ -49,6 +50,7 @@ namespace apiRepubliquei.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet("ObterImovelPorId")]
         public async Task<IActionResult> ObterImovelPorId([FromQuery] ObterImovelPorIdCommand command)
         {
@@ -63,11 +65,16 @@ namespace apiRepubliquei.Controllers
             }
         }
 
+        [Authorize]
         [HttpGet("ObterImovelPorUsuarioId")]
         public async Task<IActionResult> ObterImovelPorUsuarioId([FromQuery] ObterImovelPorUsuarioIdCommand command)
         {
             try
             {
+                if (command.IdUsuario == null)
+                {
+                    command.IdUsuario = int.Parse(User.Claims.FirstOrDefault(c => c.Type == "userId").Value);
+                }
                 var result = await _mediator.Send(command);
                 return Ok(new Retorno<IEnumerable<vwImovel>>(string.Empty, result));
             }
@@ -77,6 +84,7 @@ namespace apiRepubliquei.Controllers
             }
         }
 
+        [Authorize]
         [HttpDelete("DeletarImovelPorId")]
         public async Task<IActionResult> DeletarImovelPorId([FromQuery] DeletarImovelPorIdCommand command)
         {
@@ -91,7 +99,7 @@ namespace apiRepubliquei.Controllers
             }
         }
 
-        [HttpDelete("AtualizarImovel")]
+        [HttpPut("AtualizarImovel")]
         public async Task<IActionResult> AtualizarImovel([FromQuery] AtualizarImovelCommand command)
         {
             try

@@ -9,7 +9,7 @@ namespace appRepubliquei.Domain.Contracts.Repository
 {
     public interface IUsuarioRepository
     {
-        Task<Usuario> ObterUsuarioPorId(int id);
+        Task<Usuario> ObterUsuarioPorId(int? id);
         Task InserirEnderecoUsuario(int cep, string estado, string cidade, string bairro, string logradouro, string numero, string complemento);
         Task InserirContatoUsuario(string email, string celular, string telefone);
         Task InserirCaracteristicaUsuario(string religiao, string genero, string sexo, string orientacaoSexual, string areaInteresse);
@@ -19,9 +19,9 @@ namespace appRepubliquei.Domain.Contracts.Repository
         Task<IEnumerable<Usuario>> ObterUsuario();
         Task<CaracteristicaUsuario> ObterUltimoRegistroInseridoCaracteristicaUsuario();
         Task<IEnumerable<vwUsuarioContato>> ObterUsuarioContato();
-        Task<vwUsuarioContato> ObterUsuarioContatoPorId(int idUsuario);
+        Task<vwUsuarioContato> ObterUsuarioContatoPorId(int? idUsuario);
         bool VerificarEmailCpf(string email, string cpf);
         Task<vwExisteUsuario> VerificarExistenciaLogin(string email, string senha);
-        Task ExcluirUsuarioPorId(int idUsuario);
+        Task ExcluirUsuarioPorId(int? idUsuario);
     }
 }

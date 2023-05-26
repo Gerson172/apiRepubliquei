@@ -10,7 +10,7 @@ namespace appRepubliquei.Domain.Commands.UsuarioCommand
 {
     public class AtualizarUsuarioCommand : IRequest<RetornoSimples>
     {
-        public int IdUsuario { get; set; }
+        public int? IdUsuario { get; set; }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
         public string CPF { get; set; }

@@ -18,7 +18,7 @@ namespace appRepubliquei.Infra.Data.Repository
             _connection = context.SqlConnection;
         }
 
-        public async Task<Usuario> ObterUsuarioPorId(int idUsuario)
+        public async Task<Usuario> ObterUsuarioPorId(int? idUsuario)
         {
             return await _connection.QueryFirstOrDefaultAsync<Usuario>(Queries.Queries.ObterUsuarioPorId,
                 new
@@ -37,7 +37,7 @@ namespace appRepubliquei.Infra.Data.Repository
             return await _connection.QueryAsync<vwUsuarioContato>(Queries.Queries.ObterUsuarioContato);
         }
 
-        public async Task<vwUsuarioContato> ObterUsuarioContatoPorId(int idUsuario)
+        public async Task<vwUsuarioContato> ObterUsuarioContatoPorId(int? idUsuario)
         {
             return await _connection.QueryFirstOrDefaultAsync<vwUsuarioContato>(Queries.Queries.ObterUsuarioContatoPorId,
                 new
@@ -170,7 +170,7 @@ namespace appRepubliquei.Infra.Data.Repository
             
         }
 
-        public async Task ExcluirUsuarioPorId(int idUsuario)
+        public async Task ExcluirUsuarioPorId(int? idUsuario)
         {
             await _connection.ExecuteAsync(Queries.Queries.ExcluirUsuarioPorId,
                 new

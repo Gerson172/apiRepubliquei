@@ -6,6 +6,6 @@ namespace appRepubliquei.Domain.Commands.UsuarioCommand
 {
     public class ExcluirUsuarioPorIdCommand : IRequest<RetornoSimples> 
     {
-        public int IdUsuario { get; set; }
+        public int? IdUsuario { get; set; }
     }
 }

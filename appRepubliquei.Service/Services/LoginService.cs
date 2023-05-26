@@ -53,6 +53,7 @@ namespace appRepubliquei.Service.Services
                             {
                                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), // jid -> id token
                                 new Claim(JwtRegisteredClaimNames.UniqueName, request.Email),
+                                new Claim("userId", retorno.ExisteUsuario.ID.ToString())
                             }
                         );
 
