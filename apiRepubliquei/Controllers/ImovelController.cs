@@ -49,8 +49,6 @@ namespace apiRepubliquei.Controllers
                 return BadRequest(new Retorno<Imovel>(e.Message, null));
             }
         }
-
-        [Authorize]
         [HttpGet("ObterImovelPorId")]
         public async Task<IActionResult> ObterImovelPorId([FromQuery] ObterImovelPorIdCommand command)
         {
