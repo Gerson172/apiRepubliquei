@@ -37,7 +37,6 @@ namespace apiRepubliquei.Controllers
             }
         }
 
-        [Authorize]
         [HttpGet("ObterUsuarioPorId")]
         public async Task<IActionResult> ObterUsuarioPorId([FromQuery] ObterUsuarioPorIdCommand command)
         {
