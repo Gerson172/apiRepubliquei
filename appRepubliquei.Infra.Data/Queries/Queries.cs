@@ -134,7 +134,7 @@ namespace appRepubliquei.Infra.Data.Queries
 													i.QtdBanheiros,
 													i.QtdQuartos,
 													i.Verificado,
-													i.UniversidadeProxima
+													i.UniversidadeProxima,
 													u.ID IdUsuario,
 													u.Nome,
 													u.Sobrenome,
