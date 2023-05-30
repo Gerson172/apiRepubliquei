@@ -32,6 +32,15 @@ namespace appRepubliquei.Infra.Data.Repository
             return await _connection.QueryAsync<Usuario>(Queries.Queries.ObterUsuario);
         }
 
+        public async Task<vwUsuarioPorEmail> ObterUsuarioPorEmail(string email)
+        {
+            return await _connection.QueryFirstOrDefaultAsync<vwUsuarioPorEmail>(Queries.Queries.ObterUsuarioPorEmail,
+                new
+                {
+                    Email = email
+                });
+        }
+
         public async Task<IEnumerable<vwUsuarioContato>> ObterUsuarioContato()
         {
             return await _connection.QueryAsync<vwUsuarioContato>(Queries.Queries.ObterUsuarioContato);
@@ -129,6 +138,15 @@ namespace appRepubliquei.Infra.Data.Repository
                 });
         }
 
+        public bool VerificarEmail(string email)
+        {
+            return _connection.QuerySingleOrDefault<bool>(Queries.Queries.VerificarEmail,
+                new
+                {
+                    Email = email
+                });
+        }
+
         public async Task<vwExisteUsuario> VerificarExistenciaLogin(string email, string senha)
         {
             try
@@ -176,6 +194,36 @@ namespace appRepubliquei.Infra.Data.Repository
                 new
                 {
                     IdUsuario = idUsuario
+                });
+        }
+
+        public async Task InserirTokenUsuario(string email, string token)
+        {
+            await _connection.ExecuteAsync(Queries.Queries.InserirTokenUsuario,
+                new
+                {
+                    Email = email,
+                    Token = token,
+                    DataToken = DateTime.Now
+                });
+        }
+
+        public async Task<vwUsuarioToken> ObterTokenPorEmail(string email)
+        {
+            return await _connection.QueryFirstOrDefaultAsync<vwUsuarioToken>(Queries.Queries.ObterTokenPorEmail,
+                new
+                {
+                    Email = email
+                });
+        }
+
+        public async Task AtualizarSenhaNova(string novaSenha, string email)
+        {
+            await _connection.ExecuteAsync(Queries.Queries.AtualizarSenha,
+                new
+                {
+                    Email = email,
+                    NovaSenha = novaSenha
                 });
         }
     }

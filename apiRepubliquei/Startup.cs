@@ -10,6 +10,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -19,7 +21,10 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
+using System.Net;
+using System.Net.Mail;
 using System.Reflection;
+
 
 namespace apiRepubliquei
 {
@@ -38,6 +43,13 @@ namespace apiRepubliquei
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddDbContext<DatabaseContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<DatabaseContext>()
+                .AddDefaultTokenProviders();
 
             services.AddHttpContextAccessor();
             services.AddDbContext<DatabaseContext>();
@@ -62,6 +74,21 @@ namespace apiRepubliquei
                 Configuration.GetSection("TokenConfigurations"))
                      .Configure(tokenConfigurations);
             services.AddSingleton(tokenConfigurations);
+
+            //Smtp
+            services.AddSingleton<SmtpClient>((serviceProvider) =>
+            {
+                var config = serviceProvider.GetRequiredService<IConfiguration>();
+                return new SmtpClient()
+                {
+                    Host = config.GetValue<string>("Email:Smtp:Host"),
+                    Port = config.GetValue<int>("Email:Smtp:Port"),
+                    Credentials = new NetworkCredential(
+                        config.GetValue<string>("Email:Smtp:Username"),
+                        config.GetValue<string>("Email:Smtp:Password")),
+                    EnableSsl = config.GetValue<bool>("Email:Smtp:EnableSsl")
+                };
+            });
 
 
 

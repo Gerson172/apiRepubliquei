@@ -15,7 +15,12 @@ namespace appRepubliquei.Application.CommandHandlers
                                          IRequestHandler<ObterUsuarioContatoCommand, IEnumerable<vwUsuarioContato>>,
                                          IRequestHandler<ObterUsuarioContatoPorIdCommand, vwUsuarioContato>,
                                          //IRequestHandler<AtualizarUsuarioCommand, RetornoSimples>
-                                         IRequestHandler<ExcluirUsuarioPorIdCommand, RetornoSimples>
+                                         IRequestHandler<ExcluirUsuarioPorIdCommand, RetornoSimples>,
+                                         IRequestHandler<SolicitarAlteracaoCommand, RetornoSimples>,
+                                         IRequestHandler<ResetarSenhaCommand, RetornoSimples>
+
+
+
     {
         private readonly IUsuarioService _usuarioService;
         public UsuarioCommandHandler(IUsuarioService usuarioService)
@@ -46,6 +51,14 @@ namespace appRepubliquei.Application.CommandHandlers
         public async Task<RetornoSimples> Handle(ExcluirUsuarioPorIdCommand request, CancellationToken cancellationToken)
         {
             return await _usuarioService.ExcluirUsuarioPorId(request);
+        }
+        public async Task<RetornoSimples> Handle(SolicitarAlteracaoCommand request, CancellationToken cancellationToken)
+        {
+            return await _usuarioService.SolicitarAlteracao(request);
+        }
+        public async Task<RetornoSimples> Handle(ResetarSenhaCommand request, CancellationToken cancellationToken)
+        {
+            return await _usuarioService.RedefinirSenha(request);
         }
 
         //public async Task<RetornoSimples> Handle(AtualizarUsuarioCommand request, CancellationToken cancellationToken)

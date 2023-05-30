@@ -1,11 +1,12 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 
 namespace appRepubliquei.Infra.Data.Contexts
 {
-    public class DatabaseContext : DbContext, IDatabaseContext
+    public class DatabaseContext : IdentityDbContext, IDatabaseContext
     {
         private string _connectionString;
         private readonly IConfiguration _configuration;

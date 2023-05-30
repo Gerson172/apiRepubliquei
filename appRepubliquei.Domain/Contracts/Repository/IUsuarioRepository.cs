@@ -17,11 +17,18 @@ namespace appRepubliquei.Domain.Contracts.Repository
         Task<EnderecoUsuario> ObterUltimoRegistroInseridoUsuario();
         Task<Contato> ObterUltimoRegistroInseridoContatoUsuario();
         Task<IEnumerable<Usuario>> ObterUsuario();
+
+        Task<vwUsuarioPorEmail> ObterUsuarioPorEmail(string email);
         Task<CaracteristicaUsuario> ObterUltimoRegistroInseridoCaracteristicaUsuario();
         Task<IEnumerable<vwUsuarioContato>> ObterUsuarioContato();
         Task<vwUsuarioContato> ObterUsuarioContatoPorId(int? idUsuario);
         bool VerificarEmailCpf(string email, string cpf);
+        bool VerificarEmail(string email);
+
+        Task InserirTokenUsuario(string email, string token);
         Task<vwExisteUsuario> VerificarExistenciaLogin(string email, string senha);
         Task ExcluirUsuarioPorId(int? idUsuario);
+        Task<vwUsuarioToken> ObterTokenPorEmail(string email);
+        Task AtualizarSenhaNova(string novaSenha, string email);
     }
 }

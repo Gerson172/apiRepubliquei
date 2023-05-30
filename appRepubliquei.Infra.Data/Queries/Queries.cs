@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace appRepubliquei.Infra.Data.Queries
 {
     internal static class Queries
-    {
+	{
         #region ObterUsuarioPorId
         public const string ObterUsuarioPorId = @"SELECT 
 													u.ID,
@@ -31,7 +31,17 @@ namespace appRepubliquei.Infra.Data.Queries
         public const string ObterUsuario = @"SELECT * FROM USUARIO U
 												INNER JOIN CARACTERISTICA_USUARIO cau ON (cau.ID = U.IdCaracteristicaUsuario)";
 
-        public const string ObterUsuarioContato = @"SELECT u.ID,Nome, Sobrenome, Senha, Email
+		public const string ObterUsuarioPorEmail = @"SELECT u.Nome
+                                                    FROM Usuario u WITH (NOLOCK)
+                                                    INNER JOIN contato c ON (u.IdContato = c.ID)
+													WHERE c.Email = @Email";
+
+		public const string ObterTokenPorEmail = @"SELECT c.Email, u.TokenTemp, u.DataToken
+                                                    FROM Usuario u WITH (NOLOCK)
+                                                    INNER JOIN contato c ON (u.IdContato = c.ID)
+													WHERE c.Email = @Email";
+
+		public const string ObterUsuarioContato = @"SELECT u.ID,Nome, Sobrenome, Senha, Email
                                                     FROM Usuario u WITH (NOLOCK)
                                                     INNER JOIN contato c ON (u.IdContato = c.ID)";
 
@@ -216,9 +226,29 @@ namespace appRepubliquei.Infra.Data.Queries
                                                         WHERE c.Email = @Email
 													      AND Cpf = @Cpf";
 
+		public const string VerificarEmail = @"SELECT TOP 1 u.ID,Nome, Sobrenome, Senha, Email
+                                                            FROM Usuario u WITH (NOLOCK)
+                                                            INNER JOIN contato c ON (u.IdContato = c.ID)
+                                                        WHERE c.Email = @Email;";
+
 
 
 		public const string DeletarImovelPorId = @"DELETE FROM IMOVEL WHERE ID = @IdImovel";
+
+        public const string InserirTokenUsuario = @"UPDATE Usuario
+													SET TokenTemp = @Token,
+														DataToken = @DataToken
+													WHERE ID = (SELECT TOP 1 u.ID
+																FROM Usuario u WITH (NOLOCK)
+																INNER JOIN contato c ON (u.IdContato = c.ID)
+																WHERE c.Email = @Email);";
+
+		public const string AtualizarSenha = @"UPDATE Usuario
+												SET Senha = @NovaSenha
+												WHERE ID = (SELECT TOP 1 u.ID
+															FROM Usuario u WITH (NOLOCK)
+															INNER JOIN contato c ON (u.IdContato = c.ID)
+															WHERE c.Email = @Email);";
 
 	}
 }

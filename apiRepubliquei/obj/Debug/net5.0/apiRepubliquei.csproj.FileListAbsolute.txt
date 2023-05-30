@@ -75,3 +75,4 @@ C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Microsoft.Asp
 C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll

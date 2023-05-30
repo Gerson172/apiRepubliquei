@@ -2,19 +2,30 @@
 using appRepubliquei.Domain.Contracts.Repository;
 using appRepubliquei.Domain.Contracts.Services;
 using appRepubliquei.Domain.Entidades;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net.Mail;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace appRepubliquei.Domain.Services
 {
     public class UsuarioService : IUsuarioService
     {
         private readonly IUsuarioRepository _usuarioRepository;
+        private readonly SmtpClient _smtpClient;
+        private readonly IConfiguration _configuration;
 
-        public UsuarioService(IUsuarioRepository usuarioRepository)
+        public UsuarioService(IUsuarioRepository usuarioRepository, SmtpClient smtpClient, IConfiguration configuration)
         {
             _usuarioRepository = usuarioRepository;
+            _smtpClient = smtpClient;
+            _configuration = configuration;
+            
         }
 
         public async Task<Usuario> ObterUsuarioPorId(int? idUsuario)
@@ -131,13 +142,88 @@ namespace appRepubliquei.Domain.Services
             }
         }
 
+        public async Task<RetornoSimples> SolicitarAlteracao(SolicitarAlteracaoCommand request)
+        {
+            try
+            {
+                bool user =  _usuarioRepository.VerificarEmail(request.Email);
+                if (user != true)
+                {
+                    return new RetornoSimples(false, "E-mail não cadastrado!");
+                }
+                var usuario = await _usuarioRepository.ObterUsuarioPorEmail(request.Email);
 
+                var token = GeneratePasswordResetToken();
+                var encodedToken = HttpUtility.UrlEncode(token);
+                var url = $"https://localhost:3000/redefinir-senha?email={request.Email}&token={encodedToken}";
+
+                string htmlBody = File.ReadAllText("../appRepubliquei.Infra.Data/Html/email.html")
+                    .Replace("[FIRSTNAME]", usuario.Nome)
+                    .Replace("[LINKRESETARSENHA]", url);
+
+                string emailSender = _configuration.GetValue<string>("Email:Smtp:Sender");
+
+                // Create the mail message:
+                var mailMessage = new MailMessage
+                {
+                    From = new MailAddress(_smtpClient.Credentials.GetCredential(_smtpClient.Host, _smtpClient.Port, "Basic").UserName),
+                    Subject = "Redefinição de Senha",
+                    Body = htmlBody,
+                    IsBodyHtml = true
+                };
+                mailMessage.To.Add(request.Email);
+
+                await _smtpClient.SendMailAsync(mailMessage);
+
+                // Cadastro do token no banco
+
+                await _usuarioRepository.InserirTokenUsuario(request.Email, encodedToken);
+
+                return new RetornoSimples(true, "Email de redefinição de senha enviado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Falha ao enviar email de alteração de senha: " + ex);
+            }
+        }
+
+        public string GeneratePasswordResetToken()
+        {
+            byte[] tokenBytes = new byte[32];
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(tokenBytes);
+            }
+
+            string token = Convert.ToBase64String(tokenBytes);
+            return token;
+        }
+
+        public async Task<RetornoSimples> RedefinirSenha(ResetarSenhaCommand request)
+        {
+            var token = await _usuarioRepository.ObterTokenPorEmail(request.Email);
+
+            if (request.Token != token.TokenTemp)
+            {
+                return new RetornoSimples(false, "Token inválido");
+            }
+
+            var tempoToken = DateTime.Now - token.DataToken;
+
+            if(tempoToken.TotalMinutes > 10)
+            {
+                return new RetornoSimples(false, "Tempo limite atingido, solicite novamente a redefinição de senha");
+            }
+
+            await _usuarioRepository.AtualizarSenhaNova(request.NovaSenha, request.Email);
+            return new RetornoSimples(true, "Senha atualizada com sucesso");
+        }
 
         //public async Task<RetornoSimples> AtualizarUsuario(AtualizarUsuarioCommand request)
         //{
         //    try
         //    {
-        //        await _usuarioRepository.AtualizarUsuario(request.IdUsuario, request.Nome, request.Sobrenome, request.CPF, request.DataNascimento
+        //        await _usuarioRepository.AtualizarUsuario(request.IdUsuario, request.Nome, request.Sobrenome, request.CPF, request.DataNascimento)
         //    }
         //    catch (Exception ex)
         //    {

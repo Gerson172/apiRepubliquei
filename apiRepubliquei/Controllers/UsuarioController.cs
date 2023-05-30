@@ -151,5 +151,33 @@ namespace apiRepubliquei.Controllers
 
             }
         }
+        [HttpPost("SolicitarAlteracao")]
+        public async Task<IActionResult> SolicitarAlteracao([FromQuery] SolicitarAlteracaoCommand command)
+        {
+            try
+            {
+                var result = await _mediator.Send(command);
+                return Ok(new Retorno<RetornoSimples>(string.Empty, result));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new Retorno<RetornoSimples>(e.Message, null));
+
+            }
+        }
+        [HttpPost("RedefinirSenha")]
+        public async Task<IActionResult> RedefinirSenha([FromQuery] ResetarSenhaCommand command)
+        {
+            try
+            {
+                var result = await _mediator.Send(command);
+                return Ok(new Retorno<RetornoSimples>(string.Empty, result));
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new Retorno<RetornoSimples>(e.Message, null));
+
+            }
+        }
     }
 }
