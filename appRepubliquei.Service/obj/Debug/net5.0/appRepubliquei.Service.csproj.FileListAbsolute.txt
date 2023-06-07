@@ -11,9 +11,7 @@ C:\Republiquei-back\apiRepubliquei\appRepubliquei.Service\obj\Debug\net5.0\refin
 C:\Republiquei-back\apiRepubliquei\appRepubliquei.Service\obj\Debug\net5.0\appRepubliquei.Service.pdb
 C:\Republiquei-back\apiRepubliquei\appRepubliquei.Service\obj\Debug\net5.0\ref\appRepubliquei.Service.dll
 C:\Republiquei-back\apiRepubliquei\appRepubliquei.Service\bin\Debug\net5.0\appRepubliquei.Domain.dll
-C:\Republiquei-back\apiRepubliquei\appRepubliquei.Service\bin\Debug\net5.0\appRepubliquei.Infra.CrossCutting.dll
 C:\Republiquei-back\apiRepubliquei\appRepubliquei.Service\bin\Debug\net5.0\appRepubliquei.Infra.Data.dll
-C:\Republiquei-back\apiRepubliquei\appRepubliquei.Service\bin\Debug\net5.0\appRepubliquei.Infra.CrossCutting.pdb
 C:\Republiquei-back\apiRepubliquei\appRepubliquei.Service\bin\Debug\net5.0\appRepubliquei.Domain.pdb
 C:\Republiquei-back\apiRepubliquei\appRepubliquei.Service\bin\Debug\net5.0\appRepubliquei.Infra.Data.pdb
 C:\Republiquei-back\apiRepubliquei\appRepubliquei.Service\obj\Debug\net5.0\appRepubliquei.Service.csproj.CopyComplete

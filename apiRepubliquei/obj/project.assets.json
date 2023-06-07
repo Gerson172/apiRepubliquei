@@ -1675,19 +1675,6 @@
           "bin/placeholder/appRepubliquei.Domain.dll": {}
         }
       },
-      "appRepubliquei.Infra.CrossCutting/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "dependencies": {
-          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "5.0.0"
-        },
-        "compile": {
-          "bin/placeholder/appRepubliquei.Infra.CrossCutting.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/appRepubliquei.Infra.CrossCutting.dll": {}
-        }
-      },
       "appRepubliquei.Infra.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -1712,7 +1699,6 @@
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "5.0.0",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "5.0.0",
           "appRepubliquei.Domain": "1.0.0",
-          "appRepubliquei.Infra.CrossCutting": "1.0.0",
           "appRepubliquei.Infra.Data": "1.0.0"
         },
         "compile": {
@@ -6030,11 +6016,6 @@
       "type": "project",
       "path": "../appRepubliquei.Domain/appRepubliquei.Domain.csproj",
       "msbuildProject": "../appRepubliquei.Domain/appRepubliquei.Domain.csproj"
-    },
-    "appRepubliquei.Infra.CrossCutting/1.0.0": {
-      "type": "project",
-      "path": "../appRepubliquei.CrossCutting/appRepubliquei.Infra.CrossCutting.csproj",
-      "msbuildProject": "../appRepubliquei.CrossCutting/appRepubliquei.Infra.CrossCutting.csproj"
     },
     "appRepubliquei.Infra.Data/1.0.0": {
       "type": "project",

@@ -42,7 +42,7 @@ namespace appRepubliquei.Application.CommandHandlers
 
         public async Task<RetornoSimples> Handle(AtualizarImovelCommand request, CancellationToken cancellationToken)
         {
-            return await _imovelService.AtualizarImovel(request.ID);
+            return await _imovelService.AtualizarImovel(request);
         }
 
         public async Task<IEnumerable<vwImovel>> Handle(ObterImovelPorUsuarioIdCommand request, CancellationToken cancellationToken)

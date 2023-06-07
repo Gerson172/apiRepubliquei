@@ -9,9 +9,9 @@ namespace appRepubliquei.Domain.Contracts.Services
     {
         Task<RetornoSimples> CadastrarImovel(InserirImovelCommand request);
         Task<IEnumerable<vwImovel>> ObterImovel();
-        Task<vwImovel> ObterImovelPorId(string idImovel);
+        Task<vwImovel> ObterImovelPorId(int idImovel);
         Task<RetornoSimples> DeletarImovelPorId(int idImovel);
-        Task<RetornoSimples> AtualizarImovel(int idImovel);
+        Task<RetornoSimples> AtualizarImovel(AtualizarImovelCommand request);
         Task<IEnumerable<vwImovel>> ObterImovelPorUsuarioId (int? idUsuario);
     }
 }

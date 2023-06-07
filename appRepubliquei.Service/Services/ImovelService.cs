@@ -38,7 +38,7 @@ namespace appRepubliquei.Domain.Services
 
                 await _imovelRepository.InserirImovel(request.Midia, request.CapacidadePessoas, request.Valor, request.Descricao,
                     request.PossuiAcessibilidade, request.PossuiGaragem, request.PossuiAcademia, request.PossuiMobilia, 
-                    request.PossuiAreaLazer, request.PossuiPiscina, request.QuantidadeBanheiros, request.QuantidadeComodo, 
+                    request.PossuiAreaLazer, request.PossuiPiscina, request.QuantidadeBanheiros,
                     request.QuantidadeQuartos, caracteristicaImovel.ID, enderecoImovel.ID, regraImovel.ID, request.IdUsuario, request.NomeImovel,
                     request.Verificado, request.UniversidadeProxima);
 
@@ -82,7 +82,7 @@ namespace appRepubliquei.Domain.Services
             }
         }
 
-        public async Task<vwImovel> ObterImovelPorId(string idImovel)
+        public async Task<vwImovel> ObterImovelPorId(int idImovel)
         {
             try
             {
@@ -98,9 +98,23 @@ namespace appRepubliquei.Domain.Services
                 throw new Exception("Falha ao Obter Imóvel: " + ex);
             }
         }
-        public Task<RetornoSimples> AtualizarImovel(int idImovel)
+        public async Task<RetornoSimples> AtualizarImovel(AtualizarImovelCommand request)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var imovel = await _imovelRepository.ObterImovelPorId(request.ID);
+                if (imovel == null)
+                {
+                    throw new Exception("Imovel não encontrado");
+                }
+                await _imovelRepository.AtualizarImovel(request, imovel.IdEnderecoImovel, imovel.IdCaracteristicaImovel, imovel.IdImovel, imovel.IdRegraImovel);
+
+                return new RetornoSimples(true, "Imovel atualizado com sucesso");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Falha ao atualizar imovel: " + ex);
+            }
         }
 
         public async Task<IEnumerable<vwImovel>> ObterImovelPorUsuarioId(int? idUsuario)

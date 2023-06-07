@@ -27,6 +27,10 @@ namespace apiRepubliquei.Controllers
         {
             try
             {
+                if (command.IdUsuario == null)
+                {
+                    command.IdUsuario = int.Parse(User.Claims.FirstOrDefault(c => c.Type == "userId").Value);
+                }
                 var result = await _mediator.Send(command);
                 return Ok(new Retorno<RetornoSimples>(string.Empty, result));
             }
@@ -98,7 +102,7 @@ namespace apiRepubliquei.Controllers
         }
 
         [HttpPut("AtualizarImovel")]
-        public async Task<IActionResult> AtualizarImovel([FromQuery] AtualizarImovelCommand command)
+        public async Task<IActionResult> AtualizarImovel([FromBody] AtualizarImovelCommand command)
         {
             try
             {

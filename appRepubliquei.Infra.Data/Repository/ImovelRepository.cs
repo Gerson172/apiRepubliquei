@@ -1,4 +1,5 @@
-﻿using appRepubliquei.Domain.Contracts.Repository;
+﻿using appRepubliquei.Domain.Commands.ImovelCommand;
+using appRepubliquei.Domain.Contracts.Repository;
 using appRepubliquei.Domain.Entidades;
 using appRepubliquei.Infra.Data.Contexts;
 using Dapper;
@@ -60,9 +61,9 @@ namespace appRepubliquei.Infra.Data.Repository
         public async Task InserirImovel(string midia, int capacidadePessoas, decimal valor, string descricao,
                                         bool possuiAcessibilidade, bool possuiGaragem, bool possuiAcademia, 
                                         bool possuiMobilia, bool possuiAreaLazer,bool possuiPiscina,
-                                        int quantidadeBanheiros, int quantidadeComodo, int quantidadeQuartos,
+                                        int quantidadeBanheiros, int quantidadeQuartos,
                                         int caracteristicaImovel, int enderecoImovel, int regraImovel,
-                                        int idUsuario, string nomeImovel,bool verificado, string universidadeProxima)
+                                        int? idUsuario, string nomeImovel,bool verificado, string universidadeProxima)
         {
             await _connection.ExecuteAsync(Queries.Queries.InserirImovel,
                 new
@@ -78,7 +79,6 @@ namespace appRepubliquei.Infra.Data.Repository
                      PossuiAreaLazer = possuiAreaLazer,
                      PossuiPiscina = possuiPiscina,
                      QuantidadeBanheiros = quantidadeBanheiros,
-                     QuantidadeComodo = quantidadeComodo,
                      QuantidadeQuartos = quantidadeQuartos,
                      CaracteristicaImovel = caracteristicaImovel,
                      EnderecoImovel = enderecoImovel,
@@ -111,7 +111,7 @@ namespace appRepubliquei.Infra.Data.Repository
 
         }
 
-        public async Task<vwImovel> ObterImovelPorId(string idImovel)
+        public async Task<vwImovel> ObterImovelPorId(int idImovel)
         {
             return await _connection.QueryFirstOrDefaultAsync<vwImovel>(Queries.Queries.ObterImovelPorId, new
             {
@@ -133,6 +133,46 @@ namespace appRepubliquei.Infra.Data.Repository
             {
                 IdUsuario = idUsuario
             });
+        }
+
+        public async Task AtualizarImovel(AtualizarImovelCommand request, int IdEnderecoImovel, int IdCaracteristicaImovel, int IdImovel, int IdRegraImovel)
+        {
+            await _connection.ExecuteAsync(Queries.Queries.AtualizarImovel,
+                new
+                {
+                     Midia = request.Midia,
+                     NomeImovel = request.NomeImovel,
+                     CapacidadePessoas = request.CapacidadePessoas,
+                     Valor = request.Valor,
+                     Descricao = request.Descricao,
+                     PossuiGaragem = request.PossuiGaragem,
+                     PossuiAcessibilidade = request.PossuiAcessibilidade,
+                     PossuiPiscina = request.PossuiPiscina,
+                     PossuiMobilia = request.PossuiMobilia,
+                     QuantidadeBanheiros = request.QuantidadeBanheiros,
+                     QuantidadeQuartos = request.QuantidadeQuartos,
+                     UniversidadeProxima = request.UniversidadeProxima,
+                     IdImovel = IdImovel,
+                     Fumante = request.Fumante,
+                     Animal = request.Animal,
+                     Alcool = request.Alcool,
+                     Visitas = request.Visitas,
+                     Crianca = request.Crianca,
+                     Drogas = request.Drogas,
+                     IdRegraImovel = IdRegraImovel,
+                     TipoImovel = request.TipoImovel,
+                     TipoQuarto = request.TipoQuarto,
+                     TipoSexo = request.TipoSexo,
+                     IdCaracteristicaImovel = IdCaracteristicaImovel,
+                     CEP = request.CEP,
+                     Cidade = request.Cidade,
+                     Bairro = request.Bairro,
+                     Logradouro = request.Logradouro,
+                     Numero = request.Numero,
+                     Complemento  = request.Complemento,
+                     Estado = request.Estado,
+                     IdEnderecoImovel = IdEnderecoImovel
+                });
         }
     }
 }

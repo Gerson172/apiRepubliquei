@@ -148,6 +148,7 @@ namespace appRepubliquei.Infra.Data.Queries
 													u.ID IdUsuario,
 													u.Nome,
 													u.Sobrenome,
+													ei.Id IdEnderecoImovel,
 													ei.CEP,
 													ei.Cidade,
 													ei.Bairro,
@@ -155,12 +156,14 @@ namespace appRepubliquei.Infra.Data.Queries
 													ei.Numero,
 													ei.Complemento,
 													ei.Estado,
+													ri.Id IdRegraImovel,
 													ri.Fumante,
 													ri.Animal,
 													ri.Alcool,
 													ri.Visitas,
 													ri.Crianca,
 													ri.Drogas,
+													ci.Id IdCaracteristicaImovel,
 													ci.TipoImovel,
 													ci.TipoSexo,
 													ci.TipoQuarto
@@ -249,6 +252,46 @@ namespace appRepubliquei.Infra.Data.Queries
 															FROM Usuario u WITH (NOLOCK)
 															INNER JOIN contato c ON (u.IdContato = c.ID)
 															WHERE c.Email = @Email);";
+
+		public const string AtualizarImovel = @"UPDATE IMOVEL SET
+													Midia = @Midia,
+													NomeImovel = @NomeImovel,
+													CapacidadePessoas = @CapacidadePessoas,
+													Valor = @Valor,
+													Descricao = @Descricao,
+													PossuiGaragem = @PossuiGaragem,
+													PossuiAcessibilidade = @PossuiAcessibilidade,
+													PossuiPiscina = @PossuiPiscina,
+													PossuiMobilia = @PossuiMobilia,
+													QtdBanheiros = @QuantidadeBanheiros,
+													QtdQuartos = @QuantidadeQuartos,
+													UniversidadeProxima = @UniversidadeProxima
+												WHERE ID = @IdImovel;
+												
+												UPDATE REGRA_IMOVEL SET
+													Fumante = @Fumante,
+													Animal = @Animal,
+													Alcool = @Alcool,
+													Visitas = @Visitas,
+													Crianca = @Crianca,
+													Drogas = @Drogas
+												WHERE ID = @IdRegraImovel;
+												
+												UPDATE CARACTERISTICA_IMOVEL SET
+													TipoImovel = @TipoImovel,
+													TipoQuarto = @TipoQuarto,
+													TipoSexo = @TipoSexo
+												WHERE ID = @IdCaracteristicaImovel;
+												
+												UPDATE ENDERECO_IMOVEL SET
+													CEP = @CEP,
+													Cidade = @Cidade,
+													Bairro = @Bairro,
+													Logradouro = @Logradouro,
+													Numero = @Numero,
+													Complemento = @Complemento,
+													Estado = @Estado
+												WHERE ID = @IdEnderecoImovel";
 
 	}
 }

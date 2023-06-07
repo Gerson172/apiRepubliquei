@@ -1458,17 +1458,6 @@
           "appRepubliquei.Domain.dll": {}
         }
       },
-      "appRepubliquei.Infra.CrossCutting/1.0.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "5.0.0"
-        },
-        "runtime": {
-          "appRepubliquei.Infra.CrossCutting.dll": {}
-        },
-        "compile": {
-          "appRepubliquei.Infra.CrossCutting.dll": {}
-        }
-      },
       "appRepubliquei.Infra.Data/1.0.0": {
         "dependencies": {
           "Dapper": "2.0.123",
@@ -1489,7 +1478,6 @@
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "5.0.0",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "5.0.0",
           "appRepubliquei.Domain": "1.0.0",
-          "appRepubliquei.Infra.CrossCutting": "1.0.0",
           "appRepubliquei.Infra.Data": "1.0.0"
         },
         "runtime": {
@@ -3989,11 +3977,6 @@
       "sha512": ""
     },
     "appRepubliquei.Domain/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "appRepubliquei.Infra.CrossCutting/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

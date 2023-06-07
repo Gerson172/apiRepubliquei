@@ -23,9 +23,6 @@ namespace appRepubliquei.Domain.Entidades
         public int IdUsuario { get; set; }
         public string Nome { get; set; }
         public string SobreNome { get; set; }
-        //public int Celular { get; set; }
-        //public int Telefone { get; set; }
-        //public string Email { get; set; }
         public int CEP { get; set; }
         public string Cidade { get; set; }
         public string Bairro { get; set; }
@@ -44,5 +41,10 @@ namespace appRepubliquei.Domain.Entidades
         public string TipoQuarto { get; set; }
         public bool Verificado { get; set; }
         public string UniversidadeProxima { get; set; }
+        public int IdEnderecoImovel { get; set; }
+        public int IdRegraImovel { get; set; }
+        public int IdCaracteristicaImovel { get; set; }
+
+
     }
 }

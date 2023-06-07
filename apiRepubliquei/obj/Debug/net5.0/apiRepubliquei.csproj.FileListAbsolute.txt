@@ -67,10 +67,8 @@ C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\MediatR.Exten
 C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\appRepubliquei.Application.dll
 C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\appRepubliquei.Application.pdb
-C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\appRepubliquei.Infra.CrossCutting.dll
 C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\appRepubliquei.Service.dll
 C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\appRepubliquei.Service.pdb
-C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\appRepubliquei.Infra.CrossCutting.pdb
 C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Republiquei-back\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll

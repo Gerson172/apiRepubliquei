@@ -11,7 +11,6 @@ namespace appRepubliquei.Domain.Commands.ImovelCommand
     public class InserirImovelCommand : IRequest<RetornoSimples>
     {
         public string Midia { get; set; }
-        public int QuantidadeComodo { get; set; }
         public int CapacidadePessoas { get; set; }
         public decimal Valor { get; set; }
         public string Descricao { get; set; }
@@ -27,7 +26,7 @@ namespace appRepubliquei.Domain.Commands.ImovelCommand
         public RegraImovel RegraImovel { get; set; }
         public CaracteristicaImovel CaracteristicaImovel { get; set; }
         public EnderecoImovel EnderecoImovel { get; set; }
-        public int IdUsuario { get; set; }
+        public int? IdUsuario { get; set; }
         public bool Verificado { get; set; }
         public string UniversidadeProxima { get; set; }
 

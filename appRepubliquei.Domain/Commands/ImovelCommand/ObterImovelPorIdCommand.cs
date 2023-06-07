@@ -10,6 +10,6 @@ namespace appRepubliquei.Domain.Commands.ImovelCommand
 {
     public class ObterImovelPorIdCommand : IRequest<vwImovel>
     {
-        public string IdImovel { get; set; }
+        public int IdImovel { get; set; }
     }
 }
