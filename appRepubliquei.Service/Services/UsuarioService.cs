@@ -157,7 +157,10 @@ namespace appRepubliquei.Domain.Services
                 var encodedToken = HttpUtility.UrlEncode(token);
                 var url = $"https://localhost:3000/redefinir-senha?email={request.Email}&token={encodedToken}";
 
-                string htmlBody = File.ReadAllText("../appRepubliquei.Infra.Data/Html/email.html")
+                string nomeArquivo = "email.html";
+                string pastaRelativa = @"appRepubliquei.Infra.Data\Html";
+                string caminhoArquivo = Path.Combine(Directory.GetCurrentDirectory(), pastaRelativa, nomeArquivo);
+                string htmlBody = File.ReadAllText(caminhoArquivo)
                     .Replace("[FIRSTNAME]", usuario.Nome)
                     .Replace("[LINKRESETARSENHA]", url);
 
