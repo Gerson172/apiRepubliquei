@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+taGC1snNYo9eiee4T7nWa3atFSuzG/vI7dWJ3/xRMh8IoMa5eKCY5vf7CAVIltUV0dIiLhe2PwsSQnwLaETag==",
+  "dgSpecHash": "teYUVEAn7WuFUBwAum0ZiAnxqcwLDncFQqiYbad4h5TA3Mn3knFmYeS63YBu6PI58A6jA5KKeIoSTd2VJN84tQ==",
   "success": true,
-  "projectFilePath": "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Application\\appRepubliquei.Application.csproj",
+  "projectFilePath": "C:\\apiRepubliquei\\appRepubliquei.Application\\appRepubliquei.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ggarcia\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",
     "C:\\Users\\ggarcia\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",

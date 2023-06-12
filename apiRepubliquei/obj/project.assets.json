@@ -6051,11 +6051,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Republiquei-back\\apiRepubliquei\\apiRepubliquei\\apiRepubliquei.csproj",
+      "projectUniqueName": "C:\\apiRepubliquei\\apiRepubliquei\\apiRepubliquei.csproj",
       "projectName": "apiRepubliquei",
-      "projectPath": "C:\\Republiquei-back\\apiRepubliquei\\apiRepubliquei\\apiRepubliquei.csproj",
+      "projectPath": "C:\\apiRepubliquei\\apiRepubliquei\\apiRepubliquei.csproj",
       "packagesPath": "C:\\Users\\ggarcia\\.nuget\\packages\\",
-      "outputPath": "C:\\Republiquei-back\\apiRepubliquei\\apiRepubliquei\\obj\\",
+      "outputPath": "C:\\apiRepubliquei\\apiRepubliquei\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6075,17 +6075,17 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Application\\appRepubliquei.Application.csproj": {
-              "projectPath": "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Application\\appRepubliquei.Application.csproj"
+            "C:\\apiRepubliquei\\appRepubliquei.Application\\appRepubliquei.Application.csproj": {
+              "projectPath": "C:\\apiRepubliquei\\appRepubliquei.Application\\appRepubliquei.Application.csproj"
             },
-            "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {
-              "projectPath": "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj"
+            "C:\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {
+              "projectPath": "C:\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj"
             },
-            "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj": {
-              "projectPath": "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj"
+            "C:\\apiRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj": {
+              "projectPath": "C:\\apiRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj"
             },
-            "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Service\\appRepubliquei.Service.csproj": {
-              "projectPath": "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Service\\appRepubliquei.Service.csproj"
+            "C:\\apiRepubliquei\\appRepubliquei.Service\\appRepubliquei.Service.csproj": {
+              "projectPath": "C:\\apiRepubliquei\\appRepubliquei.Service\\appRepubliquei.Service.csproj"
             }
           }
         }

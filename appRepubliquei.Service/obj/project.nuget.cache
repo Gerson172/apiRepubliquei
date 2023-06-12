@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "r2U4E6OjYbspNN2Niv6H2JUZ+mESyTSYHwrGSvzIxD+0+YUvwAD24ah/hqQHmGaA5jpstYsmGRQkRqsQCYHiaw==",
+  "dgSpecHash": "HRefjjY8EbCqFGkedC2S2J5Qt81eQJ2c9wPwUy3aMrIHE6yg40Xk2cV3WLs6zhcKfj7Q86CJQZ+Iid7DbjqgWA==",
   "success": true,
-  "projectFilePath": "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Service\\appRepubliquei.Service.csproj",
+  "projectFilePath": "C:\\apiRepubliquei\\appRepubliquei.Service\\appRepubliquei.Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ggarcia\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\ggarcia\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",

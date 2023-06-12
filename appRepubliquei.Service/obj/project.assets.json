@@ -5691,11 +5691,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Service\\appRepubliquei.Service.csproj",
+      "projectUniqueName": "C:\\apiRepubliquei\\appRepubliquei.Service\\appRepubliquei.Service.csproj",
       "projectName": "appRepubliquei.Service",
-      "projectPath": "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Service\\appRepubliquei.Service.csproj",
+      "projectPath": "C:\\apiRepubliquei\\appRepubliquei.Service\\appRepubliquei.Service.csproj",
       "packagesPath": "C:\\Users\\ggarcia\\.nuget\\packages\\",
-      "outputPath": "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Service\\obj\\",
+      "outputPath": "C:\\apiRepubliquei\\appRepubliquei.Service\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5715,11 +5715,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {
-              "projectPath": "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj"
+            "C:\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {
+              "projectPath": "C:\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj"
             },
-            "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj": {
-              "projectPath": "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj"
+            "C:\\apiRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj": {
+              "projectPath": "C:\\apiRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj"
             }
           }
         }

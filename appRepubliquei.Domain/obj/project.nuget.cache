@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "hUrYh+9pk5DT4l9XlGaJqlmKLiraKM9iBGVbmifL8nxrstdJ8GfJpQ8Yqqkr0uHbgY0Pg0u2DHHff5tUUrtVCw==",
+  "dgSpecHash": "pxZ8KsGrQBEkUK8cdcUntqNAAS39crAr3E06TqZ+k0kD5XrQcZ8hBJbdPG8B0RA3ZWdO1iJFstpgoTUbAUTQPg==",
   "success": true,
-  "projectFilePath": "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj",
+  "projectFilePath": "C:\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ggarcia\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ggarcia\\.nuget\\packages\\mediatr\\11.0.0\\mediatr.11.0.0.nupkg.sha512",

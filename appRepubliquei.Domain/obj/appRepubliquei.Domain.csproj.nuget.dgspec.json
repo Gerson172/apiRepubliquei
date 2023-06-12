@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {}
+    "C:\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {
+    "C:\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj",
+        "projectUniqueName": "C:\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj",
         "projectName": "appRepubliquei.Domain",
-        "projectPath": "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj",
+        "projectPath": "C:\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj",
         "packagesPath": "C:\\Users\\ggarcia\\.nuget\\packages\\",
-        "outputPath": "C:\\Republiquei-back\\apiRepubliquei\\appRepubliquei.Domain\\obj\\",
+        "outputPath": "C:\\apiRepubliquei\\appRepubliquei.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
