@@ -78,7 +78,6 @@ C:\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\appsettings.Development.json
 C:\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\appsettings.json
 C:\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\apiRepubliquei.exe
 C:\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Html\email.html
-C:\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Services\email.html
 C:\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\apiRepubliquei.deps.json
 C:\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\apiRepubliquei.runtimeconfig.json
 C:\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\apiRepubliquei.runtimeconfig.dev.json
