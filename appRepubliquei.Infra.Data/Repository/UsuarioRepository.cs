@@ -160,26 +160,43 @@ namespace appRepubliquei.Infra.Data.Repository
 
                 if(value != null)
                 {
+                    if (value.CheckConfirmacaoEmail)
+                    {   
+                        return new vwExisteUsuario
+                        {
+                            Mensagem = "Usuario encontrado!",
+                            Sucesso = true,
+                            ExisteUsuario = value
+                        };
+                    }
+                    else
+                    {
+                        return new vwExisteUsuario
+                        {
+                            Mensagem = "Email do usuário não confirmado!",
+                            Sucesso = false,
+                            Autheiticated = false,
+                            ExisteUsuario = null
+                        };
+                    }
+                }
+                else
+                {
                     return new vwExisteUsuario
                     {
-                        Mensagem = "Usuario encontrado!",
-                        Sucesso = true,
-                        ExisteUsuario = value
+                        Mensagem = "Usuário ou senha incorreta.",
+                        Sucesso = false,
+                        Autheiticated = false,
+                        ExisteUsuario = null
                     };
                 }
-                return new vwExisteUsuario
-                {
-                    Mensagem = "Usuario ou senha incorreta.",
-                    Sucesso = false,
-                    Autheiticated = false,
-                    ExisteUsuario = null
-                };
+                
             }
             catch (Exception ex)
             {
                 return new vwExisteUsuario
                 {
-                    Mensagem = "Erro ao consultar Usuario: " + ex,
+                    Mensagem = "Erro ao consultar usuário: " + ex,
                     Sucesso = false,
                     Autheiticated = false,
                     ExisteUsuario = null

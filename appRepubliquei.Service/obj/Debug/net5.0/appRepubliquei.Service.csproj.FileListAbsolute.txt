@@ -15,7 +15,6 @@ C:\Republiquei-back\apiRepubliquei\appRepubliquei.Service\bin\Debug\net5.0\appRe
 C:\Republiquei-back\apiRepubliquei\appRepubliquei.Service\bin\Debug\net5.0\appRepubliquei.Domain.pdb
 C:\Republiquei-back\apiRepubliquei\appRepubliquei.Service\bin\Debug\net5.0\appRepubliquei.Infra.Data.pdb
 C:\Republiquei-back\apiRepubliquei\appRepubliquei.Service\obj\Debug\net5.0\appRepubliquei.Service.csproj.CopyComplete
-C:\apiRepubliquei\appRepubliquei.Service\bin\Debug\net5.0\Html\email.html
 C:\apiRepubliquei\appRepubliquei.Service\bin\Debug\net5.0\appRepubliquei.Service.deps.json
 C:\apiRepubliquei\appRepubliquei.Service\bin\Debug\net5.0\appRepubliquei.Service.dll
 C:\apiRepubliquei\appRepubliquei.Service\bin\Debug\net5.0\appRepubliquei.Service.pdb
@@ -33,3 +32,5 @@ C:\apiRepubliquei\appRepubliquei.Service\obj\Debug\net5.0\appRepubliquei.Service
 C:\apiRepubliquei\appRepubliquei.Service\obj\Debug\net5.0\refint\appRepubliquei.Service.dll
 C:\apiRepubliquei\appRepubliquei.Service\obj\Debug\net5.0\appRepubliquei.Service.pdb
 C:\apiRepubliquei\appRepubliquei.Service\obj\Debug\net5.0\ref\appRepubliquei.Service.dll
+C:\apiRepubliquei\appRepubliquei.Service\bin\Debug\net5.0\Html\emailConfirmacao.html
+C:\apiRepubliquei\appRepubliquei.Service\bin\Debug\net5.0\Html\emailSolicitacao.html

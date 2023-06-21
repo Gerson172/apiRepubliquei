@@ -217,7 +217,7 @@ namespace appRepubliquei.Infra.Data.Queries
 														INNER JOIN CARACTERISTICA_IMOVEL ci ON (i.IdCaracteristicaImovel = ci.ID)
 														WHERE u.ID = @IdUsuario";
 
-		public const string VerificarExisteEmailSenha = @"SELECT TOP 1 u.ID,Nome, Sobrenome, Senha, Email
+		public const string VerificarExisteEmailSenha = @"SELECT TOP 1 u.ID,Nome, Sobrenome, Senha, Email, CheckConfirmacaoEmail
                                                             FROM Usuario u WITH (NOLOCK)
                                                             INNER JOIN contato c ON (u.IdContato = c.ID)
                                                         WHERE c.Email = @Email

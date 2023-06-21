@@ -16,7 +16,6 @@ C:\Republiquei-back\apiRepubliquei\appRepubliquei.Infra.Data\obj\Debug\net5.0\re
 C:\Republiquei-back\apiRepubliquei\appRepubliquei.Infra.Data\obj\Debug\net5.0\appRepubliquei.Infra.Data.pdb
 C:\Republiquei-back\apiRepubliquei\appRepubliquei.Infra.Data\obj\Debug\net5.0\appRepubliquei.Infra.Data.genruntimeconfig.cache
 C:\Republiquei-back\apiRepubliquei\appRepubliquei.Infra.Data\obj\Debug\net5.0\ref\appRepubliquei.Infra.Data.dll
-C:\apiRepubliquei\appRepubliquei.Infra.Data\bin\Debug\net5.0\Html\email.html
 C:\apiRepubliquei\appRepubliquei.Infra.Data\bin\Debug\net5.0\appRepubliquei.Infra.Data.deps.json
 C:\apiRepubliquei\appRepubliquei.Infra.Data\bin\Debug\net5.0\appRepubliquei.Infra.Data.runtimeconfig.json
 C:\apiRepubliquei\appRepubliquei.Infra.Data\bin\Debug\net5.0\appRepubliquei.Infra.Data.runtimeconfig.dev.json
@@ -35,3 +34,5 @@ C:\apiRepubliquei\appRepubliquei.Infra.Data\obj\Debug\net5.0\refint\appRepubliqu
 C:\apiRepubliquei\appRepubliquei.Infra.Data\obj\Debug\net5.0\appRepubliquei.Infra.Data.pdb
 C:\apiRepubliquei\appRepubliquei.Infra.Data\obj\Debug\net5.0\appRepubliquei.Infra.Data.genruntimeconfig.cache
 C:\apiRepubliquei\appRepubliquei.Infra.Data\obj\Debug\net5.0\ref\appRepubliquei.Infra.Data.dll
+C:\apiRepubliquei\appRepubliquei.Infra.Data\bin\Debug\net5.0\Html\emailConfirmacao.html
+C:\apiRepubliquei\appRepubliquei.Infra.Data\bin\Debug\net5.0\Html\emailSolicitacao.html

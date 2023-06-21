@@ -81,8 +81,6 @@ namespace appRepubliquei.Service.Services
                     Autheiticated = false,
                     Sucesso = false
                 };
-
-                throw new Exception("Imovel não encontrado");
             }
         }
 

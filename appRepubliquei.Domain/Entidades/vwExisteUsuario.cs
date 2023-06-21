@@ -24,5 +24,7 @@ namespace appRepubliquei.Domain.Entidades
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
         public string Email { get; set; }
+        public bool CheckConfirmacaoEmail { get; set; }
+
     }
 }

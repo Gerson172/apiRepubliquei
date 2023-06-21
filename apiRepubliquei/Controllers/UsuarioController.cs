@@ -181,11 +181,11 @@ namespace apiRepubliquei.Controllers
         }
 
         [HttpGet("ConfirmarEmail")]
-        public async Task<ActionResult> ConfirmarEmail([FromQuery]ConfirmarEmailCommand token)
+        public async Task<ActionResult> ConfirmarEmail([FromQuery]ConfirmarEmailCommand command)
         {
             try
             {
-                var result = await _mediator.Send(token);
+                var result = await _mediator.Send(command);
                 return Ok(new Retorno<RetornoSimples>(string.Empty, result));
             }
             catch (Exception e)
