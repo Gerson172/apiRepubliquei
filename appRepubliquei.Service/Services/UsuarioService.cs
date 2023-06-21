@@ -82,22 +82,6 @@ namespace appRepubliquei.Domain.Services
         {
             try
             {
-                //#region Criptografia em Hash da senha
-                //byte[] salt = new byte[128 / 8];
-                //using (var rngCsp = new RNGCryptoServiceProvider())
-                //{
-                //    rngCsp.GetNonZeroBytes(salt);
-                //}
-                //var senha = request.Senha;
-                //string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-                //password: senha,
-                //salt: salt,
-                //prf: KeyDerivationPrf.HMACSHA256,
-                //iterationCount: 100000,
-                //numBytesRequested: 256 / 8));
-                //request.Senha = hashed;
-                //#endregion
-
                 var result = _usuarioRepository.VerificarEmailCpf(request.Contato.Email, request.CPF);
                 if (result)
                 {
@@ -119,11 +103,41 @@ namespace appRepubliquei.Domain.Services
                 await _usuarioRepository.InserirUsuario(request.Nome, request.Sobrenome, request.Senha, request.CPF, request.EstadoCivil,
                     request.DataNascimento, request.CheckProprietario,request.CheckTermos, EnderecoUsuario.ID, ContatoUsuario.ID, CaracteristicaUsuario.ID);
 
-                return new RetornoSimples(true, "Usuario cadastrado com sucesso!");
+                // Cadastrar Email confirmação
+                var usuario = await _usuarioRepository.ObterUsuarioPorEmail(request.Contato.Email);
+
+                var token = GeneratePasswordResetToken();
+                var encodedToken = HttpUtility.UrlEncode(token);
+                var url = $"https://www.republiquei.com/confirmacao-email?email={request.Contato.Email}&token={encodedToken}";
+
+                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Html/emailConfirmacao.html");
+                string htmlBody = File.ReadAllText(path)
+                    .Replace("[FIRSTNAME]", usuario.Nome)
+                    .Replace("[LINKCONFIRMACAOEMAIL]", url);
+
+                string emailSender = _configuration.GetValue<string>("Email:Smtp:Sender");
+
+                // Create the mail message:
+                var mailMessage = new MailMessage
+                {
+                    From = new MailAddress(_smtpClient.Credentials.GetCredential(_smtpClient.Host, _smtpClient.Port, "Basic").UserName),
+                    Subject = "Confirmação de e-mail",
+                    Body = htmlBody,
+                    IsBodyHtml = true
+                };
+                mailMessage.To.Add(request.Contato.Email);
+
+                await _smtpClient.SendMailAsync(mailMessage);
+
+                // Cadastro do token no banco
+
+                await _usuarioRepository.InserirTokenUsuario(request.Contato.Email, encodedToken);
+
+                return new RetornoSimples(true, "Usuário cadastrado com sucesso!");
             }
             catch (Exception ex)
             {
-                throw new Exception("Falha ao cadastrar usuario: " + ex);
+                throw new Exception("Falha ao cadastrar usuário: " + ex);
             }
             
         }
@@ -155,9 +169,9 @@ namespace appRepubliquei.Domain.Services
 
                 var token = GeneratePasswordResetToken();
                 var encodedToken = HttpUtility.UrlEncode(token);
-                var url = $"https://localhost:3000/redefinir-senha?email={request.Email}&token={encodedToken}";
+                var url = $"https://www.republiquei.com/redefinir-senha?email={request.Email}&token={encodedToken}";
 
-                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Html/email.html");
+                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Html/emailSolicitacao.html");
                 string htmlBody = File.ReadAllText(path)
                     .Replace("[FIRSTNAME]", usuario.Nome)
                     .Replace("[LINKRESETARSENHA]", url);
@@ -188,6 +202,7 @@ namespace appRepubliquei.Domain.Services
             }
         }
 
+
         public string GeneratePasswordResetToken()
         {
             byte[] tokenBytes = new byte[32];
@@ -202,22 +217,55 @@ namespace appRepubliquei.Domain.Services
 
         public async Task<RetornoSimples> RedefinirSenha(ResetarSenhaCommand request)
         {
-            var token = await _usuarioRepository.ObterTokenPorEmail(request.Email);
-
-            if (request.Token != token.TokenTemp)
+            try
             {
-                return new RetornoSimples(false, "Token inválido");
+                var token = await _usuarioRepository.ObterTokenPorEmail(request.Email);
+                if (request.Token != token.TokenTemp)
+                {
+                    return new RetornoSimples(false, "Token inválido");
+                }
+                var tempoToken = DateTime.Now - token.DataToken;
+                if (tempoToken.TotalMinutes > 10)
+                {
+                    return new RetornoSimples(false, "Tempo limite atingido, solicite novamente a redefinição de senha");
+                }
+                await _usuarioRepository.AtualizarSenhaNova(request.NovaSenha, request.Email);
+                return new RetornoSimples(true, "Senha atualizada com sucesso");
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Falha ao redefinir senha: " + ex);
+
             }
 
-            var tempoToken = DateTime.Now - token.DataToken;
+        }
 
-            if(tempoToken.TotalMinutes > 10)
+        public async Task<RetornoSimples> ConfirmarEmail(ConfirmarEmailCommand request)
+        {
+            try
             {
-                return new RetornoSimples(false, "Tempo limite atingido, solicite novamente a redefinição de senha");
-            }
+                var token = await _usuarioRepository.ObterTokenPorEmail(request.Email);
 
-            await _usuarioRepository.AtualizarSenhaNova(request.NovaSenha, request.Email);
-            return new RetornoSimples(true, "Senha atualizada com sucesso");
+                if (request.Token != token.TokenTemp)
+                {
+                    return new RetornoSimples(false, "Token inválido");
+                }
+                var tempoToken = DateTime.Now - token.DataToken;
+
+                if (tempoToken.TotalMinutes > 10)
+                {
+                    return new RetornoSimples(false, "Tempo limite atingido, solicite novamente a redefinição de senha");
+                }
+
+                await _usuarioRepository.AtualizarConfirmacaoEmail(request.Email);
+
+                return new RetornoSimples(true, "Email confirmado com sucesso!");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Falha ao confirmar email: " + ex);
+            }
         }
 
         //public async Task<RetornoSimples> AtualizarUsuario(AtualizarUsuarioCommand request)

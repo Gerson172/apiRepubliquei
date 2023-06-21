@@ -226,5 +226,14 @@ namespace appRepubliquei.Infra.Data.Repository
                     NovaSenha = novaSenha
                 });
         }
+
+        public async Task AtualizarConfirmacaoEmail(string email)
+        {
+            await _connection.ExecuteAsync(Queries.Queries.AtualizarConfirmacaoEmail,
+                new
+                {
+                    Email = email,
+                });
+        }
     }
 }

@@ -16,5 +16,7 @@ namespace appRepubliquei.Domain.Contracts.Services
         Task<RetornoSimples> SolicitarAlteracao(SolicitarAlteracaoCommand request);
         Task<RetornoSimples> RedefinirSenha(ResetarSenhaCommand request);
         //Task<RetornoSimples> AtualizarUsuario(AtualizarUsuarioCommand request);
+        Task<RetornoSimples> ConfirmarEmail(ConfirmarEmailCommand request);
+
     }
 }

@@ -253,6 +253,13 @@ namespace appRepubliquei.Infra.Data.Queries
 															INNER JOIN contato c ON (u.IdContato = c.ID)
 															WHERE c.Email = @Email);";
 
+		public const string AtualizarConfirmacaoEmail = @"UPDATE Usuario
+															SET CheckConfirmacaoEmail = 1
+															WHERE ID = (SELECT TOP 1 u.ID
+																		FROM Usuario u WITH (NOLOCK)
+																		INNER JOIN contato c ON (u.IdContato = c.ID)
+																		WHERE c.Email = @Email);";
+
 		public const string AtualizarImovel = @"UPDATE IMOVEL SET
 													Midia = @Midia,
 													NomeImovel = @NomeImovel,

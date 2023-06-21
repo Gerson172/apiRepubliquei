@@ -17,7 +17,8 @@ namespace appRepubliquei.Application.CommandHandlers
                                          //IRequestHandler<AtualizarUsuarioCommand, RetornoSimples>
                                          IRequestHandler<ExcluirUsuarioPorIdCommand, RetornoSimples>,
                                          IRequestHandler<SolicitarAlteracaoCommand, RetornoSimples>,
-                                         IRequestHandler<ResetarSenhaCommand, RetornoSimples>
+                                         IRequestHandler<ResetarSenhaCommand, RetornoSimples>,
+                                         IRequestHandler<ConfirmarEmailCommand, RetornoSimples>
 
 
 
@@ -59,6 +60,11 @@ namespace appRepubliquei.Application.CommandHandlers
         public async Task<RetornoSimples> Handle(ResetarSenhaCommand request, CancellationToken cancellationToken)
         {
             return await _usuarioService.RedefinirSenha(request);
+        }
+
+        public async Task<RetornoSimples> Handle(ConfirmarEmailCommand request, CancellationToken cancellationToken)
+        {
+            return await _usuarioService.ConfirmarEmail(request);
         }
 
         //public async Task<RetornoSimples> Handle(AtualizarUsuarioCommand request, CancellationToken cancellationToken)

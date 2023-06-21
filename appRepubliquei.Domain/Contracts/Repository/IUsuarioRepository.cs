@@ -30,5 +30,6 @@ namespace appRepubliquei.Domain.Contracts.Repository
         Task ExcluirUsuarioPorId(int? idUsuario);
         Task<vwUsuarioToken> ObterTokenPorEmail(string email);
         Task AtualizarSenhaNova(string novaSenha, string email);
+        Task AtualizarConfirmacaoEmail(string email);
     }
 }
