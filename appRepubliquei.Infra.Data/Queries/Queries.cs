@@ -79,8 +79,8 @@ namespace appRepubliquei.Infra.Data.Queries
         public const string InserirRegraImovel = @"INSERT INTO regra_imovel(Fumante,Animal,Alcool, Visitas, Crianca,Drogas)
                                                         VALUES(@Fumante, @Animal, @Alcool, @Visitas, @Crianca, @Drogas)";
 
-        public const string InserirImovel = @"INSERT INTO imovel(Midia,CapacidadePessoas,Valor, Descricao, PossuiGaragem,PossuiAcessibilidade,IdRegraImovel,IdCaracteristicaImovel, IdEnderecoImovel,IdUsuario, PossuiAcademia, PossuiPiscina, PossuiMobilia, PossuiAreaLazer,QtdBanheiros,QtdQuartos, NomeImovel, Verificado, UniversidadeProxima)
-                                                         VALUES(@Midia, @CapacidadePessoas, @Valor, @Descricao, @PossuiGaragem, @PossuiAcessibilidade,@RegraImovel, @CaracteristicaImovel, @EnderecoImovel, @IdUsuarioProprietario, @PossuiAcademia,@PossuiPiscina, @PossuiMobilia, @PossuiAreaLazer,@QuantidadeBanheiros, @QuantidadeQuartos, @NomeImovel, @Verificado, @UniversidadeProxima)";
+        public const string InserirImovel = @"INSERT INTO imovel(Midia,CapacidadePessoas,Valor, Descricao, PossuiGaragem,PossuiAcessibilidade,IdRegraImovel,IdCaracteristicaImovel, IdEnderecoImovel,IdUsuario, PossuiAcademia, PossuiPiscina, PossuiMobilia, PossuiAreaLazer,QtdBanheiros,QtdQuartos, NomeImovel, Verificado, UniversidadeProxima, Midia1, Midia2, Midia3)
+                                                         VALUES(@Midia, @CapacidadePessoas, @Valor, @Descricao, @PossuiGaragem, @PossuiAcessibilidade,@RegraImovel, @CaracteristicaImovel, @EnderecoImovel, @IdUsuarioProprietario, @PossuiAcademia,@PossuiPiscina, @PossuiMobilia, @PossuiAreaLazer,@QuantidadeBanheiros, @QuantidadeQuartos, @NomeImovel, @Verificado, @UniversidadeProxima,@Midia1, @Midia2, @Midia3 )";
 
         public const string ObterUltimoRegistroInseridoCaracteristicaImovel = @"SELECT TOP 1 * FROM caracteristica_imovel ORDER BY ID DESC;";
         public const string ObterUltimoRegistroInseridoEnderecoImovel = @"SELECT TOP 1 * FROM endereco_imovel  WITH (NOLOCK) ORDER BY ID DESC;";
@@ -88,7 +88,6 @@ namespace appRepubliquei.Infra.Data.Queries
 
         public const string ObterImovel = @"SELECT 
 												i.ID IdImovel,
-												i.Midia, 
 												i.NomeImovel,
 												i.CapacidadePessoas,
 												i.Valor,
@@ -102,7 +101,10 @@ namespace appRepubliquei.Infra.Data.Queries
 												i.QtdBanheiros,
 												i.QtdQuartos,
 												i.Verificado,
-												I.UniversidadeProxima,
+												i.UniversidadeProxima,
+												i.Midia1,
+												i.Midia2,
+												i.Midia3,
 												u.ID IdUsuario,
 												u.Nome,
 												u.Sobrenome,

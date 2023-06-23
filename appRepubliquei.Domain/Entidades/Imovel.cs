@@ -9,7 +9,6 @@ namespace appRepubliquei.Domain.Entidades
     public class Imovel
     {
         public int ID { get; set; }
-        public string Midia { get; set; }
         public int QuantidadeComodo { get; set; }
         public int CapacidadePessoas { get; set; }
         public decimal Valor { get; set; }

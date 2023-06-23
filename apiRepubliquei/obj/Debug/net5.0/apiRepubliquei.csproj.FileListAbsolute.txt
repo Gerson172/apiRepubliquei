@@ -152,3 +152,9 @@ C:\apiRepubliquei\apiRepubliquei\obj\Debug\net5.0\apiRepubliquei.genruntimeconfi
 C:\apiRepubliquei\apiRepubliquei\obj\Debug\net5.0\ref\apiRepubliquei.dll
 C:\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Html\emailConfirmacao.html
 C:\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Html\emailSolicitacao.html
+C:\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Azure.Core.dll
+C:\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Azure.Storage.Blobs.dll
+C:\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Azure.Storage.Common.dll
+C:\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\System.IO.Hashing.dll
+C:\apiRepubliquei\apiRepubliquei\bin\Debug\net5.0\System.Memory.Data.dll
