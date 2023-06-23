@@ -178,7 +178,6 @@ namespace appRepubliquei.Infra.Data.Queries
 
 		public const string ObterImovelPorUsuarioId = @"SELECT 
 															i.ID IdImovel,
-															i.Midia, 
 															i.NomeImovel,
 															i.CapacidadePessoas,
 															i.Valor,
@@ -193,6 +192,9 @@ namespace appRepubliquei.Infra.Data.Queries
 															i.QtdQuartos,
 															i.Verificado,
 															i.UniversidadeProxima,
+															i.Midia1,
+															i.Midia2,
+															i.Midia3,
 															u.ID IdUsuario,
 															u.Nome,
 															u.Sobrenome,

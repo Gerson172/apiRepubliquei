@@ -63,7 +63,7 @@ namespace appRepubliquei.Infra.Data.Repository
                                         bool possuiMobilia, bool possuiAreaLazer,bool possuiPiscina,
                                         int quantidadeBanheiros, int quantidadeQuartos,
                                         int caracteristicaImovel, int enderecoImovel, int regraImovel,
-                                        int? idUsuario, string nomeImovel,bool verificado, string universidadeProxima, 
+                                        int? idUsuario, string nomeImovel,bool verificado, string universidadeProxima,
                                         string midia1, string midia2, string midia3)
         {
             await _connection.ExecuteAsync(Queries.Queries.InserirImovel,
