@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {}
+    "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {}
   },
   "projects": {
-    "C:\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {
+    "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj",
+        "projectUniqueName": "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj",
         "projectName": "appRepubliquei.Domain",
-        "projectPath": "C:\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj",
+        "projectPath": "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj",
         "packagesPath": "C:\\Users\\ggarcia\\.nuget\\packages\\",
-        "outputPath": "C:\\apiRepubliquei\\appRepubliquei.Domain\\obj\\",
+        "outputPath": "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -78,7 +78,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -87,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.411\\RuntimeIdentifierGraph.json"
         }
       }
     }

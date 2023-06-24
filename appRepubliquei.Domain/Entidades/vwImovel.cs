@@ -9,6 +9,7 @@ namespace appRepubliquei.Domain.Entidades
     public class vwImovel
     {
         public int IdImovel { get; set; }
+        public string Midia { get; set; }
         public string NomeImovel { get; set; }
         public int CapacidadePessoas { get; set; }
         public decimal Valor { get; set; }
@@ -40,11 +41,10 @@ namespace appRepubliquei.Domain.Entidades
         public string TipoQuarto { get; set; }
         public bool Verificado { get; set; }
         public string UniversidadeProxima { get; set; }
-        public string Midia1 { get; set; }
-        public string Midia2 { get; set; }
-        public string Midia3 { get; set; }
         public int IdEnderecoImovel { get; set; }
         public int IdRegraImovel { get; set; }
         public int IdCaracteristicaImovel { get; set; }
+
+
     }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3EHSEniae3sNCrSByEVWqT0786uItqjSVJkVvosF1WPT+73hTgmxJd+SCkKdvf4LWkiZYtZtogy+Qp4NZxegDQ==",
+  "dgSpecHash": "s87jKyFdlp4LCRu6W40Deap93FxU8mHxrYBftddUQ7t4zDkS/FD7MFsYc3zQdJ+i+1PdXDEeL3HW2Ioi1R4L2Q==",
   "success": true,
-  "projectFilePath": "C:\\apiRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj",
+  "projectFilePath": "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ggarcia\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\ggarcia\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

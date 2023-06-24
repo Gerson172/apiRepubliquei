@@ -5489,11 +5489,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\apiRepubliquei\\appRepubliquei.Application\\appRepubliquei.Application.csproj",
+      "projectUniqueName": "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Application\\appRepubliquei.Application.csproj",
       "projectName": "appRepubliquei.Application",
-      "projectPath": "C:\\apiRepubliquei\\appRepubliquei.Application\\appRepubliquei.Application.csproj",
+      "projectPath": "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Application\\appRepubliquei.Application.csproj",
       "packagesPath": "C:\\Users\\ggarcia\\.nuget\\packages\\",
-      "outputPath": "C:\\apiRepubliquei\\appRepubliquei.Application\\obj\\",
+      "outputPath": "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5513,8 +5513,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {
-              "projectPath": "C:\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj"
+            "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {
+              "projectPath": "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj"
             }
           }
         }
@@ -5544,7 +5544,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -5553,7 +5554,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.411\\RuntimeIdentifierGraph.json"
       }
     }
   }

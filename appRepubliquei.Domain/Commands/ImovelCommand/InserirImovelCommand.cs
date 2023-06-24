@@ -1,6 +1,5 @@
 ﻿using appRepubliquei.Domain.Entidades;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +10,7 @@ namespace appRepubliquei.Domain.Commands.ImovelCommand
 {
     public class InserirImovelCommand : IRequest<RetornoSimples>
     {
-        public string Midia1 { get; set; }
-        public string Midia2 { get; set; }
-        public string Midia3 { get; set; }
+        public string Midia { get; set; }
         public int CapacidadePessoas { get; set; }
         public decimal Valor { get; set; }
         public string Descricao { get; set; }

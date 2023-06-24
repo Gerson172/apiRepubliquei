@@ -16,11 +16,11 @@ namespace appRepubliquei.Domain.Contracts.Repository
         Task<CaracteristicaImovel> ObterUltimoRegistroCaracteristicaImovel();
         Task<EnderecoImovel> ObterUltimoRegistroEnderecoImovel();
         Task<RegraImovel> ObterUltimoRegistroRegraImovel();
-        Task InserirImovel(int capacidadePessoas, decimal valor, string descricao, bool possuiAcessibilidade, 
+        Task InserirImovel(string midia, int capacidadePessoas, decimal valor, string descricao, bool possuiAcessibilidade, 
             bool possuiGaragem, bool possuiAcademia, bool possuiMobilia, bool possuiAreaLazer, bool possuiPiscina, 
             int quantidadeBanheiros, int quantidadeQuartos, 
             int caracteristicaImovel, int enderecoImovel, int regraImovel, int? idUsuario, string nomeImovel, 
-            bool verificado, string universidadeProxima,string midia1, string midia2, string midia3);
+            bool verificado, string universidadeProxima);
         Task<IEnumerable<vwImovel>> ObterImovel();
         Task<vwImovel> ObterImovelPorId(int idImovel);
         Task DeletarImovelPorId(int idImovel);

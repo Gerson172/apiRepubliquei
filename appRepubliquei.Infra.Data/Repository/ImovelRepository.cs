@@ -58,17 +58,17 @@ namespace appRepubliquei.Infra.Data.Repository
                     Drogas = drogas,
                 });
         }
-        public async Task InserirImovel(int capacidadePessoas, decimal valor, string descricao,
+        public async Task InserirImovel(string midia, int capacidadePessoas, decimal valor, string descricao,
                                         bool possuiAcessibilidade, bool possuiGaragem, bool possuiAcademia, 
                                         bool possuiMobilia, bool possuiAreaLazer,bool possuiPiscina,
                                         int quantidadeBanheiros, int quantidadeQuartos,
                                         int caracteristicaImovel, int enderecoImovel, int regraImovel,
-                                        int? idUsuario, string nomeImovel,bool verificado, string universidadeProxima,
-                                        string midia1, string midia2, string midia3)
+                                        int? idUsuario, string nomeImovel,bool verificado, string universidadeProxima)
         {
             await _connection.ExecuteAsync(Queries.Queries.InserirImovel,
                 new
                 {
+                     Midia = midia,
                      CapacidadePessoas = capacidadePessoas,
                      Valor = valor,
                      Descricao = descricao,
@@ -86,10 +86,7 @@ namespace appRepubliquei.Infra.Data.Repository
                      IdUsuarioProprietario = idUsuario,
                      NomeImovel = nomeImovel,
                      Verificado = verificado,
-                     UniversidadeProxima = universidadeProxima,
-                     Midia1 = midia1,
-                     Midia2 = midia2,
-                     Midia3 = midia3
+                     UniversidadeProxima = universidadeProxima
                 });
         }
 
