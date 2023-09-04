@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj": {}
+    "C:\\BackRepubliquei\\BackRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj": {}
   },
   "projects": {
-    "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {
+    "C:\\BackRepubliquei\\BackRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj",
+        "projectUniqueName": "C:\\BackRepubliquei\\BackRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj",
         "projectName": "appRepubliquei.Domain",
-        "projectPath": "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj",
+        "projectPath": "C:\\BackRepubliquei\\BackRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj",
         "packagesPath": "C:\\Users\\ggarcia\\.nuget\\packages\\",
-        "outputPath": "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Domain\\obj\\",
+        "outputPath": "C:\\BackRepubliquei\\BackRepubliquei\\appRepubliquei.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -88,18 +88,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.411\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj": {
+    "C:\\BackRepubliquei\\BackRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj",
+        "projectUniqueName": "C:\\BackRepubliquei\\BackRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj",
         "projectName": "appRepubliquei.Infra.Data",
-        "projectPath": "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj",
+        "projectPath": "C:\\BackRepubliquei\\BackRepubliquei\\appRepubliquei.Infra.Data\\appRepubliquei.Infra.Data.csproj",
         "packagesPath": "C:\\Users\\ggarcia\\.nuget\\packages\\",
-        "outputPath": "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Infra.Data\\obj\\",
+        "outputPath": "C:\\BackRepubliquei\\BackRepubliquei\\appRepubliquei.Infra.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -119,8 +119,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {
-                "projectPath": "C:\\apiRepubliqueiV2\\apiRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj"
+              "C:\\BackRepubliquei\\BackRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj": {
+                "projectPath": "C:\\BackRepubliquei\\BackRepubliquei\\appRepubliquei.Domain\\appRepubliquei.Domain.csproj"
               }
             }
           }
@@ -180,7 +180,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.411\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
         }
       }
     }
